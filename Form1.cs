@@ -12,9 +12,23 @@ namespace graphical_programming_language
 {
     public partial class mainForm : Form
     {
+        private ShapeCompiler shapeCompiler;
+        private Shape shape;
         public mainForm()
         {
             InitializeComponent();
+            shapeCompiler = new ShapeCompiler();
+        }
+
+        private void CommandTxtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                shapeCompiler.Compile(commandTxtBox.Text);
+                shape = shapeCompiler.Run();
+
+                shape.Draw(codeOutputPanel.CreateGraphics());
+            }
         }
     }
 }

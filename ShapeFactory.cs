@@ -4,7 +4,7 @@ namespace graphical_programming_language
 {
     internal class ShapeFactory
     {
-        public Shape getShape(String shapeType)
+        public Shape getShape(string shapeType)
         {
             shapeType = shapeType.ToUpper().Trim();
 

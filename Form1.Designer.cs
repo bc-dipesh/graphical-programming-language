@@ -59,6 +59,7 @@ namespace graphical_programming_language
             this.commandTxtBox.Name = "commandTxtBox";
             this.commandTxtBox.Size = new System.Drawing.Size(422, 20);
             this.commandTxtBox.TabIndex = 2;
+            this.commandTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CommandTxtBox_KeyDown);
             // 
             // codeEditorLabel
             // 
