@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace graphical_programming_language
+﻿namespace graphical_programming_language
 {
     internal class ShapeFactory
     {
