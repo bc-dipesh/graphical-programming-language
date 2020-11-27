@@ -1,11 +1,11 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace graphical_programming_language
 {
     public partial class mainForm : Form
     {
         private ShapeCompiler shapeCompiler;
+
         public mainForm()
         {
             InitializeComponent();
