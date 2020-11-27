@@ -10,20 +10,23 @@ namespace graphical_programming_language
         private readonly ShapeFactory shapeFactory;
         private readonly Panel drawingPanel;
         private readonly TextBox outputLogTxtBox;
+        private Pen pen;
+
         private string command;
         private string[] arguments;
         private readonly Regex splitOnSpaces;
-        private string userColor;
-        private Color color;
         private int? x;
         private int? y;
         private int? width;
         private int? height;
+        private bool isColorFillOn;
+        private Color fillColor;
 
         public ShapeCompiler()
         {
             shapeFactory = new ShapeFactory();
             splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
+            isColorFillOn = false;
         }
 
         public ShapeCompiler(Panel panel, TextBox outputLogTxtBox)
@@ -32,6 +35,7 @@ namespace graphical_programming_language
             splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
             drawingPanel = panel;
             this.outputLogTxtBox = outputLogTxtBox;
+            isColorFillOn = false;
         }
 
         public void Compile(string code)
@@ -51,28 +55,60 @@ namespace graphical_programming_language
         {
             if (command.ToUpper().Equals("DRAW"))
             {
-                if (arguments.Length == 3)
+                try
                 {
-                    x = Int32.Parse(arguments[1]);
-                    y = Int32.Parse(arguments[2]);
+                    if (arguments.Length == 3)
+                    {
+                        x = Int32.Parse(arguments[1]);
+                        y = Int32.Parse(arguments[2]);
+                    }
+                    else if (arguments.Length == 5)
+                    {
+                        x = Int32.Parse(arguments[1]);
+                        y = Int32.Parse(arguments[2]);
+                        width = Int32.Parse(arguments[3]);
+                        height = Int32.Parse(arguments[4]);
+                    }
+
+                    if (pen is null)
+                    {
+                        pen = GetPen(Color.Black, 1);
+                    }
+
+                    Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, x ?? 100, y ?? 100, width ?? 100, height ?? 100);
+                    shape.Draw(drawingPanel.CreateGraphics(), pen);
+
+                    outputLogTxtBox.Text = $"[*] {arguments[0]} drawn at position x -> {x ?? 100}, y -> {y ?? 100} with width -> {width ?? 100}, height -> {height ?? 100}";
                 }
-                else if (arguments.Length == 5)
+                catch (ArgumentException argEx)
                 {
-                    x = Int32.Parse(arguments[1]);
-                    y = Int32.Parse(arguments[2]);
-                    width = Int32.Parse(arguments[3]);
-                    height = Int32.Parse(arguments[4]);
+                    outputLogTxtBox.Text = $"[*] {argEx.Message}";
                 }
-
-                SetPenColor(string.IsNullOrEmpty(userColor) ? "black" : userColor);
-                Shape shape = shapeFactory.GetShape(arguments[0], color, x ?? 100, y ?? 100, width ?? 100, height ?? 100);
-                shape.Draw(drawingPanel.CreateGraphics());
-
-                outputLogTxtBox.Text = $"[*] Drawing {arguments[0]} at position x -> {x??100}, y -> {y??100} having width -> {width??100}, height -> {height??100}";
             }
             else if (command.ToUpper().Equals("PEN"))
             {
-                SetPenColor(arguments[0]);
+                Color color = GetColor(arguments[0]);
+                int size = (arguments.Length == 2) ? Int32.Parse(arguments[1]) : 1;
+
+                pen = GetPen(color, size);
+
+                outputLogTxtBox.Text = $"[*] Pen color set to {color} and pen size set to {size}";
+            }
+            else if (command.ToUpper().Equals("FILL"))
+            {
+                if (arguments[0].ToUpper().Equals("ON"))
+                {
+                    isColorFillOn = true;
+                    fillColor = (arguments.Length == 2) ? GetColor(arguments[1]) : Color.Black;
+
+                    outputLogTxtBox.Text = $"[*] Color fill is now {isColorFillOn} and set to {fillColor}";
+                }
+                else if (arguments[0].ToUpper().Equals("OFF"))
+                {
+                    isColorFillOn = false;
+
+                    outputLogTxtBox.Text = $"[*] Color fill is now {isColorFillOn}";
+                }
             }
             else if (command.ToUpper().Equals("CLEAR"))
             {
@@ -86,22 +122,27 @@ namespace graphical_programming_language
             }
         }
 
-        private void SetPenColor(string penColor)
+        private Pen GetPen(Color color, int size)
         {
-            userColor = penColor;
-            switch (userColor.ToUpper())
+            return new Pen(color, size);
+        }
+
+        private Color GetColor(string colorString)
+        {
+            switch (colorString.ToUpper())
             {
                 case "BLACK":
-                    color = Color.Black;
-                    break;
+                    return Color.Black;
+
                 case "RED":
-                    color = Color.Red;
-                    break;
+                    return Color.Red;
+
                 case "BLUE":
-                    color = Color.Blue;
-                    break;
+                    return Color.Blue;
+
+                default:
+                    return Color.Black;
             }
-            outputLogTxtBox.Text = $"[*] Pen color set to {penColor}";
         }
     }
 }
