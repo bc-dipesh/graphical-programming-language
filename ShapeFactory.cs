@@ -19,13 +19,13 @@ namespace graphical_programming_language
             }
         }
 
-        public Shape GetShape(string shapeType, Color color, int x, int y, int width, int height)
+        public Shape GetShape(string shapeType, Color color, bool isColorFillOn, int x, int y, int width, int height)
         {
             shapeType = shapeType.ToUpper().Trim();
 
             if (shapeType.Equals("RECTANGLE"))
             {
-                return new Rectangle(color, x, y, width, height);
+                return new Rectangle(color, isColorFillOn, x, y, width, height);
             }
             else
             {
