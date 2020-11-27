@@ -14,7 +14,7 @@ namespace graphical_programming_language
             height = 100;
         }
 
-        public Rectangle(Color color, int x, int y, int width, int height) : base(color, x, y)
+        public Rectangle(Color color, bool isColorFillOn, int x, int y, int width, int height) : base(color, isColorFillOn, x, y)
         {
             this.width = width;
             this.height = height;
@@ -27,12 +27,12 @@ namespace graphical_programming_language
             this.height = list[3];
         }
 
-        public override void Draw(Graphics graphics)
+        public override void Draw(Graphics graphics, Pen pen)
         {
-            Pen pen = new Pen(color, 2);
-            SolidBrush solidBrush = new SolidBrush(color);
-
-            graphics.FillRectangle(solidBrush, x, y, width, height);
+            if (isColorFillOn)
+            {
+                graphics.FillRectangle(new SolidBrush(color), x, y, width, height);
+            }
             graphics.DrawRectangle(pen, x, y, width, height);
 
             graphics.Dispose();
