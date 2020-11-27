@@ -35,11 +35,14 @@ namespace graphical_programming_language
             this.codeEditorLabel = new System.Windows.Forms.Label();
             this.codeOutputLabel = new System.Windows.Forms.Label();
             this.commandLabel = new System.Windows.Forms.Label();
+            this.outputLogTxtBox = new System.Windows.Forms.TextBox();
+            this.codeOutputPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // codeOutputPanel
             // 
             this.codeOutputPanel.BackColor = System.Drawing.SystemColors.Window;
+            this.codeOutputPanel.Controls.Add(this.outputLogTxtBox);
             this.codeOutputPanel.Location = new System.Drawing.Point(441, 52);
             this.codeOutputPanel.Name = "codeOutputPanel";
             this.codeOutputPanel.Size = new System.Drawing.Size(347, 386);
@@ -88,6 +91,15 @@ namespace graphical_programming_language
             this.commandLabel.TabIndex = 5;
             this.commandLabel.Text = "Command box";
             // 
+            // outputLogTxtBox
+            // 
+            this.outputLogTxtBox.Location = new System.Drawing.Point(4, 327);
+            this.outputLogTxtBox.Multiline = true;
+            this.outputLogTxtBox.Name = "outputLogTxtBox";
+            this.outputLogTxtBox.ReadOnly = true;
+            this.outputLogTxtBox.Size = new System.Drawing.Size(340, 56);
+            this.outputLogTxtBox.TabIndex = 0;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,6 +114,8 @@ namespace graphical_programming_language
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Graphical Programming Language";
+            this.codeOutputPanel.ResumeLayout(false);
+            this.codeOutputPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,6 +129,7 @@ namespace graphical_programming_language
         private System.Windows.Forms.Label codeEditorLabel;
         private System.Windows.Forms.Label codeOutputLabel;
         private System.Windows.Forms.Label commandLabel;
+        private System.Windows.Forms.TextBox outputLogTxtBox;
     }
 }
 
