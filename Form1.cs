@@ -9,7 +9,7 @@ namespace graphical_programming_language
         public mainForm()
         {
             InitializeComponent();
-            shapeCompiler = new ShapeCompiler(codeOutputPanel);
+            shapeCompiler = new ShapeCompiler(codeOutputPanel, outputLogTxtBox);
         }
 
         private void CommandTxtBox_KeyDown(object sender, KeyEventArgs e)
