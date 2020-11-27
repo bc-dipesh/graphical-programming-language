@@ -30,12 +30,12 @@ namespace graphical_programming_language
         private void InitializeComponent()
         {
             this.codeOutputPanel = new System.Windows.Forms.Panel();
+            this.outputLogTxtBox = new System.Windows.Forms.TextBox();
             this.codeEditorTxtBox = new System.Windows.Forms.TextBox();
             this.commandTxtBox = new System.Windows.Forms.TextBox();
             this.codeEditorLabel = new System.Windows.Forms.Label();
             this.codeOutputLabel = new System.Windows.Forms.Label();
             this.commandLabel = new System.Windows.Forms.Label();
-            this.outputLogTxtBox = new System.Windows.Forms.TextBox();
             this.codeOutputPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,16 @@ namespace graphical_programming_language
             this.codeOutputPanel.Location = new System.Drawing.Point(441, 52);
             this.codeOutputPanel.Name = "codeOutputPanel";
             this.codeOutputPanel.Size = new System.Drawing.Size(347, 386);
-            this.codeOutputPanel.TabIndex = 0;
+            this.codeOutputPanel.TabIndex = 3;
+            // 
+            // outputLogTxtBox
+            // 
+            this.outputLogTxtBox.Location = new System.Drawing.Point(4, 327);
+            this.outputLogTxtBox.Multiline = true;
+            this.outputLogTxtBox.Name = "outputLogTxtBox";
+            this.outputLogTxtBox.ReadOnly = true;
+            this.outputLogTxtBox.Size = new System.Drawing.Size(340, 56);
+            this.outputLogTxtBox.TabIndex = 4;
             // 
             // codeEditorTxtBox
             // 
@@ -90,15 +99,6 @@ namespace graphical_programming_language
             this.commandLabel.Size = new System.Drawing.Size(74, 13);
             this.commandLabel.TabIndex = 5;
             this.commandLabel.Text = "Command box";
-            // 
-            // outputLogTxtBox
-            // 
-            this.outputLogTxtBox.Location = new System.Drawing.Point(4, 327);
-            this.outputLogTxtBox.Multiline = true;
-            this.outputLogTxtBox.Name = "outputLogTxtBox";
-            this.outputLogTxtBox.ReadOnly = true;
-            this.outputLogTxtBox.Size = new System.Drawing.Size(340, 56);
-            this.outputLogTxtBox.TabIndex = 0;
             // 
             // mainForm
             // 
