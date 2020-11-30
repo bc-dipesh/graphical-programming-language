@@ -12,6 +12,10 @@ namespace graphical_programming_language
             {
                 return new Rectangle();
             }
+            else if (shapeType.Equals("CIRCLE"))
+            {
+                return new Circle();
+            }
             else
             {
                 System.ArgumentException argumentException = new System.ArgumentException($"Factory error: {shapeType} does not exist");
