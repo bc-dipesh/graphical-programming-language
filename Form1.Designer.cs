@@ -104,13 +104,15 @@ namespace graphical_programming_language
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(801, 450);
             this.Controls.Add(this.commandLabel);
             this.Controls.Add(this.codeOutputLabel);
             this.Controls.Add(this.codeEditorLabel);
             this.Controls.Add(this.commandTxtBox);
             this.Controls.Add(this.codeEditorTxtBox);
             this.Controls.Add(this.codeOutputPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Graphical Programming Language";
