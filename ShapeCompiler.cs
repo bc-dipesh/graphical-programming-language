@@ -101,7 +101,7 @@ namespace graphical_programming_language
                     isColorFillOn = true;
                     fillColor = (arguments.Length == 2) ? Color.FromName(arguments[1]) : Color.Black;
 
-                    outputLogTxtBox.Text = $"[*] Color fill is now {isColorFillOn} and set to {fillColor}";
+                    outputLogTxtBox.Text = $"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}";
                 }
                 else if (arguments[0].ToUpper().Equals("OFF"))
                 {
