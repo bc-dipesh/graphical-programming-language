@@ -87,19 +87,19 @@ namespace graphical_programming_language
             }
             else if (command.ToUpper().Equals("PEN"))
             {
-                Color color = GetColor(arguments[0]);
+                Color color = Color.FromName(arguments[0]);
                 int size = (arguments.Length == 2) ? Int32.Parse(arguments[1]) : 1;
 
                 pen = GetPen(color, size);
 
-                outputLogTxtBox.Text = $"[*] Pen color set to {color} and pen size set to {size}";
+                outputLogTxtBox.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
             }
             else if (command.ToUpper().Equals("FILL"))
             {
                 if (arguments[0].ToUpper().Equals("ON"))
                 {
                     isColorFillOn = true;
-                    fillColor = (arguments.Length == 2) ? GetColor(arguments[1]) : Color.Black;
+                    fillColor = (arguments.Length == 2) ? Color.FromName(arguments[1]) : Color.Black;
 
                     outputLogTxtBox.Text = $"[*] Color fill is now {isColorFillOn} and set to {fillColor}";
                 }
@@ -125,24 +125,6 @@ namespace graphical_programming_language
         private Pen GetPen(Color color, int size)
         {
             return new Pen(color, size);
-        }
-
-        private Color GetColor(string colorString)
-        {
-            switch (colorString.ToUpper())
-            {
-                case "BLACK":
-                    return Color.Black;
-
-                case "RED":
-                    return Color.Red;
-
-                case "BLUE":
-                    return Color.Blue;
-
-                default:
-                    return Color.Black;
-            }
         }
     }
 }
