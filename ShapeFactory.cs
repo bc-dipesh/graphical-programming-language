@@ -16,6 +16,10 @@ namespace graphical_programming_language
             {
                 return new Circle();
             }
+            else if (shapeType.Equals("TRIANGLE"))
+            {
+                return new Triangle();
+            }
             else
             {
                 System.ArgumentException argumentException = new System.ArgumentException($"Factory error: {shapeType} does not exist");
@@ -31,9 +35,13 @@ namespace graphical_programming_language
             {
                 return new Rectangle(color, isColorFillOn, x, y, width, height);
             }
-            else if(shapeType.Equals("CIRCLE"))
+            else if (shapeType.Equals("CIRCLE"))
             {
                 return new Circle(color, isColorFillOn, x, y, width, height);
+            }
+            else if (shapeType.Equals("TRIANGLE"))
+            {
+                return new Triangle(color, isColorFillOn, x, y, width, height);
             }
             else
             {
