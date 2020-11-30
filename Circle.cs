@@ -22,8 +22,8 @@ namespace graphical_programming_language
         public override void Set(Color color, params int[] list)
         {
             base.Set(color, list);
-            this.width = list[2];
-            this.height = list[3];
+            width = list[2];
+            height = list[3];
         }
 
         public override void Draw(Graphics graphics, Pen pen)
