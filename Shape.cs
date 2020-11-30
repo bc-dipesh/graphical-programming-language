@@ -28,8 +28,8 @@ namespace graphical_programming_language
         public virtual void Set(Color color, params int[] list)
         {
             this.color = color;
-            this.x = list[0];
-            this.y = list[1];
+            x = list[0];
+            y = list[1];
         }
 
         public override string ToString()
