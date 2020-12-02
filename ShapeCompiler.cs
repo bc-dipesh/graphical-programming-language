@@ -11,16 +11,19 @@ namespace graphical_programming_language
         private readonly Panel outputWindow;
         private readonly TextBox programLog;
         private Pen pen;
+        private Color fillColor;
+
+        private readonly Regex splitOnSpaces;
 
         private string command;
         private string[] arguments;
-        private readonly Regex splitOnSpaces;
-        private int? xPos;
-        private int? yPos;
-        private int? width;
-        private int? height;
+
+        private int xPos;
+        private int yPos;
+        private int width;
+        private int height;
+
         private bool isColorFillOn;
-        private Color fillColor;
 
         public ShapeCompiler()
         {
@@ -32,10 +35,14 @@ namespace graphical_programming_language
         public ShapeCompiler(Panel outputWindow, TextBox programLog)
         {
             shapeFactory = new ShapeFactory();
-            splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
             this.outputWindow = outputWindow;
             this.programLog = programLog;
             isColorFillOn = false;
+
+            splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
+
+            xPos = yPos = 0;
+            width = height = 100;
         }
 
         public void Compile(string code)
@@ -85,10 +92,10 @@ namespace graphical_programming_language
                         pen = GetPen(Color.Black, 1);
                     }
 
-                    Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos ?? 0, yPos ?? 0, width ?? 100, height ?? 100);
+                    Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos, yPos, width, height);
                     shape.Draw(outputWindow.CreateGraphics(), pen);
 
-                    programLog.Text = $"[*] {arguments[0]} drawn at position x -> {xPos ?? 0}, y -> {yPos ?? 0} with width -> {width ?? 100}, height -> {height ?? 100}";
+                    programLog.Text = $"[*] {arguments[0]} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}";
                 }
                 catch (ArgumentException argEx)
                 {
