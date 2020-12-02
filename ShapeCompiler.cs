@@ -178,8 +178,9 @@ namespace graphical_programming_language
             }
             else if (command.ToUpper().Equals("RESET"))
             {
-                xPos = 0;
-                yPos = 0;
+                xPos = yPos = toXPos = toYPos = 0;
+                width = height = 100;
+
                 programLog.Text = "[*] Reset pen position to 0, 0";
             }
             else if (command.ToUpper().Equals("CLEAR"))
