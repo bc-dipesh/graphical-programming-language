@@ -20,6 +20,8 @@ namespace graphical_programming_language
 
         private int xPos;
         private int yPos;
+        private int toXPos;
+        private int toYPos;
         private int width;
         private int height;
 
@@ -28,8 +30,12 @@ namespace graphical_programming_language
         public ShapeCompiler()
         {
             shapeFactory = new ShapeFactory();
-            splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
             isColorFillOn = false;
+
+            splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
+
+            xPos = yPos = toXPos = toYPos = 0;
+            width = height = 100;
         }
 
         public ShapeCompiler(Panel outputWindow, TextBox programLog)
@@ -41,7 +47,7 @@ namespace graphical_programming_language
 
             splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
 
-            xPos = yPos = 0;
+            xPos = yPos = toXPos = toYPos = 0;
             width = height = 100;
         }
 
@@ -76,15 +82,33 @@ namespace graphical_programming_language
                 {
                     if (arguments.Length == 3)
                     {
-                        xPos = Int32.Parse(arguments[1]);
-                        yPos = Int32.Parse(arguments[2]);
+                        if (arguments[0].ToUpper().Equals("LINE"))
+                        {
+                            toXPos = Int32.Parse(arguments[1]);
+                            toYPos = Int32.Parse(arguments[2]);
+                        }
+                        else
+                        {
+                            xPos = Int32.Parse(arguments[1]);
+                            yPos = Int32.Parse(arguments[2]);
+                        }
                     }
                     else if (arguments.Length == 5)
                     {
-                        xPos = Int32.Parse(arguments[1]);
-                        yPos = Int32.Parse(arguments[2]);
-                        width = Int32.Parse(arguments[3]);
-                        height = Int32.Parse(arguments[4]);
+                        if (arguments[0].ToUpper().Equals("LINE"))
+                        {
+                            xPos = Int32.Parse(arguments[1]);
+                            yPos = Int32.Parse(arguments[2]);
+                            toXPos = Int32.Parse(arguments[3]);
+                            toYPos = Int32.Parse(arguments[4]);
+                        }
+                        else
+                        {
+                            xPos = Int32.Parse(arguments[1]);
+                            yPos = Int32.Parse(arguments[2]);
+                            width = Int32.Parse(arguments[3]);
+                            height = Int32.Parse(arguments[4]);
+                        }
                     }
 
                     if (pen is null)
@@ -92,10 +116,23 @@ namespace graphical_programming_language
                         pen = GetPen(Color.Black, 1);
                     }
 
-                    Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos, yPos, width, height);
-                    shape.Draw(outputWindow.CreateGraphics(), pen);
+                    if (arguments[0].ToUpper().Equals("LINE"))
+                    {
+                        Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos, yPos, toXPos, toYPos);
+                        shape.Draw(outputWindow.CreateGraphics(), pen);
 
-                    programLog.Text = $"[*] {arguments[0]} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}";
+                        programLog.Text = $"[*] {arguments[0]} drawn from position x1 -> {xPos}, y1 -> {yPos} to x2 -> {toXPos}, y2 -> {toYPos}";
+
+                        xPos = toXPos;
+                        yPos = toYPos;
+                    }
+                    else
+                    {
+                        Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos, yPos, width, height);
+                        shape.Draw(outputWindow.CreateGraphics(), pen);
+
+                        programLog.Text = $"[*] {arguments[0]} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}";
+                    }
                 }
                 catch (ArgumentException argEx)
                 {

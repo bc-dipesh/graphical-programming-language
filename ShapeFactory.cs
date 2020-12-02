@@ -20,6 +20,10 @@ namespace graphical_programming_language
             {
                 return new Triangle();
             }
+            else if (shapeType.Equals("LINE"))
+            {
+                return new Line();
+            }
             else
             {
                 System.ArgumentException argumentException = new System.ArgumentException($"Factory error: {shapeType} does not exist");
@@ -42,6 +46,10 @@ namespace graphical_programming_language
             else if (shapeType.Equals("TRIANGLE"))
             {
                 return new Triangle(color, isColorFillOn, x, y, width, height);
+            }
+            else if (shapeType.Equals("LINE"))
+            {
+                return new Line(x, y, width, height);
             }
             else
             {
