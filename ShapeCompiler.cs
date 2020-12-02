@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace graphical_programming_language
 {
-    internal class ShapeCompiler : IShapeCompiler
+    public class ShapeCompiler : IShapeCompiler
     {
         private readonly ShapeFactory shapeFactory;
         private readonly Panel outputWindow;
@@ -71,7 +71,7 @@ namespace graphical_programming_language
             CommandParser(commands, arguments);
         }
 
-        private Pen GetPen(Color color, int size)
+        public Pen GetPen(Color color, int size)
         {
             return new Pen(color, size);
         }

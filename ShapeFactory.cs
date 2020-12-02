@@ -2,7 +2,7 @@
 
 namespace graphical_programming_language
 {
-    internal class ShapeFactory
+    public class ShapeFactory
     {
         public Shape GetShape(string shapeType)
         {

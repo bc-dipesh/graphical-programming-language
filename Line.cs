@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace graphical_programming_language
 {
-    internal class Line : Shape
+    public class Line : Shape
     {
         private float fromXPos;
         private float fromYPos;

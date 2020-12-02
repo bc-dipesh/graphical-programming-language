@@ -2,7 +2,7 @@
 
 namespace graphical_programming_language
 {
-    internal class Rectangle : Shape
+    public class Rectangle : Shape
 
     {
         private int width;

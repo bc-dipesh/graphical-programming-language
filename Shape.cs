@@ -2,7 +2,7 @@
 
 namespace graphical_programming_language
 {
-    internal abstract class Shape : IShapes
+    public abstract class Shape : IShapes
     {
         protected Color color;
         protected int x, y;

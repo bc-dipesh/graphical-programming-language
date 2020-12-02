@@ -2,7 +2,7 @@
 
 namespace graphical_programming_language
 {
-    internal interface IShapes
+    public interface IShapes
     {
         void Set(Color color, params int[] list);
 
