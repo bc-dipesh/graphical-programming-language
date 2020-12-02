@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace graphical_programming_language
 {
@@ -9,17 +10,29 @@ namespace graphical_programming_language
         public mainForm()
         {
             InitializeComponent();
-            shapeCompiler = new ShapeCompiler(outputWindow, programLog);
+            shapeCompiler = new ShapeCompiler(outputWindow, programWindow, programLog);
         }
 
         private void CommandTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                var program = programWindow.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
                 var command = commandLine.Text;
 
-                shapeCompiler.Compile(command);
-                shapeCompiler.Run();
+                if (command.ToUpper().Equals("RUN"))
+                {
+                    foreach (var line in program)
+                    {
+                        shapeCompiler.Compile(line);
+                        shapeCompiler.Run();
+                    }
+                }
+                else
+                {
+                    shapeCompiler.Compile(command);
+                    shapeCompiler.Run();
+                }
             }
         }
     }

@@ -2,7 +2,7 @@
 {
     internal interface IShapeCompiler
     {
-        void Compile(string code);
+        void Compile(string command);
 
         void Run();
     }

@@ -9,13 +9,14 @@ namespace graphical_programming_language
     {
         private readonly ShapeFactory shapeFactory;
         private readonly Panel outputWindow;
+        private readonly TextBox programWindow;
         private readonly TextBox programLog;
         private Pen pen;
         private Color fillColor;
 
         private readonly Regex splitOnSpaces;
 
-        private string command;
+        private string commands;
         private string[] arguments;
 
         private int xPos;
@@ -38,10 +39,11 @@ namespace graphical_programming_language
             width = height = 100;
         }
 
-        public ShapeCompiler(Panel outputWindow, TextBox programLog)
+        public ShapeCompiler(Panel outputWindow, TextBox programWindow, TextBox programLog)
         {
             shapeFactory = new ShapeFactory();
             this.outputWindow = outputWindow;
+            this.programWindow = programWindow;
             this.programLog = programLog;
             isColorFillOn = false;
 
@@ -51,22 +53,22 @@ namespace graphical_programming_language
             width = height = 100;
         }
 
-        public void Compile(string code)
+        public void Compile(string command)
         {
-            string[] data = splitOnSpaces.Split(code);
+            string[] commands = splitOnSpaces.Split(command);
 
-            command = data[0];
-            arguments = new string[data.Length - 1];
+            this.commands = commands[0];
+            arguments = new string[commands.Length - 1];
 
-            if (data.Length > 1)
+            if (commands.Length > 1)
             {
-                Array.Copy(data, 1, arguments, 0, arguments.Length);
+                Array.Copy(commands, 1, arguments, 0, arguments.Length);
             }
         }
 
         public void Run()
         {
-            CommandParser(command, arguments);
+            CommandParser(commands, arguments);
         }
 
         private Pen GetPen(Color color, int size)
