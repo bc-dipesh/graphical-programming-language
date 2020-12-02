@@ -97,12 +97,22 @@ namespace graphical_programming_language
             }
             else if (command.ToUpper().Equals("PEN"))
             {
-                Color color = Color.FromName(arguments[0]);
-                int size = (arguments.Length == 2) ? Int32.Parse(arguments[1]) : 1;
+                if (arguments[0].ToUpper().Equals("POSITION"))
+                {
+                    xPos = Int32.Parse(arguments[1]);
+                    yPos = Int32.Parse(arguments[2]);
 
-                pen = GetPen(color, size);
+                    programLog.Text = $"[*] Pen position set to {xPos}, {yPos}";
+                }
+                else
+                {
+                    Color color = Color.FromName(arguments[0]);
+                    int size = (arguments.Length == 2) ? Int32.Parse(arguments[1]) : 1;
 
-                programLog.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
+                    pen = GetPen(color, size);
+
+                    programLog.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
+                }
             }
             else if (command.ToUpper().Equals("FILL"))
             {
