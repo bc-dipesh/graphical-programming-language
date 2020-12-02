@@ -11,7 +11,7 @@ namespace graphical_programming_language
         public Shape()
         {
             color = Color.Black;
-            x = y = 100;
+            x = y = 0;
             isColorFillOn = false;
         }
 
