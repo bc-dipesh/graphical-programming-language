@@ -9,14 +9,14 @@ namespace graphical_programming_language
         public mainForm()
         {
             InitializeComponent();
-            shapeCompiler = new ShapeCompiler(codeOutputPanel, outputLogTxtBox);
+            shapeCompiler = new ShapeCompiler(outputWindow, programLog);
         }
 
         private void CommandTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var command = commandTxtBox.Text;
+                var command = commandLine.Text;
 
                 shapeCompiler.Compile(command);
                 shapeCompiler.Run();

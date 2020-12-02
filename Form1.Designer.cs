@@ -29,49 +29,49 @@ namespace graphical_programming_language
         /// </summary>
         private void InitializeComponent()
         {
-            this.codeOutputPanel = new System.Windows.Forms.Panel();
-            this.outputLogTxtBox = new System.Windows.Forms.TextBox();
-            this.codeEditorTxtBox = new System.Windows.Forms.TextBox();
-            this.commandTxtBox = new System.Windows.Forms.TextBox();
+            this.outputWindow = new System.Windows.Forms.Panel();
+            this.programLog = new System.Windows.Forms.TextBox();
+            this.programWindow = new System.Windows.Forms.TextBox();
+            this.commandLine = new System.Windows.Forms.TextBox();
             this.codeEditorLabel = new System.Windows.Forms.Label();
             this.codeOutputLabel = new System.Windows.Forms.Label();
             this.commandLabel = new System.Windows.Forms.Label();
-            this.codeOutputPanel.SuspendLayout();
+            this.outputWindow.SuspendLayout();
             this.SuspendLayout();
             // 
-            // codeOutputPanel
+            // outputWindow
             // 
-            this.codeOutputPanel.BackColor = System.Drawing.SystemColors.Window;
-            this.codeOutputPanel.Controls.Add(this.outputLogTxtBox);
-            this.codeOutputPanel.Location = new System.Drawing.Point(441, 52);
-            this.codeOutputPanel.Name = "codeOutputPanel";
-            this.codeOutputPanel.Size = new System.Drawing.Size(347, 386);
-            this.codeOutputPanel.TabIndex = 3;
+            this.outputWindow.BackColor = System.Drawing.SystemColors.Window;
+            this.outputWindow.Controls.Add(this.programLog);
+            this.outputWindow.Location = new System.Drawing.Point(441, 52);
+            this.outputWindow.Name = "outputWindow";
+            this.outputWindow.Size = new System.Drawing.Size(347, 386);
+            this.outputWindow.TabIndex = 3;
             // 
-            // outputLogTxtBox
+            // programLog
             // 
-            this.outputLogTxtBox.Location = new System.Drawing.Point(4, 327);
-            this.outputLogTxtBox.Multiline = true;
-            this.outputLogTxtBox.Name = "outputLogTxtBox";
-            this.outputLogTxtBox.ReadOnly = true;
-            this.outputLogTxtBox.Size = new System.Drawing.Size(340, 56);
-            this.outputLogTxtBox.TabIndex = 4;
+            this.programLog.Location = new System.Drawing.Point(4, 327);
+            this.programLog.Multiline = true;
+            this.programLog.Name = "programLog";
+            this.programLog.ReadOnly = true;
+            this.programLog.Size = new System.Drawing.Size(340, 56);
+            this.programLog.TabIndex = 4;
             // 
-            // codeEditorTxtBox
+            // programWindow
             // 
-            this.codeEditorTxtBox.Location = new System.Drawing.Point(13, 52);
-            this.codeEditorTxtBox.Multiline = true;
-            this.codeEditorTxtBox.Name = "codeEditorTxtBox";
-            this.codeEditorTxtBox.Size = new System.Drawing.Size(422, 331);
-            this.codeEditorTxtBox.TabIndex = 1;
+            this.programWindow.Location = new System.Drawing.Point(13, 52);
+            this.programWindow.Multiline = true;
+            this.programWindow.Name = "programWindow";
+            this.programWindow.Size = new System.Drawing.Size(422, 331);
+            this.programWindow.TabIndex = 1;
             // 
-            // commandTxtBox
+            // commandLine
             // 
-            this.commandTxtBox.Location = new System.Drawing.Point(13, 418);
-            this.commandTxtBox.Name = "commandTxtBox";
-            this.commandTxtBox.Size = new System.Drawing.Size(422, 20);
-            this.commandTxtBox.TabIndex = 2;
-            this.commandTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CommandTxtBox_KeyDown);
+            this.commandLine.Location = new System.Drawing.Point(13, 418);
+            this.commandLine.Name = "commandLine";
+            this.commandLine.Size = new System.Drawing.Size(422, 20);
+            this.commandLine.TabIndex = 2;
+            this.commandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CommandTxtBox_KeyDown);
             // 
             // codeEditorLabel
             // 
@@ -108,16 +108,16 @@ namespace graphical_programming_language
             this.Controls.Add(this.commandLabel);
             this.Controls.Add(this.codeOutputLabel);
             this.Controls.Add(this.codeEditorLabel);
-            this.Controls.Add(this.commandTxtBox);
-            this.Controls.Add(this.codeEditorTxtBox);
-            this.Controls.Add(this.codeOutputPanel);
+            this.Controls.Add(this.commandLine);
+            this.Controls.Add(this.programWindow);
+            this.Controls.Add(this.outputWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Graphical Programming Language";
-            this.codeOutputPanel.ResumeLayout(false);
-            this.codeOutputPanel.PerformLayout();
+            this.outputWindow.ResumeLayout(false);
+            this.outputWindow.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,13 +125,13 @@ namespace graphical_programming_language
 
         #endregion
 
-        private System.Windows.Forms.Panel codeOutputPanel;
-        private System.Windows.Forms.TextBox codeEditorTxtBox;
-        private System.Windows.Forms.TextBox commandTxtBox;
+        private System.Windows.Forms.Panel outputWindow;
+        private System.Windows.Forms.TextBox programWindow;
+        private System.Windows.Forms.TextBox commandLine;
         private System.Windows.Forms.Label codeEditorLabel;
         private System.Windows.Forms.Label codeOutputLabel;
         private System.Windows.Forms.Label commandLabel;
-        private System.Windows.Forms.TextBox outputLogTxtBox;
+        private System.Windows.Forms.TextBox programLog;
     }
 }
 
