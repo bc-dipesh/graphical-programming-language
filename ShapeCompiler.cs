@@ -53,6 +53,16 @@ namespace graphical_programming_language
 
         public void Run()
         {
+            CommandParser(command, arguments);
+        }
+
+        private Pen GetPen(Color color, int size)
+        {
+            return new Pen(color, size);
+        }
+
+        private void CommandParser(string command, string[] arguments)
+        {
             if (command.ToUpper().Equals("DRAW"))
             {
                 try
@@ -77,8 +87,6 @@ namespace graphical_programming_language
 
                     Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, x ?? 0, y ?? 0, width ?? 100, height ?? 100);
                     shape.Draw(drawingPanel.CreateGraphics(), pen);
-
-
 
                     outputLogTxtBox.Text = $"[*] {arguments[0]} drawn at position x -> {x ?? 0}, y -> {y ?? 0} with width -> {width ?? 100}, height -> {height ?? 100}";
                 }
@@ -122,11 +130,6 @@ namespace graphical_programming_language
                 outputLogTxtBox.Text = "[*] Exiting application";
                 Application.Exit();
             }
-        }
-
-        private Pen GetPen(Color color, int size)
-        {
-            return new Pen(color, size);
         }
     }
 }
