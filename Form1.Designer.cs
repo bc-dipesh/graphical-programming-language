@@ -96,9 +96,9 @@ namespace graphical_programming_language
             this.commandLabel.AutoSize = true;
             this.commandLabel.Location = new System.Drawing.Point(13, 399);
             this.commandLabel.Name = "commandLabel";
-            this.commandLabel.Size = new System.Drawing.Size(74, 13);
+            this.commandLabel.Size = new System.Drawing.Size(77, 13);
             this.commandLabel.TabIndex = 5;
-            this.commandLabel.Text = "Command box";
+            this.commandLabel.Text = "Command Line";
             // 
             // mainForm
             // 
