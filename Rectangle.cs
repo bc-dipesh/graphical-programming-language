@@ -29,11 +29,11 @@ namespace graphical_programming_language
 
         public override void Draw(Graphics graphics, Pen pen)
         {
-            if (isColorFillOn)
+            if (IsColorFillOn)
             {
-                graphics.FillRectangle(new SolidBrush(color), x, y, width, height);
+                graphics.FillRectangle(new SolidBrush(Color), X, Y, width, height);
             }
-            graphics.DrawRectangle(pen, x, y, width, height);
+            graphics.DrawRectangle(pen, X, Y, width, height);
 
             graphics.Dispose();
         }

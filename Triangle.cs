@@ -14,7 +14,7 @@ namespace graphical_programming_language
 
         public Triangle() : base()
         {
-            rectangle = new System.Drawing.Rectangle(x, y, 100, 100);
+            rectangle = new System.Drawing.Rectangle(X, Y, 100, 100);
             trianglePoints = getTrianglePointsFromRectangle(rectangle);
         }
 
@@ -27,15 +27,15 @@ namespace graphical_programming_language
         public override void Set(Color color, params int[] list)
         {
             base.Set(color, list);
-            rectangle = new System.Drawing.Rectangle(x, y, list[2], list[3]);
+            rectangle = new System.Drawing.Rectangle(X, Y, list[2], list[3]);
             trianglePoints = getTrianglePointsFromRectangle(rectangle);
         }
 
         public override void Draw(Graphics graphics, Pen pen)
         {
-            if (isColorFillOn)
+            if (IsColorFillOn)
             {
-                graphics.FillPolygon(new SolidBrush(color), trianglePoints);
+                graphics.FillPolygon(new SolidBrush(Color), trianglePoints);
             }
             graphics.DrawPolygon(pen, trianglePoints);
 

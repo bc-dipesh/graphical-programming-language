@@ -28,11 +28,11 @@ namespace graphical_programming_language
 
         public override void Draw(Graphics graphics, Pen pen)
         {
-            if (isColorFillOn)
+            if (IsColorFillOn)
             {
-                graphics.FillEllipse(new SolidBrush(color), x, y, width, height);
+                graphics.FillEllipse(new SolidBrush(Color), X, Y, width, height);
             }
-            graphics.DrawEllipse(pen, x, y, width, height);
+            graphics.DrawEllipse(pen, X, Y, width, height);
 
             graphics.Dispose();
         }

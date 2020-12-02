@@ -16,8 +16,8 @@ namespace graphical_programming_language
 
         public Line() : base()
         {
-            fromXPos = x;
-            fromYPos = y;
+            fromXPos = X;
+            fromYPos = Y;
             toXPos = 100;
             toYPos = 100;
         }

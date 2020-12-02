@@ -4,37 +4,38 @@ namespace graphical_programming_language
 {
     public abstract class Shape : IShapes
     {
-        protected Color color;
-        protected int x, y;
-        protected bool isColorFillOn;
+        public Color Color { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public bool IsColorFillOn { get; set; }
 
         public Shape()
         {
-            color = Color.Black;
-            x = y = 0;
-            isColorFillOn = false;
+            Color = Color.Black;
+            X = Y = 0;
+            IsColorFillOn = false;
         }
 
         public Shape(Color color, bool isColorFillOn, int x, int y)
         {
-            this.color = color;
-            this.isColorFillOn = isColorFillOn;
-            this.x = x;
-            this.y = y;
+            Color = color;
+            IsColorFillOn = isColorFillOn;
+            X = x;
+            Y = y;
         }
 
         public abstract void Draw(Graphics graphics, Pen pen);
 
         public virtual void Set(Color color, params int[] list)
         {
-            this.color = color;
-            x = list[0];
-            y = list[1];
+            Color = color;
+            X = list[0];
+            Y = list[1];
         }
 
         public override string ToString()
         {
-            return $"{base.ToString()}  {this.x}, {this.y} : ";
+            return $"{base.ToString()}  {X}, {Y} : ";
         }
     }
 }
