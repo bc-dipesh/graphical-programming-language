@@ -2,7 +2,7 @@
 
 namespace graphical_programming_language
 {
-    internal class Circle : Shape
+    public class Circle : Shape
     {
         public int Width { get; set; }
         public int Height { get; set; }
