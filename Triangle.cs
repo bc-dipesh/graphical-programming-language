@@ -4,13 +4,8 @@ namespace graphical_programming_language
 {
     internal class Triangle : Shape
     {
-        private Point A;
-        private Point B;
-        private Point C;
-
         private Point[] trianglePoints;
         private System.Drawing.Rectangle rectangle;
-
 
         public Triangle() : base()
         {
