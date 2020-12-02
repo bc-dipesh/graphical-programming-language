@@ -120,6 +120,12 @@ namespace graphical_programming_language
                     outputLogTxtBox.Text = $"[*] Color fill is now {isColorFillOn}";
                 }
             }
+            else if (command.ToUpper().Equals("RESET"))
+            {
+                xPos = 0;
+                yPos = 0;
+                outputLogTxtBox.Text = "[*] Reset pen position to 0, 0";
+            }
             else if (command.ToUpper().Equals("CLEAR"))
             {
                 drawingPanel.Refresh();
