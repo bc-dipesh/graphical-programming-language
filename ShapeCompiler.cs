@@ -16,8 +16,8 @@ namespace graphical_programming_language
 
         private readonly Regex splitOnSpaces;
 
-        private string command;
-        private string[] arguments;
+        public string Command { get; set; }
+        public string[] Arguments { get; set; }
 
         private int xPos;
         private int yPos;
@@ -57,18 +57,18 @@ namespace graphical_programming_language
         {
             string[] commands = splitOnSpaces.Split(command);
 
-            this.command = commands[0];
-            arguments = new string[commands.Length - 1];
+            Command = commands[0];
+            Arguments = new string[commands.Length - 1];
 
             if (commands.Length > 1)
             {
-                Array.Copy(commands, 1, arguments, 0, arguments.Length);
+                Array.Copy(commands, 1, Arguments, 0, Arguments.Length);
             }
         }
 
         public void Run()
         {
-            CommandParser(command, arguments);
+            CommandParser(Command, Arguments);
         }
 
         public Pen GetPen(Color color, int size)
