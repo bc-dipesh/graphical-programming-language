@@ -10,20 +10,20 @@ namespace graphical_programming_language
         public Triangle() : base()
         {
             rectangle = new System.Drawing.Rectangle(X, Y, 100, 100);
-            trianglePoints = getTrianglePointsFromRectangle(rectangle);
+            trianglePoints = GetTrianglePointsFromRectangle(rectangle);
         }
 
         public Triangle(Color color, bool isColorFillOn, int x, int y, int width, int height) : base(color, isColorFillOn, x, y)
         {
             rectangle = new System.Drawing.Rectangle(x, y, width, height);
-            trianglePoints = getTrianglePointsFromRectangle(rectangle);
+            trianglePoints = GetTrianglePointsFromRectangle(rectangle);
         }
 
         public override void Set(Color color, params int[] list)
         {
             base.Set(color, list);
             rectangle = new System.Drawing.Rectangle(X, Y, list[2], list[3]);
-            trianglePoints = getTrianglePointsFromRectangle(rectangle);
+            trianglePoints = GetTrianglePointsFromRectangle(rectangle);
         }
 
         public override void Draw(Graphics graphics, Pen pen)
@@ -37,7 +37,7 @@ namespace graphical_programming_language
             graphics.Dispose();
         }
 
-        private Point[] getTrianglePointsFromRectangle(System.Drawing.Rectangle rectangle)
+        private Point[] GetTrianglePointsFromRectangle(System.Drawing.Rectangle rectangle)
         {
             Point[] points = new Point[3];
 

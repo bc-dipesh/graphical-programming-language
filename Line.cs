@@ -9,8 +9,8 @@ namespace graphical_programming_language
 {
     public class Line : Shape
     {
-        private float fromXPos;
-        private float fromYPos;
+        private readonly float fromXPos;
+        private readonly float fromYPos;
         private float toXPos;
         private float toYPos;
 
