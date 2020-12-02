@@ -15,8 +15,8 @@ namespace graphical_programming_language
         private string command;
         private string[] arguments;
         private readonly Regex splitOnSpaces;
-        private int? x;
-        private int? y;
+        private int? xPos;
+        private int? yPos;
         private int? width;
         private int? height;
         private bool isColorFillOn;
@@ -69,13 +69,13 @@ namespace graphical_programming_language
                 {
                     if (arguments.Length == 3)
                     {
-                        x = Int32.Parse(arguments[1]);
-                        y = Int32.Parse(arguments[2]);
+                        xPos = Int32.Parse(arguments[1]);
+                        yPos = Int32.Parse(arguments[2]);
                     }
                     else if (arguments.Length == 5)
                     {
-                        x = Int32.Parse(arguments[1]);
-                        y = Int32.Parse(arguments[2]);
+                        xPos = Int32.Parse(arguments[1]);
+                        yPos = Int32.Parse(arguments[2]);
                         width = Int32.Parse(arguments[3]);
                         height = Int32.Parse(arguments[4]);
                     }
@@ -85,10 +85,10 @@ namespace graphical_programming_language
                         pen = GetPen(Color.Black, 1);
                     }
 
-                    Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, x ?? 0, y ?? 0, width ?? 100, height ?? 100);
+                    Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos ?? 0, yPos ?? 0, width ?? 100, height ?? 100);
                     shape.Draw(drawingPanel.CreateGraphics(), pen);
 
-                    outputLogTxtBox.Text = $"[*] {arguments[0]} drawn at position x -> {x ?? 0}, y -> {y ?? 0} with width -> {width ?? 100}, height -> {height ?? 100}";
+                    outputLogTxtBox.Text = $"[*] {arguments[0]} drawn at position x -> {xPos ?? 0}, y -> {yPos ?? 0} with width -> {width ?? 100}, height -> {height ?? 100}";
                 }
                 catch (ArgumentException argEx)
                 {
