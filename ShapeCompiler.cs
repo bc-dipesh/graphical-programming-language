@@ -8,8 +8,8 @@ namespace graphical_programming_language
     internal class ShapeCompiler : IShapeCompiler
     {
         private readonly ShapeFactory shapeFactory;
-        private readonly Panel drawingPanel;
-        private readonly TextBox outputLogTxtBox;
+        private readonly Panel outputWindow;
+        private readonly TextBox programLog;
         private Pen pen;
 
         private string command;
@@ -29,12 +29,12 @@ namespace graphical_programming_language
             isColorFillOn = false;
         }
 
-        public ShapeCompiler(Panel panel, TextBox outputLogTxtBox)
+        public ShapeCompiler(Panel outputWindow, TextBox programLog)
         {
             shapeFactory = new ShapeFactory();
             splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
-            drawingPanel = panel;
-            this.outputLogTxtBox = outputLogTxtBox;
+            this.outputWindow = outputWindow;
+            this.programLog = programLog;
             isColorFillOn = false;
         }
 
@@ -86,13 +86,13 @@ namespace graphical_programming_language
                     }
 
                     Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos ?? 0, yPos ?? 0, width ?? 100, height ?? 100);
-                    shape.Draw(drawingPanel.CreateGraphics(), pen);
+                    shape.Draw(outputWindow.CreateGraphics(), pen);
 
-                    outputLogTxtBox.Text = $"[*] {arguments[0]} drawn at position x -> {xPos ?? 0}, y -> {yPos ?? 0} with width -> {width ?? 100}, height -> {height ?? 100}";
+                    programLog.Text = $"[*] {arguments[0]} drawn at position x -> {xPos ?? 0}, y -> {yPos ?? 0} with width -> {width ?? 100}, height -> {height ?? 100}";
                 }
                 catch (ArgumentException argEx)
                 {
-                    outputLogTxtBox.Text = $"[*] {argEx.Message}";
+                    programLog.Text = $"[*] {argEx.Message}";
                 }
             }
             else if (command.ToUpper().Equals("PEN"))
@@ -102,7 +102,7 @@ namespace graphical_programming_language
 
                 pen = GetPen(color, size);
 
-                outputLogTxtBox.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
+                programLog.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
             }
             else if (command.ToUpper().Equals("FILL"))
             {
@@ -111,29 +111,29 @@ namespace graphical_programming_language
                     isColorFillOn = true;
                     fillColor = (arguments.Length == 2) ? Color.FromName(arguments[1]) : Color.Black;
 
-                    outputLogTxtBox.Text = $"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}";
+                    programLog.Text = $"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}";
                 }
                 else if (arguments[0].ToUpper().Equals("OFF"))
                 {
                     isColorFillOn = false;
 
-                    outputLogTxtBox.Text = $"[*] Color fill is now {isColorFillOn}";
+                    programLog.Text = $"[*] Color fill is now {isColorFillOn}";
                 }
             }
             else if (command.ToUpper().Equals("RESET"))
             {
                 xPos = 0;
                 yPos = 0;
-                outputLogTxtBox.Text = "[*] Reset pen position to 0, 0";
+                programLog.Text = "[*] Reset pen position to 0, 0";
             }
             else if (command.ToUpper().Equals("CLEAR"))
             {
-                drawingPanel.Refresh();
-                outputLogTxtBox.Text = "[*] Cleared output panel";
+                outputWindow.Refresh();
+                programLog.Text = "[*] Cleared output panel";
             }
             else if (command.ToUpper().Equals("EXIT"))
             {
-                outputLogTxtBox.Text = "[*] Exiting application";
+                programLog.Text = "[*] Exiting application";
                 Application.Exit();
             }
         }
