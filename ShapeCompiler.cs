@@ -78,6 +78,8 @@ namespace graphical_programming_language
                     Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, x ?? 100, y ?? 100, width ?? 100, height ?? 100);
                     shape.Draw(drawingPanel.CreateGraphics(), pen);
 
+
+
                     outputLogTxtBox.Text = $"[*] {arguments[0]} drawn at position x -> {x ?? 100}, y -> {y ?? 100} with width -> {width ?? 100}, height -> {height ?? 100}";
                 }
                 catch (ArgumentException argEx)

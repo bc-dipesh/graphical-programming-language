@@ -4,7 +4,7 @@ namespace graphical_programming_language
 {
     public partial class mainForm : Form
     {
-        private ShapeCompiler shapeCompiler;
+        private readonly ShapeCompiler shapeCompiler;
 
         public mainForm()
         {
