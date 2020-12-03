@@ -25,6 +25,7 @@ namespace graphical_programming_language
         private int toYPos;
         private int width;
         private int height;
+        private int radius;
 
         private bool isColorFillOn;
 
@@ -32,6 +33,7 @@ namespace graphical_programming_language
         {
             shapeFactory = new ShapeFactory();
             isColorFillOn = false;
+            pen = GetPen(Color.Black, 1);
 
             splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
 
@@ -46,6 +48,7 @@ namespace graphical_programming_language
             this.programWindow = programWindow;
             this.programLog = programLog;
             isColorFillOn = false;
+            pen = GetPen(Color.Black, 1);
 
             splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
 
@@ -68,7 +71,7 @@ namespace graphical_programming_language
 
         public void Run()
         {
-            CommandParser(Command, Arguments);
+            CommandParser(Command.ToUpper(), Arguments);
         }
 
         public Pen GetPen(Color color, int size)
@@ -78,89 +81,62 @@ namespace graphical_programming_language
 
         private void CommandParser(string command, string[] arguments)
         {
-            if (command.ToUpper().Equals("DRAW"))
+            if (command.Equals("RECT") || command.Equals("CIRCLE") || command.Equals("TRIANGLE"))
             {
                 try
                 {
-                    if (arguments.Length == 3)
+                    if (arguments.Length == 1 && command.Equals("CIRCLE"))
                     {
-                        if (arguments[0].ToUpper().Equals("LINE"))
-                        {
-                            toXPos = Int32.Parse(arguments[1]);
-                            toYPos = Int32.Parse(arguments[2]);
-                        }
-                        else
-                        {
-                            xPos = Int32.Parse(arguments[1]);
-                            yPos = Int32.Parse(arguments[2]);
-                        }
-                    }
-                    else if (arguments.Length == 5)
-                    {
-                        if (arguments[0].ToUpper().Equals("LINE"))
-                        {
-                            xPos = Int32.Parse(arguments[1]);
-                            yPos = Int32.Parse(arguments[2]);
-                            toXPos = Int32.Parse(arguments[3]);
-                            toYPos = Int32.Parse(arguments[4]);
-                        }
-                        else
-                        {
-                            xPos = Int32.Parse(arguments[1]);
-                            yPos = Int32.Parse(arguments[2]);
-                            width = Int32.Parse(arguments[3]);
-                            height = Int32.Parse(arguments[4]);
-                        }
-                    }
-
-                    if (pen is null)
-                    {
-                        pen = GetPen(Color.Black, 1);
-                    }
-
-                    if (arguments[0].ToUpper().Equals("LINE"))
-                    {
-                        Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos, yPos, toXPos, toYPos);
-                        shape.Draw(outputWindow.CreateGraphics(), pen);
-
-                        programLog.Text = $"[*] {arguments[0]} drawn from position x1 -> {xPos}, y1 -> {yPos} to x2 -> {toXPos}, y2 -> {toYPos}";
-
-                        xPos = toXPos;
-                        yPos = toYPos;
+                        radius = Int32.Parse(arguments[0]);
+                        width = radius * 2;
+                        height = radius * 2;
                     }
                     else
                     {
-                        Shape shape = shapeFactory.GetShape(arguments[0], fillColor, isColorFillOn, xPos, yPos, width, height);
-                        shape.Draw(outputWindow.CreateGraphics(), pen);
-
-                        programLog.Text = $"[*] {arguments[0]} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}";
+                        width = Int32.Parse(arguments[0]);
+                        height = Int32.Parse(arguments[1]);
                     }
+
+                    Shape shape = shapeFactory.GetShape(command, fillColor, isColorFillOn, xPos, yPos, width, height);
+                    shape.Draw(outputWindow.CreateGraphics(), pen);
+
+                    programLog.Text = $"[*] {command} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}";
                 }
                 catch (ArgumentException argEx)
                 {
                     programLog.Text = $"[*] {argEx.Message}";
                 }
             }
-            else if (command.ToUpper().Equals("PEN"))
+            else if (command.Equals("DRAWTO"))
             {
-                if (arguments[0].ToUpper().Equals("POSITION"))
-                {
-                    xPos = Int32.Parse(arguments[1]);
-                    yPos = Int32.Parse(arguments[2]);
+                toXPos = Int32.Parse(arguments[0]);
+                toYPos = Int32.Parse(arguments[1]);
 
-                    programLog.Text = $"[*] Pen position set to {xPos}, {yPos}";
-                }
-                else
-                {
-                    Color color = Color.FromName(arguments[0]);
-                    int size = (arguments.Length == 2) ? Int32.Parse(arguments[1]) : 1;
+                Shape shape = shapeFactory.GetShape("line", fillColor, isColorFillOn, xPos, yPos, toXPos, toYPos);
+                shape.Draw(outputWindow.CreateGraphics(), pen);
 
-                    pen = GetPen(color, size);
+                programLog.Text = $"[*] Line drawn from position x1 -> {xPos}, y1 -> {yPos} to position x2 -> {toXPos}, y2 -> {toYPos}";
 
-                    programLog.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
-                }
+                xPos = toXPos;
+                yPos = toYPos;
             }
-            else if (command.ToUpper().Equals("FILL"))
+            else if (command.Equals("MOVETO"))
+            {
+                xPos = Int32.Parse(arguments[0]);
+                yPos = Int32.Parse(arguments[1]);
+
+                programLog.Text = $"[*] Pen position set to {xPos}, {yPos}";
+            }
+            else if (command.Equals("PEN"))
+            {
+                Color color = Color.FromName(arguments[0]);
+                int size = (arguments.Length == 2) ? Int32.Parse(arguments[1]) : 1;
+
+                pen = GetPen(color, size);
+
+                programLog.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
+            }
+            else if (command.Equals("FILL"))
             {
                 if (arguments[0].ToUpper().Equals("ON"))
                 {
@@ -176,19 +152,19 @@ namespace graphical_programming_language
                     programLog.Text = $"[*] Color fill is now {isColorFillOn}";
                 }
             }
-            else if (command.ToUpper().Equals("RESET"))
+            else if (command.Equals("RESET"))
             {
                 xPos = yPos = toXPos = toYPos = 0;
                 width = height = 100;
 
                 programLog.Text = "[*] Reset pen position to 0, 0";
             }
-            else if (command.ToUpper().Equals("CLEAR"))
+            else if (command.Equals("CLEAR"))
             {
                 outputWindow.Refresh();
                 programLog.Text = "[*] Cleared output panel";
             }
-            else if (command.ToUpper().Equals("EXIT"))
+            else if (command.Equals("EXIT"))
             {
                 programLog.Text = "[*] Exiting application";
                 Application.Exit();

@@ -8,7 +8,7 @@ namespace graphical_programming_language
         {
             shapeType = shapeType.ToUpper().Trim();
 
-            if (shapeType.Equals("RECTANGLE"))
+            if (shapeType.Equals("RECT"))
             {
                 return new Rectangle();
             }
@@ -35,7 +35,7 @@ namespace graphical_programming_language
         {
             shapeType = shapeType.ToUpper().Trim();
 
-            if (shapeType.Equals("RECTANGLE"))
+            if (shapeType.Equals("RECT"))
             {
                 return new Rectangle(color, isColorFillOn, x, y, width, height);
             }
