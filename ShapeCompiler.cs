@@ -88,9 +88,13 @@ namespace graphical_programming_language
                 {
                     if (command.ToUpper().Equals("CIRCLE"))
                     {
-                        radius = Int32.Parse(arguments[0]);
-                        width = radius * 2;
-                        height = radius * 2;
+                        if (arguments.Length == 0) { throw new ArgumentException("Circle command needs 1 more parameter that represents its radius"); }
+                        else
+                        {
+                            radius = Int32.Parse(arguments[0]);
+                            width = radius * 2;
+                            height = radius * 2;
+                        }
                     }
                     else
                     {
@@ -103,9 +107,16 @@ namespace graphical_programming_language
 
                     programLog.Text = $"[*] {shape.GetType().Name} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}";
                 }
-                catch (ArgumentException argEx)
+                catch (ArgumentException ex)
                 {
-                    programLog.Text = $"[*] {argEx.Message}";
+                    programLog.Text = $"[*] Error: {ex.Message}";
+                } catch (FormatException)
+                {
+                    programLog.Text = $"[*] Error: Given argument is not in correct format";
+                } catch (IndexOutOfRangeException)
+                {
+                    string shape = command.ToUpper().Equals("RECT") ? "Rectangle" : command;
+                    programLog.Text = $"[*] Error: Please provide at least two parameters for drawing {shape}";
                 }
             }
             else if (command.ToUpper().Equals("DRAWTO"))
@@ -169,9 +180,10 @@ namespace graphical_programming_language
             {
                 programLog.Text = "[*] Exiting application";
                 Application.Exit();
-            } else
+            }
+            else
             {
-                programLog.Text = $"[*] Command {command} not found";
+                programLog.Text = $"[*] Error: Command {command} not found";
             }
         }
 
