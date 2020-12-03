@@ -35,5 +35,15 @@ namespace graphical_programming_language
                 }
             }
         }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
