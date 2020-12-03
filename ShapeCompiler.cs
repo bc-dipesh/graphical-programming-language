@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace graphical_programming_language
 {
@@ -68,12 +68,11 @@ namespace graphical_programming_language
             {
                 Array.Copy(data, 1, Arguments, 0, Arguments.Length);
             }
-
         }
 
         public void Run()
         {
-            CommandParser(Command.ToUpper(), Arguments);
+            CommandParser(Command, Arguments);
         }
 
         public Pen GetPen(Color color, int size)
@@ -83,11 +82,11 @@ namespace graphical_programming_language
 
         private void CommandParser(string command, string[] arguments)
         {
-            if (command.Equals("RECT") || command.Equals("CIRCLE") || command.Equals("TRIANGLE"))
+            if (command.ToUpper().Equals("RECT") || command.ToUpper().Equals("CIRCLE") || command.ToUpper().Equals("TRIANGLE"))
             {
                 try
                 {
-                    if (arguments.Length == 1 && command.Equals("CIRCLE"))
+                    if (command.ToUpper().Equals("CIRCLE"))
                     {
                         radius = Int32.Parse(arguments[0]);
                         width = radius * 2;
@@ -102,14 +101,14 @@ namespace graphical_programming_language
                     Shape shape = shapeFactory.GetShape(command, fillColor, isColorFillOn, xPos, yPos, width, height);
                     shape.Draw(outputWindow.CreateGraphics(), pen);
 
-                    programLog.Text = $"[*] {command} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}";
+                    programLog.Text = $"[*] {shape.GetType().Name} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}";
                 }
                 catch (ArgumentException argEx)
                 {
                     programLog.Text = $"[*] {argEx.Message}";
                 }
             }
-            else if (command.Equals("DRAWTO"))
+            else if (command.ToUpper().Equals("DRAWTO"))
             {
                 toXPos = Int32.Parse(arguments[0]);
                 toYPos = Int32.Parse(arguments[1]);
@@ -122,14 +121,14 @@ namespace graphical_programming_language
                 xPos = toXPos;
                 yPos = toYPos;
             }
-            else if (command.Equals("MOVETO"))
+            else if (command.ToUpper().Equals("MOVETO"))
             {
                 xPos = Int32.Parse(arguments[0]);
                 yPos = Int32.Parse(arguments[1]);
 
                 programLog.Text = $"[*] Pen position set to {xPos}, {yPos}";
             }
-            else if (command.Equals("PEN"))
+            else if (command.ToUpper().Equals("PEN"))
             {
                 Color color = Color.FromName(arguments[0]);
                 int size = (arguments.Length == 2) ? Int32.Parse(arguments[1]) : 1;
@@ -138,12 +137,12 @@ namespace graphical_programming_language
 
                 programLog.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
             }
-            else if (command.Equals("FILL"))
+            else if (command.ToUpper().Equals("FILL"))
             {
                 if (arguments[0].ToUpper().Equals("ON"))
                 {
                     isColorFillOn = true;
-                    fillColor = (arguments.Length == 2) ? Color.FromName(arguments[1]) : Color.Black;
+                    fillColor = (arguments.Length == 2) ? GetColor(arguments[1]) : Color.Black;
 
                     programLog.Text = $"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}";
                 }
@@ -154,23 +153,38 @@ namespace graphical_programming_language
                     programLog.Text = $"[*] Color fill is now {isColorFillOn}";
                 }
             }
-            else if (command.Equals("RESET"))
+            else if (command.ToUpper().Equals("RESET"))
             {
                 xPos = yPos = toXPos = toYPos = 0;
                 width = height = 100;
 
                 programLog.Text = "[*] Reset pen position to 0, 0";
             }
-            else if (command.Equals("CLEAR"))
+            else if (command.ToUpper().Equals("CLEAR"))
             {
                 outputWindow.Refresh();
                 programLog.Text = "[*] Cleared output panel";
             }
-            else if (command.Equals("EXIT"))
+            else if (command.ToUpper().Equals("EXIT"))
             {
                 programLog.Text = "[*] Exiting application";
                 Application.Exit();
+            } else
+            {
+                programLog.Text = $"[*] Command {command} not found";
             }
+        }
+
+        private Color GetColor(string color)
+        {
+            foreach (KnownColor _color in Enum.GetValues(typeof(KnownColor)))
+            {
+                if (_color.ToString().ToUpper().Equals(color.ToUpper()))
+                {
+                    return Color.FromName(color);
+                }
+            }
+            return Color.Black;
         }
     }
 }
