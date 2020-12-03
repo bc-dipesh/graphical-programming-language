@@ -31,11 +31,11 @@ namespace graphical_programming_language
         {
             this.outputWindow = new System.Windows.Forms.Panel();
             this.programLog = new System.Windows.Forms.TextBox();
-            this.programWindow = new System.Windows.Forms.TextBox();
             this.commandLine = new System.Windows.Forms.TextBox();
             this.codeEditorLabel = new System.Windows.Forms.Label();
             this.codeOutputLabel = new System.Windows.Forms.Label();
             this.commandLabel = new System.Windows.Forms.Label();
+            this.programWindow = new System.Windows.Forms.RichTextBox();
             this.outputWindow.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,14 +56,6 @@ namespace graphical_programming_language
             this.programLog.ReadOnly = true;
             this.programLog.Size = new System.Drawing.Size(340, 56);
             this.programLog.TabIndex = 4;
-            // 
-            // programWindow
-            // 
-            this.programWindow.Location = new System.Drawing.Point(13, 52);
-            this.programWindow.Multiline = true;
-            this.programWindow.Name = "programWindow";
-            this.programWindow.Size = new System.Drawing.Size(422, 331);
-            this.programWindow.TabIndex = 1;
             // 
             // commandLine
             // 
@@ -100,16 +92,24 @@ namespace graphical_programming_language
             this.commandLabel.TabIndex = 5;
             this.commandLabel.Text = "Command Line";
             // 
+            // programWindow
+            // 
+            this.programWindow.Location = new System.Drawing.Point(16, 52);
+            this.programWindow.Name = "programWindow";
+            this.programWindow.Size = new System.Drawing.Size(419, 330);
+            this.programWindow.TabIndex = 6;
+            this.programWindow.Text = "";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 450);
+            this.Controls.Add(this.programWindow);
             this.Controls.Add(this.commandLabel);
             this.Controls.Add(this.codeOutputLabel);
             this.Controls.Add(this.codeEditorLabel);
             this.Controls.Add(this.commandLine);
-            this.Controls.Add(this.programWindow);
             this.Controls.Add(this.outputWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -126,12 +126,12 @@ namespace graphical_programming_language
         #endregion
 
         private System.Windows.Forms.Panel outputWindow;
-        private System.Windows.Forms.TextBox programWindow;
         private System.Windows.Forms.TextBox commandLine;
         private System.Windows.Forms.Label codeEditorLabel;
         private System.Windows.Forms.Label codeOutputLabel;
         private System.Windows.Forms.Label commandLabel;
         private System.Windows.Forms.TextBox programLog;
+        private System.Windows.Forms.RichTextBox programWindow;
     }
 }
 

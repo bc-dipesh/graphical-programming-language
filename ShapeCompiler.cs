@@ -10,7 +10,7 @@ namespace graphical_programming_language
     {
         private readonly ShapeFactory shapeFactory;
         private readonly Panel outputWindow;
-        private readonly TextBox programWindow;
+        private readonly RichTextBox programWindow;
         private readonly TextBox programLog;
         private Pen pen;
         private Color fillColor;
@@ -42,7 +42,7 @@ namespace graphical_programming_language
             width = height = 100;
         }
 
-        public ShapeCompiler(Panel outputWindow, TextBox programWindow, TextBox programLog)
+        public ShapeCompiler(Panel outputWindow, RichTextBox programWindow, TextBox programLog)
         {
             shapeFactory = new ShapeFactory();
             this.outputWindow = outputWindow;
