@@ -38,12 +38,34 @@ namespace graphical_programming_language
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Load a program file",
+                Filter = "Text Files (*.txt) | *.txt"
+            };
 
+            DialogResult dialogResult = openFileDialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                programWindow.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+            }
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "Save current program to file",
+                Filter = "Text files (*.txt) | *.txt"
+            };
 
+            DialogResult dialogResult = saveFileDialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                programWindow.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
+            }
         }
     }
 }
