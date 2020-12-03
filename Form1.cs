@@ -17,7 +17,7 @@ namespace graphical_programming_language
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var program = programWindow.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                var program = programWindow.Text.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
                 var input = commandLine.Text;
 
                 if (input.ToUpper().Equals("RUN"))
