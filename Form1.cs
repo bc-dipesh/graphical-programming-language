@@ -67,5 +67,10 @@ namespace graphical_programming_language
                 programWindow.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
             }
         }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           Application.Exit();
+        }
     }
 }
