@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace graphical_programming_language
 {
@@ -14,7 +15,7 @@ namespace graphical_programming_language
         private Pen pen;
         private Color fillColor;
 
-        private readonly Regex splitOnSpaces;
+        private readonly Regex inputSplitter;
 
         public string Command { get; set; }
         public string[] Arguments { get; set; }
@@ -35,7 +36,7 @@ namespace graphical_programming_language
             isColorFillOn = false;
             pen = GetPen(Color.Black, 1);
 
-            splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
+            inputSplitter = new Regex(@"[\s+,]", RegexOptions.Compiled);
 
             xPos = yPos = toXPos = toYPos = 0;
             width = height = 100;
@@ -50,23 +51,24 @@ namespace graphical_programming_language
             isColorFillOn = false;
             pen = GetPen(Color.Black, 1);
 
-            splitOnSpaces = new Regex(@"\s+", RegexOptions.Compiled);
+            inputSplitter = new Regex(@"[\s+,]", RegexOptions.Compiled);
 
             xPos = yPos = toXPos = toYPos = 0;
             width = height = 100;
         }
 
-        public void Compile(string command)
+        public void Compile(string input)
         {
-            string[] commands = splitOnSpaces.Split(command);
+            string[] data = inputSplitter.Split(input).Where(token => token != String.Empty).ToArray<string>();
 
-            Command = commands[0];
-            Arguments = new string[commands.Length - 1];
+            Command = data[0];
+            Arguments = new string[data.Length - 1];
 
-            if (commands.Length > 1)
+            if (data.Length > 1)
             {
-                Array.Copy(commands, 1, Arguments, 0, Arguments.Length);
+                Array.Copy(data, 1, Arguments, 0, Arguments.Length);
             }
+
         }
 
         public void Run()

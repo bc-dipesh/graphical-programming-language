@@ -18,9 +18,9 @@ namespace graphical_programming_language
             if (e.KeyCode == Keys.Enter)
             {
                 var program = programWindow.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                var command = commandLine.Text;
+                var input = commandLine.Text;
 
-                if (command.ToUpper().Equals("RUN"))
+                if (input.ToUpper().Equals("RUN"))
                 {
                     foreach (var line in program)
                     {
@@ -30,7 +30,7 @@ namespace graphical_programming_language
                 }
                 else
                 {
-                    shapeCompiler.Compile(command);
+                    shapeCompiler.Compile(input);
                     shapeCompiler.Run();
                 }
             }
