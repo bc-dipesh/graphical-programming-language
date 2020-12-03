@@ -10,7 +10,6 @@ namespace graphical_programming_language
     {
         private readonly ShapeFactory shapeFactory;
         private readonly Panel outputWindow;
-        private readonly RichTextBox programWindow;
         private readonly TextBox programLog;
         private Pen pen;
         private Color fillColor;
@@ -149,7 +148,8 @@ namespace graphical_programming_language
                     yPos = Int32.Parse(arguments[1]);
 
                     programLog.Text = $"[*] Pen position set to {xPos}, {yPos}";
-                } catch (IndexOutOfRangeException)
+                }
+                catch (IndexOutOfRangeException)
                 {
                     programLog.Text = $"[*] Error: Please provide two parameter to move pointer";
                 }
@@ -164,7 +164,8 @@ namespace graphical_programming_language
                     pen = GetPen(color, size);
 
                     programLog.Text = $"[*] Pen color set to {color.Name} and pen size set to {size}";
-                } catch (IndexOutOfRangeException)
+                }
+                catch (IndexOutOfRangeException)
                 {
                     programLog.Text = $"[*] Error: Please provide one parameter for selecting the color";
                 }
@@ -186,7 +187,8 @@ namespace graphical_programming_language
 
                         programLog.Text = $"[*] Color fill is now {isColorFillOn}";
                     }
-                } catch (IndexOutOfRangeException)
+                }
+                catch (IndexOutOfRangeException)
                 {
                     programLog.Text = $"[*] Error: Please provide one parameter (on/off) to either turn fill on/off";
                 }
