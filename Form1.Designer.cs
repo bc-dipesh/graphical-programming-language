@@ -30,7 +30,6 @@ namespace graphical_programming_language
         private void InitializeComponent()
         {
             this.outputWindow = new System.Windows.Forms.Panel();
-            this.programLog = new System.Windows.Forms.TextBox();
             this.commandLine = new System.Windows.Forms.TextBox();
             this.codeEditorLabel = new System.Windows.Forms.Label();
             this.codeOutputLabel = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@ namespace graphical_programming_language
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.programLog = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,15 +53,6 @@ namespace graphical_programming_language
             this.outputWindow.Name = "outputWindow";
             this.outputWindow.Size = new System.Drawing.Size(347, 386);
             this.outputWindow.TabIndex = 3;
-            // 
-            // programLog
-            // 
-            this.programLog.Location = new System.Drawing.Point(441, 456);
-            this.programLog.Multiline = true;
-            this.programLog.Name = "programLog";
-            this.programLog.ReadOnly = true;
-            this.programLog.Size = new System.Drawing.Size(340, 56);
-            this.programLog.TabIndex = 4;
             // 
             // commandLine
             // 
@@ -130,21 +121,21 @@ namespace graphical_programming_language
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -159,9 +150,17 @@ namespace graphical_programming_language
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
+            // programLog
+            // 
+            this.programLog.Location = new System.Drawing.Point(441, 445);
+            this.programLog.Name = "programLog";
+            this.programLog.Size = new System.Drawing.Size(347, 67);
+            this.programLog.TabIndex = 8;
+            this.programLog.Text = "";
             // 
             // mainForm
             // 
@@ -196,7 +195,6 @@ namespace graphical_programming_language
         private System.Windows.Forms.Label codeEditorLabel;
         private System.Windows.Forms.Label codeOutputLabel;
         private System.Windows.Forms.Label commandLabel;
-        private System.Windows.Forms.TextBox programLog;
         private System.Windows.Forms.RichTextBox programWindow;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -205,6 +203,7 @@ namespace graphical_programming_language
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox programLog;
     }
 }
 
