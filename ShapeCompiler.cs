@@ -41,11 +41,10 @@ namespace graphical_programming_language
             width = height = 100;
         }
 
-        public ShapeCompiler(Panel outputWindow, RichTextBox programWindow, TextBox programLog)
+        public ShapeCompiler(Panel outputWindow, TextBox programLog)
         {
             shapeFactory = new ShapeFactory();
             this.outputWindow = outputWindow;
-            this.programWindow = programWindow;
             this.programLog = programLog;
             isColorFillOn = false;
             pen = GetPen(Color.Black, 1);

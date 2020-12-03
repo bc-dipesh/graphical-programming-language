@@ -14,7 +14,7 @@ namespace graphical_programming_language
             InitializeComponent();
             SetUpAboutMessage();
 
-            shapeCompiler = new ShapeCompiler(outputWindow, programWindow, programLog);
+            shapeCompiler = new ShapeCompiler(outputWindow, programLog);
         }
 
         private void SetUpAboutMessage()
