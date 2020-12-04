@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphical-programming-language", "graphical-programming-language.csproj", "{BADE4EF5-3E4F-4B60-A244-B515C3B3524E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphical-programming-language-unit-test", "..\graphical-programming-language-unit-test\graphical-programming-language-unit-test.csproj", "{C912501C-05CE-49EB-897B-36698AAA2E4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unit-tests", "unit-tests\unit-tests.csproj", "{0EBDA88F-18B8-4B4D-954E-6E6FEAA783D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{BADE4EF5-3E4F-4B60-A244-B515C3B3524E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BADE4EF5-3E4F-4B60-A244-B515C3B3524E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BADE4EF5-3E4F-4B60-A244-B515C3B3524E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C912501C-05CE-49EB-897B-36698AAA2E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C912501C-05CE-49EB-897B-36698AAA2E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C912501C-05CE-49EB-897B-36698AAA2E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C912501C-05CE-49EB-897B-36698AAA2E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EBDA88F-18B8-4B4D-954E-6E6FEAA783D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EBDA88F-18B8-4B4D-954E-6E6FEAA783D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EBDA88F-18B8-4B4D-954E-6E6FEAA783D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EBDA88F-18B8-4B4D-954E-6E6FEAA783D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
