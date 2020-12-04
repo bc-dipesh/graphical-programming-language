@@ -55,12 +55,15 @@ namespace graphical_programming_language
         {
             if (e.KeyCode == Keys.Enter)
             {
+                // Stop the ding sound after the button is pressed.
+                e.SuppressKeyPress = true;
+
                 var program = programWindow.Text.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
                 var input = commandLine.Text;
 
                 if (input.ToUpper().Equals("RUN"))
                 {
-                    foreach (var line in program)
+                    foreach (string line in program)
                     {
                         shapeCompiler.Compile(line);
                         shapeCompiler.Run();
