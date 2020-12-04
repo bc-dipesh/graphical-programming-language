@@ -43,6 +43,7 @@ namespace graphical_programming_language
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programLog = new System.Windows.Forms.RichTextBox();
+            this.log = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,17 +157,27 @@ namespace graphical_programming_language
             // 
             // programLog
             // 
-            this.programLog.Location = new System.Drawing.Point(441, 445);
+            this.programLog.Location = new System.Drawing.Point(441, 472);
             this.programLog.Name = "programLog";
-            this.programLog.Size = new System.Drawing.Size(347, 67);
+            this.programLog.Size = new System.Drawing.Size(347, 40);
             this.programLog.TabIndex = 8;
             this.programLog.Text = "";
+            // 
+            // log
+            // 
+            this.log.AutoSize = true;
+            this.log.Location = new System.Drawing.Point(441, 453);
+            this.log.Name = "log";
+            this.log.Size = new System.Drawing.Size(30, 13);
+            this.log.TabIndex = 9;
+            this.log.Text = "Logs";
             // 
             // GraphicalProgrammingLanguageApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 524);
+            this.Controls.Add(this.log);
             this.Controls.Add(this.programLog);
             this.Controls.Add(this.programWindow);
             this.Controls.Add(this.commandLabel);
@@ -204,6 +215,7 @@ namespace graphical_programming_language
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.RichTextBox programLog;
+        private System.Windows.Forms.Label log;
     }
 }
 
