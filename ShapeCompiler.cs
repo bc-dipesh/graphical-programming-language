@@ -12,7 +12,7 @@ namespace graphical_programming_language
     /// <remarks>
     /// This class implements <see cref="graphical_programming_language.IShapeCompiler"/> interface and provides abstract and virtual methods for child Shape classes to override.
     /// </remarks>
-    public class ShapeCompiler : IShapeCompiler
+    public class ShapeCompiler : ICompiler
     {
         private readonly ShapeFactory shapeFactory;
         private readonly Panel outputWindow;

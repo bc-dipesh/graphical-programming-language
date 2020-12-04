@@ -1,12 +1,12 @@
 ﻿namespace graphical_programming_language
 {
     /// <summary>
-    /// The interface for Compiling Shape Commands.
+    /// The interface for Compiling Commands.
     /// </summary>
     /// <remarks>
-    /// This interface defines the methods for ShapeCompiler to implement.
+    /// This interface defines generic method for a compiler to implement.
     /// </remarks>
-    public interface IShapeCompiler
+    public interface ICompiler
     {
 
         /// <summary>
