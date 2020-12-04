@@ -95,7 +95,6 @@ namespace graphical_programming_language
             }
         }
 
-
         public void Run()
         {
             CommandParser(Command, Arguments);
@@ -285,7 +284,6 @@ namespace graphical_programming_language
                 programLog.AppendText($"[*] Error: Command {command} not found");
                 programLog.AppendText(Environment.NewLine);
             }
-
         }
 
         // Generate a color from the given string.

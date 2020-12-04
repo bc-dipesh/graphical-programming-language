@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -61,18 +62,27 @@ namespace graphical_programming_language
                 var program = programWindow.Text.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
                 var input = commandLine.Text;
 
-                if (input.ToUpper().Equals("RUN"))
+                if (!string.IsNullOrWhiteSpace(input))
                 {
-                    foreach (string line in program)
+                    if (input.ToUpper().Equals("RUN"))
                     {
-                        shapeCompiler.Compile(line);
+                        foreach (string line in program)
+                        {
+                            shapeCompiler.Compile(line);
+                            shapeCompiler.Run();
+                        }
+                    }
+                    else
+                    {
+                        shapeCompiler.Compile(input);
                         shapeCompiler.Run();
                     }
                 }
                 else
                 {
-                    shapeCompiler.Compile(input);
-                    shapeCompiler.Run();
+                    programLog.SelectionColor = Color.Red;
+                    programLog.AppendText($"[*] Error: Please provide a command to run");
+                    programLog.AppendText(Environment.NewLine);
                 }
             }
         }
