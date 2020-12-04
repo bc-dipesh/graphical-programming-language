@@ -1,7 +1,7 @@
 ﻿
 namespace graphical_programming_language
 {
-    partial class mainForm
+    partial class GraphicalProgrammingLanguageApp
     {
         /// <summary>
         /// Required designer variable.
@@ -162,7 +162,7 @@ namespace graphical_programming_language
             this.programLog.TabIndex = 8;
             this.programLog.Text = "";
             // 
-            // mainForm
+            // GraphicalProgrammingLanguageApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -178,7 +178,7 @@ namespace graphical_programming_language
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "mainForm";
+            this.Name = "GraphicalProgrammingLanguageApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Graphical Programming Language";
             this.menuStrip1.ResumeLayout(false);

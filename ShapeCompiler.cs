@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace graphical_programming_language
 {
+    /// <summary>
+    /// The main class for compiling ShapeCommands.
+    /// </summary>
+    /// <remarks>
+    /// This class implements <see cref="graphical_programming_language.IShapeCompiler"/> interface and provides abstract and virtual methods for child Shape classes to override.
+    /// </remarks>
     public class ShapeCompiler : IShapeCompiler
     {
         private readonly ShapeFactory shapeFactory;
@@ -16,7 +22,14 @@ namespace graphical_programming_language
 
         private readonly Regex inputSplitter;
 
+        /// <summary>
+        /// Gets and sets the command for the compiler.
+        /// </summary>
         public string Command { get; set; }
+
+        /// <summary>
+        /// Gets and sets the arguments for the compiler.
+        /// </summary>
         public string[] Arguments { get; set; }
 
         private int xPos;
@@ -29,6 +42,12 @@ namespace graphical_programming_language
 
         private bool isColorFillOn;
 
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        /// <remarks>
+        /// Initializes a new instance of ShapeCompiler, with default values.
+        /// </remarks>
         public ShapeCompiler()
         {
             shapeFactory = new ShapeFactory();
@@ -41,6 +60,14 @@ namespace graphical_programming_language
             width = height = 100;
         }
 
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="outputWindow">The Panel where output of command after its execution is displayed.</param>
+        /// <param name="programLog">The TexBox where the log of the command during its execution is displayed.</param>
+        /// <remarks>
+        /// Initializes a new instances of Shape, with the given parameters.
+        /// </remarks>
         public ShapeCompiler(Panel outputWindow, RichTextBox programLog)
         {
             shapeFactory = new ShapeFactory();
@@ -68,16 +95,24 @@ namespace graphical_programming_language
             }
         }
 
+
         public void Run()
         {
             CommandParser(Command, Arguments);
         }
 
+        /// <summary>
+        /// Gets a new Pen Object.
+        /// </summary>
+        /// <param name="color">Color of the Pen.</param>
+        /// <param name="size">Width of the Pen.</param>
+        /// <returns>Returns a new Pen Object with the specified Color and Width.</returns>
         public Pen GetPen(Color color, int size)
         {
             return new Pen(color, size);
         }
 
+        // Call appropriate action according to the command and arguments passed to it.
         private void CommandParser(string command, string[] arguments)
         {
             if (command.ToUpper().Equals("RECT") || command.ToUpper().Equals("CIRCLE") || command.ToUpper().Equals("TRIANGLE"))
@@ -253,6 +288,7 @@ namespace graphical_programming_language
 
         }
 
+        // Generate a color from the given string.
         private Color GetColor(string color)
         {
             foreach (KnownColor _color in Enum.GetValues(typeof(KnownColor)))

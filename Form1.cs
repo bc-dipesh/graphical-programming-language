@@ -4,12 +4,26 @@ using System.Windows.Forms;
 
 namespace graphical_programming_language
 {
-    public partial class mainForm : Form
+    /// <summary>
+    /// The main Form class.
+    /// Inherits class <see cref="System.Windows.Forms.Form"/>.
+    /// </summary>
+    /// <remarks>
+    /// This class displays the application form/view.
+    /// </remarks>
+    public partial class GraphicalProgrammingLanguageApp : Form
     {
         private readonly ShapeCompiler shapeCompiler;
         private StringBuilder aboutMessage;
 
-        public mainForm()
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        /// <remarks>
+        /// Initializes a new instance of GraphicalProgrammingLanguageApp.<br></br>
+        /// with default values, and sets up some private properties for the App
+        /// </remarks>
+        public GraphicalProgrammingLanguageApp()
         {
             InitializeComponent();
             SetUpAboutMessage();
@@ -17,6 +31,7 @@ namespace graphical_programming_language
             shapeCompiler = new ShapeCompiler(outputWindow, programLog);
         }
 
+        // Sets up the about message for this app shown in the MessageBox.
         private void SetUpAboutMessage()
         {
             aboutMessage = new StringBuilder();
@@ -35,6 +50,7 @@ namespace graphical_programming_language
             aboutMessage.Append("License: MIT");
         }
 
+        // Event handler to handle event when user presses a button.
         private void CommandTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -58,6 +74,7 @@ namespace graphical_programming_language
             }
         }
 
+        // Opens a FileDialog to choose a file and display its conentes in the programWindow.
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -74,6 +91,7 @@ namespace graphical_programming_language
             }
         }
 
+        // Opens a FileDialog to save current contents of programWindow to a file.
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -90,11 +108,13 @@ namespace graphical_programming_language
             }
         }
 
+        // Exits the application.
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Displays a MessageBox with the message containing information about this application.
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(aboutMessage.ToString(), "About", MessageBoxButtons.OK, MessageBoxIcon.Question);
