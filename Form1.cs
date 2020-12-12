@@ -93,12 +93,12 @@ namespace graphical_programming_language
                                     {
                                         if (!shapeCompiler.ParseUsingIf(program[lineNumber]))
                                         {
-                                            currentLineNumber = lineNumber;
-                                            for (; currentLineNumber < program.Length; currentLineNumber++)
+                                            //currentLineNumber = lineNumber;
+                                            for (; lineNumber < program.Length; lineNumber++)
                                             {
-                                                if (program[currentLineNumber].Contains("endif"))
+                                                if (program[lineNumber].Contains("endif"))
                                                 {
-                                                    lineNumber = currentLineNumber;
+                                                    //lineNumber = currentLineNumber;
                                                     break;
                                                 }
                                             }
