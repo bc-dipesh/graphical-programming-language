@@ -291,18 +291,21 @@ namespace graphical_programming_language
                     programLog.SelectionColor = Color.Black;
                     programLog.AppendText($"[*] {shape.GetType().Name} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
                 catch (ArgumentException ex)
                 {
                     programLog.SelectionColor = Color.Red;
                     programLog.AppendText($"[*] Error: {ex.Message}");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
                 catch (FormatException)
                 {
                     programLog.SelectionColor = Color.Red;
                     programLog.AppendText($"[*] Error: Given argument is not in correct format");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -311,6 +314,7 @@ namespace graphical_programming_language
                     programLog.SelectionColor = Color.Red;
                     programLog.AppendText($"[*] Error: Please provide two parameter for drawing {shape}");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
             }
             else if (command.ToUpper().Equals("DRAWTO"))
@@ -334,6 +338,7 @@ namespace graphical_programming_language
                     programLog.SelectionColor = Color.Black;
                     programLog.AppendText($"[*] Line drawn from position x1 -> {xPos}, y1 -> {yPos} to position x2 -> {toXPos}, y2 -> {toYPos}");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
 
                     xPos = toXPos;
                     yPos = toYPos;
@@ -343,6 +348,7 @@ namespace graphical_programming_language
                     programLog.SelectionColor = Color.Red;
                     programLog.AppendText($"[*] Error: Please provide two parameter to draw a line");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
             }
             else if (command.ToUpper().Equals("MOVETO"))
@@ -363,12 +369,14 @@ namespace graphical_programming_language
                     programLog.SelectionColor = Color.Black;
                     programLog.AppendText($"[*] Pen position set to {xPos}, {yPos}");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
                 catch (IndexOutOfRangeException)
                 {
                     programLog.SelectionColor = Color.Red;
                     programLog.AppendText($"[*] Error: Please provide two parameter to move pointer");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
             }
             else if (command.ToUpper().Equals("PEN"))
@@ -391,12 +399,14 @@ namespace graphical_programming_language
                     programLog.SelectionColor = Color.Black;
                     programLog.AppendText($"[*] Pen color set to {color.Name} and pen size set to {size}");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
                 catch (IndexOutOfRangeException)
                 {
                     programLog.SelectionColor = Color.Red;
                     programLog.AppendText($"[*] Error: Please provide one parameter for selecting the color");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
             }
             else if (command.ToUpper().Equals("FILL"))
@@ -411,6 +421,7 @@ namespace graphical_programming_language
                         programLog.SelectionColor = Color.Black;
                         programLog.AppendText($"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}");
                         programLog.AppendText(Environment.NewLine);
+                        programLog.ScrollToCaret();
                     }
                     else if (arguments[0].ToUpper().Equals("OFF"))
                     {
@@ -419,6 +430,7 @@ namespace graphical_programming_language
                         programLog.SelectionColor = Color.Black;
                         programLog.AppendText($"[*] Color fill is now {isColorFillOn}");
                         programLog.AppendText(Environment.NewLine);
+                        programLog.ScrollToCaret();
                     }
                 }
                 catch (IndexOutOfRangeException)
@@ -426,6 +438,7 @@ namespace graphical_programming_language
                     programLog.SelectionColor = Color.Red;
                     programLog.AppendText($"[*] Error: Please provide one parameter (on/off) to either turn fill on/off");
                     programLog.AppendText(Environment.NewLine);
+                    programLog.ScrollToCaret();
                 }
             }
             else if (command.ToUpper().Equals("RESET"))
@@ -436,6 +449,7 @@ namespace graphical_programming_language
                 programLog.SelectionColor = Color.Black;
                 programLog.AppendText("[*] Reset pen position to 0, 0");
                 programLog.AppendText(Environment.NewLine);
+                programLog.ScrollToCaret();
             }
             else if (command.ToUpper().Equals("CLEAR"))
             {
@@ -444,12 +458,14 @@ namespace graphical_programming_language
                 programLog.SelectionColor = Color.Black;
                 programLog.AppendText("[*] Cleared output panel");
                 programLog.AppendText(Environment.NewLine);
+                programLog.ScrollToCaret();
             }
             else if (command.ToUpper().Equals("EXIT"))
             {
                 programLog.SelectionColor = Color.Black;
                 programLog.AppendText("[*] Exiting application");
                 programLog.AppendText(Environment.NewLine);
+                programLog.ScrollToCaret();
 
                 Application.Exit();
             }
@@ -458,6 +474,7 @@ namespace graphical_programming_language
                 programLog.SelectionColor = Color.Red;
                 programLog.AppendText($"[*] Error: Command {command} not found");
                 programLog.AppendText(Environment.NewLine);
+                programLog.ScrollToCaret();
             }
         }
 
