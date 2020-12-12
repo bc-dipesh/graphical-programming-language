@@ -57,9 +57,10 @@ namespace graphical_programming_language
             // 
             // commandLine
             // 
+            this.commandLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.commandLine.Location = new System.Drawing.Point(16, 469);
             this.commandLine.Name = "commandLine";
-            this.commandLine.Size = new System.Drawing.Size(422, 20);
+            this.commandLine.Size = new System.Drawing.Size(422, 22);
             this.commandLine.TabIndex = 2;
             this.commandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CommandTxtBox_KeyDown);
             // 
@@ -92,6 +93,7 @@ namespace graphical_programming_language
             // 
             // programWindow
             // 
+            this.programWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.programWindow.Location = new System.Drawing.Point(16, 52);
             this.programWindow.Name = "programWindow";
             this.programWindow.Size = new System.Drawing.Size(419, 386);
@@ -157,6 +159,7 @@ namespace graphical_programming_language
             // 
             // programLog
             // 
+            this.programLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.programLog.Location = new System.Drawing.Point(440, 469);
             this.programLog.Name = "programLog";
             this.programLog.Size = new System.Drawing.Size(477, 97);

@@ -71,8 +71,6 @@ namespace graphical_programming_language
                             // If the line is not blank or null
                             if (!String.IsNullOrWhiteSpace(program[lineNumber]))
                             {
-                                int currentLineNumber;
-
                                 if (program[lineNumber].Contains("=") || program[lineNumber].Contains("if") || program[lineNumber].Contains("endif"))
                                 {
                                     if (program[lineNumber].Contains("="))
