@@ -66,12 +66,6 @@ namespace graphical_programming_language
                 {
                     if (input.ToUpper().Equals("RUN"))
                     {
-                        //foreach (string line in program)
-                        //{
-                        //    shapeCompiler.Compile(line);
-                        //    shapeCompiler.Run();
-                        //}
-
                         for (int lineNumber = 0; lineNumber < program.Length; lineNumber++)
                         {
                             // If the line is not blank or null
@@ -93,12 +87,10 @@ namespace graphical_programming_language
                                     {
                                         if (!shapeCompiler.ParseUsingIf(program[lineNumber]))
                                         {
-                                            //currentLineNumber = lineNumber;
                                             for (; lineNumber < program.Length; lineNumber++)
                                             {
                                                 if (program[lineNumber].Contains("endif"))
                                                 {
-                                                    //lineNumber = currentLineNumber;
                                                     break;
                                                 }
                                             }
