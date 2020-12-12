@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -14,6 +15,9 @@ namespace graphical_programming_language
     /// </remarks>
     public class ShapeCompiler : ICompiler
     {
+        private Lexer lexer;
+        public Dictionary<string, string> Variables { get; set; }
+
         private readonly ShapeFactory shapeFactory;
         private readonly Panel outputWindow;
         private readonly RichTextBox programLog;
@@ -50,6 +54,9 @@ namespace graphical_programming_language
         /// </remarks>
         public ShapeCompiler()
         {
+            lexer = new Lexer();
+            Variables = new Dictionary<string, string>();
+
             shapeFactory = new ShapeFactory();
             isColorFillOn = false;
             pen = GetPen(Color.Black, 1);
@@ -70,6 +77,9 @@ namespace graphical_programming_language
         /// </remarks>
         public ShapeCompiler(Panel outputWindow, RichTextBox programLog)
         {
+            lexer = new Lexer();
+            Variables = new Dictionary<string, string>();
+
             shapeFactory = new ShapeFactory();
             this.outputWindow = outputWindow;
             this.programLog = programLog;
@@ -80,6 +90,136 @@ namespace graphical_programming_language
 
             xPos = yPos = toXPos = toYPos = 0;
             width = height = 100;
+        }
+
+        public void ParseUsingLexer(string input, int lineNum)
+        {
+            var tokens = lexer.Advance(input);
+            string variable_name = "";
+
+            for (int i = 0; i < tokens.Count; i++)
+            {
+                var t = tokens[i];
+                var numbersList = new List<int>();
+                var operators = new Queue<string>();
+
+                // Check for variable statement
+                if (t.getType() == Type.IDENTIFIER) { variable_name = t.getValue(); }
+
+                // Check for variable in expression
+                if (t.getType() == Type.OPERATOR && t.getValue() == "=" && tokens.Count > 3)
+                {
+                    foreach (var _token in tokens.GetRange(2, tokens.Count - 2))
+                    {
+                        if (_token.getType() == Type.IDENTIFIER)
+                            numbersList.Add(int.Parse(Variables[_token.getValue()]));
+                        if (_token.getType() == Type.NUMBER)
+                            numbersList.Add(int.Parse(_token.getValue()));
+                        if (_token.getType() == Type.OPERATOR)
+                            operators.Enqueue(_token.getValue());
+                    }
+                    var result = numbersList[0];
+                    for (int j = 1; j < numbersList.Count; j++)
+                    {
+                        switch (operators.Dequeue())
+                        {
+                            case "+":
+                                result += numbersList[j];
+                                break;
+
+                            case "-":
+                                result -= numbersList[j];
+                                break;
+
+                            case "/":
+                                result /= numbersList[j];
+                                break;
+
+                            case "*":
+                                result *= numbersList[j];
+                                break;
+                        }
+                    }
+
+                    if (!Variables.ContainsKey(variable_name))
+                    {
+                        Variables.Add(variable_name, result.ToString());
+                    }
+                    else
+                    {
+                        Variables[variable_name] = result.ToString();
+                    }
+
+                    break;
+                }
+
+                // Assign and store number to var
+                if (t.getType() == Type.NUMBER)
+                {
+                    if (!Variables.ContainsKey(variable_name))
+                    {
+                        Variables.Add(variable_name, t.getValue());
+                    }
+                    else
+                    {
+                        Variables[variable_name] = t.getValue();
+                    }
+                }
+            }
+
+            foreach (KeyValuePair<string, string> kvp in Variables)
+            {
+                Console.WriteLine(kvp);
+            }
+        }
+
+        public bool ParseUsingIf(string input)
+        {
+            var tokens = lexer.Advance(input);
+            bool result = false;
+            string op = "";
+            var numbersList = new List<int>();
+            foreach (var _token in tokens.GetRange(1, 3))
+            {
+                if (_token.getType() == Type.IDENTIFIER)
+                    numbersList.Add(int.Parse(Variables[_token.getValue()]));
+                if (_token.getType() == Type.NUMBER)
+                    numbersList.Add(int.Parse(_token.getValue()));
+                if (_token.getType() == Type.OPERATOR)
+                    op = _token.getValue();
+            }
+
+            int left = numbersList[0];
+            int right = numbersList[1];
+
+            switch (op)
+            {
+                case "<":
+                    result = left < right;
+                    break;
+
+                case ">":
+                    result = left > right;
+                    break;
+
+                case "<=":
+                    result = left <= right;
+                    break;
+
+                case ">=":
+                    result = left >= right;
+                    break;
+
+                case "==":
+                    result = left == right;
+                    break;
+
+                case "!=":
+                    result = left != right;
+                    break;
+            }
+
+            return result;
         }
 
         public void Compile(string input)
@@ -123,15 +263,26 @@ namespace graphical_programming_language
                         if (arguments.Length == 0) { throw new ArgumentException("Circle command need 1 more parameter that represents its radius"); }
                         else
                         {
-                            radius = Int32.Parse(arguments[0]);
+                            if (Variables.ContainsKey(arguments[0]))
+                                radius = int.Parse(Variables[arguments[0]]);
+                            else
+                                radius = int.Parse(arguments[0]);
                             width = radius * 2;
                             height = radius * 2;
                         }
                     }
                     else
                     {
-                        width = Int32.Parse(arguments[0]);
-                        height = Int32.Parse(arguments[1]);
+                        if (Variables.ContainsKey(arguments[0]) && Variables.ContainsKey(arguments[1]))
+                        {
+                            width = int.Parse(Variables[arguments[0]]);
+                            height = int.Parse(Variables[arguments[1]]);
+                        }
+                        else
+                        {
+                            width = int.Parse(arguments[0]);
+                            height = int.Parse(arguments[1]);
+                        }
                     }
 
                     Shape shape = shapeFactory.GetShape(command, fillColor, isColorFillOn, xPos, yPos, width, height);
@@ -166,8 +317,16 @@ namespace graphical_programming_language
             {
                 try
                 {
-                    toXPos = Int32.Parse(arguments[0]);
-                    toYPos = Int32.Parse(arguments[1]);
+                    if (Variables.ContainsKey(arguments[0]) && Variables.ContainsKey(arguments[1]))
+                    {
+                        toXPos = int.Parse(Variables[arguments[0]]);
+                        toYPos = int.Parse(Variables[arguments[1]]);
+                    }
+                    else
+                    {
+                        toXPos = int.Parse(arguments[0]);
+                        toYPos = int.Parse(arguments[1]);
+                    }
 
                     Shape shape = shapeFactory.GetShape("line", fillColor, isColorFillOn, xPos, yPos, toXPos, toYPos);
                     shape.Draw(outputWindow.CreateGraphics(), pen);
@@ -190,8 +349,16 @@ namespace graphical_programming_language
             {
                 try
                 {
-                    xPos = Int32.Parse(arguments[0]);
-                    yPos = Int32.Parse(arguments[1]);
+                    if (Variables.ContainsKey(arguments[0]) && Variables.ContainsKey(arguments[1]))
+                    {
+                        xPos = int.Parse(Variables[arguments[0]]);
+                        yPos = int.Parse(Variables[arguments[1]]);
+                    }
+                    else
+                    {
+                        xPos = int.Parse(arguments[0]);
+                        yPos = int.Parse(arguments[1]);
+                    }
 
                     programLog.SelectionColor = Color.Black;
                     programLog.AppendText($"[*] Pen position set to {xPos}, {yPos}");
@@ -208,8 +375,16 @@ namespace graphical_programming_language
             {
                 try
                 {
-                    Color color = Color.FromName(arguments[0]);
-                    int size = (arguments.Length == 2) ? Int32.Parse(arguments[1]) : 1;
+                    Color color;
+                    if (Variables.ContainsKey(arguments[0]))
+                    {
+                        color = Color.FromName(Variables[arguments[0]]);
+                    }
+                    else
+                    {
+                        color = Color.FromName(arguments[0]);
+                    }
+                    int size = (arguments.Length == 2) ? int.Parse(arguments[1]) : 1;
 
                     pen = GetPen(color, size);
 

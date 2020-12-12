@@ -66,10 +66,52 @@ namespace graphical_programming_language
                 {
                     if (input.ToUpper().Equals("RUN"))
                     {
-                        foreach (string line in program)
+                        //foreach (string line in program)
+                        //{
+                        //    shapeCompiler.Compile(line);
+                        //    shapeCompiler.Run();
+                        //}
+
+                        for (int lineNum = 0; lineNum < program.Length; lineNum++)
                         {
-                            shapeCompiler.Compile(line);
-                            shapeCompiler.Run();
+                            // If the line is not blank or null
+                            if (!String.IsNullOrWhiteSpace(program[lineNum]))
+                            {
+                                int ifLineNum;
+                                int endIfLineNum;
+
+                                if (program[lineNum].Contains("=") || program[lineNum].Contains("if") || program[lineNum].Contains("endif"))
+                                {
+                                    if (program[lineNum].Contains("="))
+                                    {
+                                        shapeCompiler.ParseUsingLexer(program[lineNum], lineNum);
+                                    }
+                                    else if (program[lineNum].Contains("endif"))
+                                    {
+                                        continue;
+                                    }
+                                    else if (program[lineNum].Contains("if"))
+                                    {
+                                        if (!shapeCompiler.ParseUsingIf(program[lineNum]))
+
+                                        {
+                                            ifLineNum = lineNum;
+                                            for (; ifLineNum < program.Length; ifLineNum++)
+                                            {
+                                                if (program[ifLineNum].Contains("endif"))
+                                                {
+                                                    lineNum = ifLineNum;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {  // Call the parse command method passing the line , and the line num + 1
+                                    shapeCompiler.Compile(program[lineNum]);
+                                    shapeCompiler.Run();
+                                }
+                            }
                         }
                     }
                     else
