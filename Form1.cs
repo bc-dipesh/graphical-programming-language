@@ -78,7 +78,6 @@ namespace graphical_programming_language
                             if (!String.IsNullOrWhiteSpace(program[lineNumber]))
                             {
                                 int currentLineNumber;
-                                int endIfLineNum;
 
                                 if (program[lineNumber].Contains("=") || program[lineNumber].Contains("if") || program[lineNumber].Contains("endif"))
                                 {
@@ -100,6 +99,7 @@ namespace graphical_programming_language
                                                 if (program[currentLineNumber].Contains("endif"))
                                                 {
                                                     lineNumber = currentLineNumber;
+                                                    break;
                                                 }
                                             }
                                         }
