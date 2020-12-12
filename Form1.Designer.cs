@@ -52,12 +52,12 @@ namespace graphical_programming_language
             this.outputWindow.BackColor = System.Drawing.SystemColors.Window;
             this.outputWindow.Location = new System.Drawing.Point(441, 52);
             this.outputWindow.Name = "outputWindow";
-            this.outputWindow.Size = new System.Drawing.Size(347, 386);
+            this.outputWindow.Size = new System.Drawing.Size(476, 386);
             this.outputWindow.TabIndex = 3;
             // 
             // commandLine
             // 
-            this.commandLine.Location = new System.Drawing.Point(13, 492);
+            this.commandLine.Location = new System.Drawing.Point(16, 469);
             this.commandLine.Name = "commandLine";
             this.commandLine.Size = new System.Drawing.Size(422, 20);
             this.commandLine.TabIndex = 2;
@@ -84,7 +84,7 @@ namespace graphical_programming_language
             // commandLabel
             // 
             this.commandLabel.AutoSize = true;
-            this.commandLabel.Location = new System.Drawing.Point(12, 459);
+            this.commandLabel.Location = new System.Drawing.Point(13, 453);
             this.commandLabel.Name = "commandLabel";
             this.commandLabel.Size = new System.Drawing.Size(77, 13);
             this.commandLabel.TabIndex = 5;
@@ -105,7 +105,7 @@ namespace graphical_programming_language
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(801, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(929, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,9 +157,9 @@ namespace graphical_programming_language
             // 
             // programLog
             // 
-            this.programLog.Location = new System.Drawing.Point(441, 472);
+            this.programLog.Location = new System.Drawing.Point(440, 469);
             this.programLog.Name = "programLog";
-            this.programLog.Size = new System.Drawing.Size(347, 40);
+            this.programLog.Size = new System.Drawing.Size(477, 97);
             this.programLog.TabIndex = 8;
             this.programLog.Text = "";
             // 
@@ -176,7 +176,7 @@ namespace graphical_programming_language
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 524);
+            this.ClientSize = new System.Drawing.Size(929, 578);
             this.Controls.Add(this.log);
             this.Controls.Add(this.programLog);
             this.Controls.Add(this.programWindow);
