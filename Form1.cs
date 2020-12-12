@@ -17,6 +17,8 @@ namespace graphical_programming_language
         private readonly ShapeCompiler shapeCompiler;
         private StringBuilder aboutMessage;
 
+        private Lexer lexer;
+
         /// <summary>
         /// The default constructor.
         /// </summary>
@@ -28,6 +30,7 @@ namespace graphical_programming_language
         {
             InitializeComponent();
             SetUpAboutMessage();
+            lexer = new Lexer();
 
             shapeCompiler = new ShapeCompiler(outputWindow, programLog);
         }
@@ -70,19 +73,46 @@ namespace graphical_programming_language
         {
             var program = programCode.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
             var input = commandLine.Text;
+            var cursor = 0;
 
             if (!string.IsNullOrWhiteSpace(input))
             {
                 if (input.ToUpper().Equals("RUN"))
                 {
+                    shapeCompiler.Variables.Clear();
                     for (int lineNumber = 0; lineNumber < program.Length; lineNumber++)
                     {
                         // If the line is not blank or null
                         if (!String.IsNullOrWhiteSpace(program[lineNumber]))
                         {
-                            if (program[lineNumber].Contains("=") || program[lineNumber].Contains("if") || program[lineNumber].Contains("endif") || program[lineNumber].Contains("while"))
+                            if (program[lineNumber].Contains("=") || program[lineNumber].Contains("if") || program[lineNumber].Contains("endif") || program[lineNumber].Contains("while") || program[lineNumber].Contains("function") || program[lineNumber].Contains("()"))
                             {
-                                if (program[lineNumber].Contains("while") && !program[lineNumber].Contains("endwhile"))
+                                if (program[lineNumber].Contains("endfunction"))
+                                {
+                                    lineNumber = cursor;
+                                }
+                                else if (program[lineNumber].Contains("function"))
+                                {
+                                    var tokens = lexer.Advance(program[lineNumber]);
+                                    int functionLineNum = lineNumber;
+                                    for (; functionLineNum < program.Length; functionLineNum++)
+                                    {
+                                        if (program[functionLineNum].Contains("endfunction"))
+                                        {
+                                            break;
+                                        }
+                                    }
+                                    shapeCompiler.Variables.Add(tokens[1].getValue(), lineNumber + "," + (functionLineNum - 1));
+                                    lineNumber = functionLineNum;
+                                }
+                                else if (program[lineNumber].Contains("()"))
+                                {
+                                    cursor = lineNumber;
+                                    var tokens = lexer.Advance(program[lineNumber]);
+                                    var functionLines = shapeCompiler.Variables[tokens[0].getValue()].Split(',');
+                                    lineNumber = Int32.Parse(functionLines[0]);
+                                }
+                                else if (program[lineNumber].Contains("while") && !program[lineNumber].Contains("endwhile"))
                                 {
                                     int whileNum = lineNumber;
                                     whileNum++;
