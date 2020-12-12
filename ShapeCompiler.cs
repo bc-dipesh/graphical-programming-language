@@ -263,26 +263,15 @@ namespace graphical_programming_language
                         if (arguments.Length == 0) { throw new ArgumentException("Circle command need 1 more parameter that represents its radius"); }
                         else
                         {
-                            if (Variables.ContainsKey(arguments[0]))
-                                radius = int.Parse(Variables[arguments[0]]);
-                            else
-                                radius = int.Parse(arguments[0]);
+                            radius = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
                             width = radius * 2;
                             height = radius * 2;
                         }
                     }
                     else
                     {
-                        if (Variables.ContainsKey(arguments[0]) && Variables.ContainsKey(arguments[1]))
-                        {
-                            width = int.Parse(Variables[arguments[0]]);
-                            height = int.Parse(Variables[arguments[1]]);
-                        }
-                        else
-                        {
-                            width = int.Parse(arguments[0]);
-                            height = int.Parse(arguments[1]);
-                        }
+                        width = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
+                        height = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
                     }
 
                     Shape shape = shapeFactory.GetShape(command, fillColor, isColorFillOn, xPos, yPos, width, height);
@@ -321,16 +310,8 @@ namespace graphical_programming_language
             {
                 try
                 {
-                    if (Variables.ContainsKey(arguments[0]) && Variables.ContainsKey(arguments[1]))
-                    {
-                        toXPos = int.Parse(Variables[arguments[0]]);
-                        toYPos = int.Parse(Variables[arguments[1]]);
-                    }
-                    else
-                    {
-                        toXPos = int.Parse(arguments[0]);
-                        toYPos = int.Parse(arguments[1]);
-                    }
+                    toXPos = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
+                    toYPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
 
                     Shape shape = shapeFactory.GetShape("line", fillColor, isColorFillOn, xPos, yPos, toXPos, toYPos);
                     shape.Draw(outputWindow.CreateGraphics(), pen);
@@ -355,16 +336,8 @@ namespace graphical_programming_language
             {
                 try
                 {
-                    if (Variables.ContainsKey(arguments[0]) && Variables.ContainsKey(arguments[1]))
-                    {
-                        xPos = int.Parse(Variables[arguments[0]]);
-                        yPos = int.Parse(Variables[arguments[1]]);
-                    }
-                    else
-                    {
-                        xPos = int.Parse(arguments[0]);
-                        yPos = int.Parse(arguments[1]);
-                    }
+                    xPos = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
+                    yPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
 
                     programLog.SelectionColor = Color.Black;
                     programLog.AppendText($"[*] Pen position set to {xPos}, {yPos}");

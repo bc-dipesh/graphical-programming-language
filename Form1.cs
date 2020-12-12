@@ -59,71 +59,97 @@ namespace graphical_programming_language
                 // Stop the ding sound after the button is pressed.
                 e.SuppressKeyPress = true;
 
-                var program = programWindow.Text.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
-                var input = commandLine.Text;
+                //var program = programWindow.Text.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+                //var input = commandLine.Text;
 
-                if (!string.IsNullOrWhiteSpace(input))
+                ParseProgram(programWindow.Text);
+            }
+        }
+
+        private void ParseProgram(string programCode)
+        {
+            var program = programCode.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+            var input = commandLine.Text;
+
+            if (!string.IsNullOrWhiteSpace(input))
+            {
+                if (input.ToUpper().Equals("RUN"))
                 {
-                    if (input.ToUpper().Equals("RUN"))
+                    for (int lineNumber = 0; lineNumber < program.Length; lineNumber++)
                     {
-                        for (int lineNumber = 0; lineNumber < program.Length; lineNumber++)
+                        // If the line is not blank or null
+                        if (!String.IsNullOrWhiteSpace(program[lineNumber]))
                         {
-                            // If the line is not blank or null
-                            if (!String.IsNullOrWhiteSpace(program[lineNumber]))
+                            if (program[lineNumber].Contains("=") || program[lineNumber].Contains("if") || program[lineNumber].Contains("endif") || program[lineNumber].Contains("while"))
                             {
-                                if (program[lineNumber].Contains("=") || program[lineNumber].Contains("if") || program[lineNumber].Contains("endif"))
+                                if (program[lineNumber].Contains("while") && !program[lineNumber].Contains("endwhile"))
                                 {
-                                    if (program[lineNumber].Contains("="))
+                                    int whileNum = lineNumber;
+                                    whileNum++;
+                                    while (shapeCompiler.ParseUsingIf(program[lineNumber]))
                                     {
-                                        shapeCompiler.ParseUsingLexer(program[lineNumber], lineNumber);
-                                    }
-                                    else if (program[lineNumber].Contains("endif"))
-                                    {
-                                        continue;
-                                    }
-                                    else if (program[lineNumber].Contains("if"))
-                                    {
-                                        if (!shapeCompiler.ParseUsingIf(program[lineNumber]))
+                                        if (program[whileNum].Contains("endwhile"))
                                         {
-                                            bool hasEndIf = false;
-                                            int currentLineNumber = lineNumber;
+                                            whileNum = lineNumber;
+                                        }
+                                        else
+                                        {
+                                            ParseProgram(program[whileNum]);
+                                        }
+                                        whileNum++;
+                                    }
+                                    lineNumber = whileNum;
+                                }
+                                else if (program[lineNumber].Contains("endif"))
+                                {
+                                    continue;
+                                }
+                                else if (program[lineNumber].Contains("if"))
+                                {
+                                    if (!shapeCompiler.ParseUsingIf(program[lineNumber]))
+                                    {
+                                        bool hasEndIf = false;
+                                        int currentLineNumber = lineNumber;
 
-                                            for (; lineNumber < program.Length; lineNumber++)
+                                        for (; lineNumber < program.Length; lineNumber++)
+                                        {
+                                            if (program[lineNumber].Contains("endif"))
                                             {
-                                                if (program[lineNumber].Contains("endif"))
-                                                {
-                                                    hasEndIf = true;
-                                                    break;
-                                                }
+                                                hasEndIf = true;
+                                                break;
                                             }
+                                        }
 
-                                            if (!hasEndIf)
-                                            {
-                                                lineNumber = ++currentLineNumber;
-                                            }
+                                        if (!hasEndIf)
+                                        {
+                                            lineNumber = ++currentLineNumber;
                                         }
                                     }
                                 }
-                                else
-                                {  // Call the parse command method passing the line
-                                    shapeCompiler.Compile(program[lineNumber]);
-                                    shapeCompiler.Run();
+                                else if (program[lineNumber].Contains("="))
+                                {
+                                    shapeCompiler.ParseUsingLexer(program[lineNumber], lineNumber);
                                 }
                             }
+                            else
+                            {  // Call the parse command method passing the line
+                                shapeCompiler.Compile(program[lineNumber]);
+                                shapeCompiler.Run();
+                            }
                         }
-                    }
-                    else
-                    {
-                        shapeCompiler.Compile(input);
-                        shapeCompiler.Run();
                     }
                 }
                 else
                 {
-                    programLog.SelectionColor = Color.Red;
-                    programLog.AppendText($"[*] Error: Please provide a command to run");
-                    programLog.AppendText(Environment.NewLine);
+                    shapeCompiler.Compile(input);
+                    shapeCompiler.Run();
                 }
+            }
+            else
+            {
+                programLog.SelectionColor = Color.Red;
+                programLog.AppendText($"[*] Error: Please provide a command to run");
+                programLog.AppendText(Environment.NewLine);
             }
         }
 
