@@ -85,18 +85,27 @@ namespace graphical_programming_language
                                     {
                                         if (!shapeCompiler.ParseUsingIf(program[lineNumber]))
                                         {
+                                            bool hasEndIf = false;
+                                            int currentLineNumber = lineNumber;
+
                                             for (; lineNumber < program.Length; lineNumber++)
                                             {
                                                 if (program[lineNumber].Contains("endif"))
                                                 {
+                                                    hasEndIf = true;
                                                     break;
                                                 }
+                                            }
+
+                                            if (!hasEndIf)
+                                            {
+                                                lineNumber = ++currentLineNumber;
                                             }
                                         }
                                     }
                                 }
                                 else
-                                {  // Call the parse command method passing the line , and the line num + 1
+                                {  // Call the parse command method passing the line
                                     shapeCompiler.Compile(program[lineNumber]);
                                     shapeCompiler.Run();
                                 }

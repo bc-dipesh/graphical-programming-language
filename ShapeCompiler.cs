@@ -167,10 +167,10 @@ namespace graphical_programming_language
                 }
             }
 
-            foreach (KeyValuePair<string, string> kvp in Variables)
-            {
-                Console.WriteLine(kvp);
-            }
+            //foreach (KeyValuePair<string, string> kvp in Variables)
+            //{
+            //    Console.WriteLine(kvp);
+            //}
         }
 
         public bool ParseUsingIf(string input)
