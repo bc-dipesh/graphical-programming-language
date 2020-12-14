@@ -27,7 +27,6 @@ namespace graphical_programming_language
         {
             InitializeComponent();
             SetUpAboutMessage();
-            lexer = new Lexer();
 
             shapeCompiler = new ShapeCompiler(outputWindow, programLog);
         }
