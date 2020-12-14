@@ -92,6 +92,35 @@ namespace graphical_programming_language
             width = height = 100;
         }
 
+        // Generate a color from the given string.
+        private Color GetColor(string color)
+        {
+            foreach (KnownColor _color in Enum.GetValues(typeof(KnownColor)))
+            {
+                if (_color.ToString().ToUpper().Equals(color.ToUpper()))
+                {
+                    return Color.FromName(color);
+                }
+            }
+            return Color.Black;
+        }
+
+        /// <summary>
+        /// Log program output.
+        /// </summary>
+        /// <param name="messageColor">The color of the message.</param>
+        /// <param name="message">The actual message of the output after a command is run.</param>
+        /// <remarks>
+        /// Logs the output of the command or program to the ProgramLog window.
+        /// </remarks>
+        public void LogOutput(Color messageColor, string message)
+        {
+            programLog.SelectionColor = messageColor;
+            programLog.AppendText(message);
+            programLog.AppendText(Environment.NewLine);
+            programLog.ScrollToCaret();
+        }
+
         public void ParseUsingLexer(string input, int lineNum)
         {
             var tokens = lexer.Advance(input);
@@ -233,6 +262,123 @@ namespace graphical_programming_language
         public void Run()
         {
             CommandParser(Command, Arguments);
+        }
+
+        // Checks if the program window is not empty.
+        private static bool IsInputEmpty(string input)
+        {
+            return !string.IsNullOrWhiteSpace(input);
+        }
+
+        public void ParseProgram(string programCode, string commandInput)
+        {
+            var program = programCode.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+            var input = commandInput;
+            var cursor = 0;
+
+            if (IsInputEmpty(input))
+            {
+                if (input.ToUpper().Equals("RUN"))
+                {
+                    for (int lineNumber = 0; lineNumber < program.Length; lineNumber++)
+                    {
+                        // If the line is not blank or null
+                        if (IsInputEmpty(program[lineNumber]))
+                        {
+                            if (program[lineNumber].Contains("=") || program[lineNumber].Contains("if") || program[lineNumber].Contains("endif") || program[lineNumber].Contains("while") || program[lineNumber].Contains("function") || program[lineNumber].Contains("()"))
+                            {
+                                if (program[lineNumber].Contains("endfunction"))
+                                {
+                                    lineNumber = cursor;
+                                }
+                                else if (program[lineNumber].Contains("function"))
+                                {
+                                    var tokens = lexer.Advance(program[lineNumber]);
+                                    int functionLineNum = lineNumber;
+                                    for (; functionLineNum < program.Length; functionLineNum++)
+                                    {
+                                        if (program[functionLineNum].Contains("endfunction"))
+                                        {
+                                            break;
+                                        }
+                                    }
+                                    Variables.Add(tokens[1].getValue(), lineNumber + "," + (functionLineNum - 1));
+                                    lineNumber = functionLineNum;
+                                }
+                                else if (program[lineNumber].Contains("()"))
+                                {
+                                    cursor = lineNumber;
+                                    var tokens = lexer.Advance(program[lineNumber]);
+                                    var functionLines = Variables[tokens[0].getValue()].Split(',');
+                                    lineNumber = Int32.Parse(functionLines[0]);
+                                }
+                                else if (program[lineNumber].Contains("while") && !program[lineNumber].Contains("endwhile"))
+                                {
+                                    int whileNum = lineNumber;
+                                    whileNum++;
+                                    while (ParseUsingIf(program[lineNumber]))
+                                    {
+                                        if (program[whileNum].Contains("endwhile"))
+                                        {
+                                            whileNum = lineNumber;
+                                        }
+                                        else
+                                        {
+                                            ParseProgram(program[whileNum], input);
+                                        }
+                                        whileNum++;
+                                    }
+                                    lineNumber = whileNum;
+                                }
+                                else if (program[lineNumber].Contains("endif"))
+                                {
+                                    continue;
+                                }
+                                else if (program[lineNumber].Contains("if"))
+                                {
+                                    if (!ParseUsingIf(program[lineNumber]))
+                                    {
+                                        bool hasEndIf = false;
+                                        int currentLineNumber = lineNumber;
+
+                                        for (; lineNumber < program.Length; lineNumber++)
+                                        {
+                                            if (program[lineNumber].Contains("endif"))
+                                            {
+                                                hasEndIf = true;
+                                                break;
+                                            }
+                                        }
+
+                                        if (!hasEndIf)
+                                        {
+                                            lineNumber = ++currentLineNumber;
+                                        }
+                                    }
+                                }
+                                else if (program[lineNumber].Contains("="))
+                                {
+                                    ParseUsingLexer(program[lineNumber], lineNumber);
+                                }
+                            }
+                            else
+                            {  // Call the parse command method passing the line
+                                Compile(program[lineNumber]);
+                                Run();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Compile(input);
+                    Run();
+                }
+            }
+            else
+            {
+                LogOutput(Color.Red, "[*] Error: Please provide a command to run");
+            }
         }
 
         /// <summary>
@@ -391,35 +537,6 @@ namespace graphical_programming_language
             {
                 LogOutput(Color.Red, $"[*] Error: Command {command} not found");
             }
-        }
-
-        // Generate a color from the given string.
-        private Color GetColor(string color)
-        {
-            foreach (KnownColor _color in Enum.GetValues(typeof(KnownColor)))
-            {
-                if (_color.ToString().ToUpper().Equals(color.ToUpper()))
-                {
-                    return Color.FromName(color);
-                }
-            }
-            return Color.Black;
-        }
-
-        /// <summary>
-        /// Log program output.
-        /// </summary>
-        /// <param name="messageColor">The color of the message.</param>
-        /// <param name="message">The actual message of the output after a command is run.</param>
-        /// <remarks>
-        /// Logs the output of the command or program to the ProgramLog window.
-        /// </remarks>
-        public void LogOutput(Color messageColor, string message)
-        {
-            programLog.SelectionColor = messageColor;
-            programLog.AppendText(message);
-            programLog.AppendText(Environment.NewLine);
-            programLog.ScrollToCaret();
         }
     }
 }
