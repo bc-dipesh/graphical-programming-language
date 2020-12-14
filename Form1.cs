@@ -62,9 +62,6 @@ namespace graphical_programming_language
                 // Stop the ding sound after the button is pressed.
                 e.SuppressKeyPress = true;
 
-                //var program = programWindow.Text.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
-                //var input = commandLine.Text;
-
                 ParseProgram(programWindow.Text);
             }
         }
@@ -79,7 +76,6 @@ namespace graphical_programming_language
             {
                 if (input.ToUpper().Equals("RUN"))
                 {
-                    //shapeCompiler.Variables.Clear();
                     for (int lineNumber = 0; lineNumber < program.Length; lineNumber++)
                     {
                         // If the line is not blank or null
@@ -177,9 +173,7 @@ namespace graphical_programming_language
             }
             else
             {
-                programLog.SelectionColor = Color.Red;
-                programLog.AppendText($"[*] Error: Please provide a command to run");
-                programLog.AppendText(Environment.NewLine);
+                shapeCompiler.LogOutput(Color.Red, "[*] Error: Please provide a command to run");
             }
         }
 
