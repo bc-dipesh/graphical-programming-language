@@ -17,7 +17,7 @@ namespace graphical_programming_language
         private readonly ShapeCompiler shapeCompiler;
         private StringBuilder aboutMessage;
 
-        private Lexer lexer;
+        private readonly Lexer lexer;
 
         /// <summary>
         /// The default constructor.

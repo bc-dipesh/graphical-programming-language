@@ -15,7 +15,7 @@ namespace graphical_programming_language
     /// </remarks>
     public class ShapeCompiler : ICompiler
     {
-        private Lexer lexer;
+        private readonly Lexer lexer;
         public Dictionary<string, string> Variables { get; set; }
 
         private readonly ShapeFactory shapeFactory;
