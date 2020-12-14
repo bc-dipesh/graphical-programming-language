@@ -122,11 +122,10 @@ namespace graphical_programming_language
         }
 
         /// <summary>
-        /// Parses the program and command.
+        /// Parses the program.
         /// </summary>
         /// <param name="input">The text to be parsed.</param>
-        /// <param name="lineNum"></param>
-        /// <remarks></remarks>
+        /// <remarks>Parses the program written in the program window.</remarks>
         public void ParseUsingLexer(string input)
         {
             var tokens = lexer.Advance(input);
