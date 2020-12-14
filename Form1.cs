@@ -49,7 +49,7 @@ namespace graphical_programming_language
             aboutMessage.Append(Environment.NewLine);
             aboutMessage.Append("Author: Dipesh BC");
             aboutMessage.Append(Environment.NewLine);
-            aboutMessage.Append("Version: 1.0");
+            aboutMessage.Append("Version: v1.1.0");
             aboutMessage.Append(Environment.NewLine);
             aboutMessage.Append("License: MIT");
         }
@@ -79,7 +79,7 @@ namespace graphical_programming_language
             {
                 if (input.ToUpper().Equals("RUN"))
                 {
-                    shapeCompiler.Variables.Clear();
+                    //shapeCompiler.Variables.Clear();
                     for (int lineNumber = 0; lineNumber < program.Length; lineNumber++)
                     {
                         // If the line is not blank or null
