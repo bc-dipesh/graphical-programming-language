@@ -127,7 +127,7 @@ namespace graphical_programming_language
         /// <param name="input">The text to be parsed.</param>
         /// <param name="lineNum"></param>
         /// <remarks></remarks>
-        public void ParseUsingLexer(string input, int lineNum)
+        public void ParseUsingLexer(string input)
         {
             var tokens = lexer.Advance(input);
             string variable_name = "";
@@ -377,7 +377,7 @@ namespace graphical_programming_language
                                 }
                                 else if (program[lineNumber].Contains("="))
                                 {
-                                    ParseUsingLexer(program[lineNumber], lineNumber);
+                                    ParseUsingLexer(program[lineNumber]);
                                 }
                             }
                             else
