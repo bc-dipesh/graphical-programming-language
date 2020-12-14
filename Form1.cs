@@ -7,7 +7,7 @@ namespace graphical_programming_language
 {
     /// <summary>
     /// The main Form class.
-    /// Inherits class <see cref="System.Windows.Forms.Form"/>.
+    /// Inherits class <see cref="Form"/>.
     /// </summary>
     /// <remarks>
     /// This class displays the application form/view.

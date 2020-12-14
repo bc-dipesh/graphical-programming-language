@@ -8,7 +8,6 @@
     /// </remarks>
     public interface ICompiler
     {
-
         /// <summary>
         /// Compiles a command.
         /// </summary>

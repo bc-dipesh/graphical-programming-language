@@ -10,15 +10,15 @@ namespace graphical_programming_language
     /// <list type="bullet">
     /// <item>
     /// <term>Rectangle</term>
-    /// <description><see cref="graphical_programming_language.Rectangle"/> class</description>
+    /// <description><see cref="Rectangle"/> class</description>
     /// </item>
     /// <item>
     /// <term>Triangle</term>
-    /// <description><see cref="graphical_programming_language.Triangle"/> class</description>
+    /// <description><see cref="Triangle"/> class</description>
     /// </item>
     /// <item>
     /// <term>Circle</term>
-    /// <description><see cref="graphical_programming_language.Circle"/> class</description>
+    /// <description><see cref="Circle"/> class</description>
     /// </item>
     /// </list>
     /// </remarks>

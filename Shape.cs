@@ -2,7 +2,6 @@
 
 namespace graphical_programming_language
 {
-
     /// <summary>
     /// Parent abstract class for all the Shapes.
     /// </summary>
