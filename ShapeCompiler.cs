@@ -121,6 +121,12 @@ namespace graphical_programming_language
             programLog.ScrollToCaret();
         }
 
+        /// <summary>
+        /// Parses the program and command.
+        /// </summary>
+        /// <param name="input">The text to be parsed.</param>
+        /// <param name="lineNum"></param>
+        /// <remarks></remarks>
         public void ParseUsingLexer(string input, int lineNum)
         {
             var tokens = lexer.Advance(input);
@@ -197,6 +203,11 @@ namespace graphical_programming_language
             }
         }
 
+        /// <summary>
+        /// Parse the if statements.
+        /// </summary>
+        /// <param name="input">The line to be parsed.</param>
+        /// <returns>Returns either true or false based on the if expression.</returns>
         public bool ParseUsingIf(string input)
         {
             var tokens = lexer.Advance(input);
@@ -270,6 +281,14 @@ namespace graphical_programming_language
             return !string.IsNullOrWhiteSpace(input);
         }
 
+        /// <summary>
+        /// Parse commands and programs.
+        /// </summary>
+        /// <param name="programCode">The text written in the program window.</param>
+        /// <param name="commandInput">The text written in the command line window.</param>
+        /// <remarks>
+        /// Parses the program and command written in the program window and command window.
+        /// </remarks>
         public void ParseProgram(string programCode, string commandInput)
         {
             var program = programCode.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
