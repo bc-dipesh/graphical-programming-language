@@ -72,14 +72,14 @@ namespace graphical_programming_language
             var input = commandLine.Text;
             var cursor = 0;
 
-            if (!string.IsNullOrWhiteSpace(input))
+            if (IsInputEmpty(input))
             {
                 if (input.ToUpper().Equals("RUN"))
                 {
                     for (int lineNumber = 0; lineNumber < program.Length; lineNumber++)
                     {
                         // If the line is not blank or null
-                        if (!String.IsNullOrWhiteSpace(program[lineNumber]))
+                        if (IsInputEmpty(program[lineNumber]))
                         {
                             if (program[lineNumber].Contains("=") || program[lineNumber].Contains("if") || program[lineNumber].Contains("endif") || program[lineNumber].Contains("while") || program[lineNumber].Contains("function") || program[lineNumber].Contains("()"))
                             {
@@ -175,6 +175,12 @@ namespace graphical_programming_language
             {
                 shapeCompiler.LogOutput(Color.Red, "[*] Error: Please provide a command to run");
             }
+        }
+
+        // Checks if the program window is not empty.
+        private static bool IsInputEmpty(string input)
+        {
+            return !string.IsNullOrWhiteSpace(input);
         }
 
         // Opens a FileDialog to choose a file and display its conentes in the programWindow.
