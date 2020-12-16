@@ -286,6 +286,24 @@ namespace graphical_programming_language
             return !string.IsNullOrWhiteSpace(input);
         }
 
+        // Parse the function command
+        private int ParseFunction(string[] program, int lineNumber, string currentLine)
+        {
+            var tokens = lexer.Advance(currentLine);
+            int functionLineNum = lineNumber;
+            for (; functionLineNum < program.Length; functionLineNum++)
+            {
+                if (program[functionLineNum].Contains("endfunction"))
+                {
+                    break;
+                }
+            }
+            Variables.Add(tokens[1].getValue(), lineNumber + "," + (functionLineNum - 1));
+            lineNumber = functionLineNum;
+
+            return lineNumber;
+        }
+
         // Compiles and runs the code passed to it.
         private void ExecuteCode(string input)
         {
@@ -326,17 +344,7 @@ namespace graphical_programming_language
                                 }
                                 else if (currentLine.Contains("function"))
                                 {
-                                    var tokens = lexer.Advance(currentLine);
-                                    int functionLineNum = lineNumber;
-                                    for (; functionLineNum < program.Length; functionLineNum++)
-                                    {
-                                        if (program[functionLineNum].Contains("endfunction"))
-                                        {
-                                            break;
-                                        }
-                                    }
-                                    Variables.Add(tokens[1].getValue(), lineNumber + "," + (functionLineNum - 1));
-                                    lineNumber = functionLineNum;
+                                    lineNumber = ParseFunction(program, lineNumber, currentLine);
                                 }
                                 else if (currentLine.Contains("()"))
                                 {
