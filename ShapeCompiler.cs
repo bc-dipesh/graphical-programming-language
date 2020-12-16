@@ -16,8 +16,8 @@ namespace graphical_programming_language
     public class ShapeCompiler : ICompiler
     {
         // Constants that represent operators.
-        private const string EQUALS = "=";
 
+        private const string EQUALS = "=";
         private const string IF = "if";
         private const string ENDIF = "endif";
         private const string WHILE = "while";
@@ -25,6 +25,21 @@ namespace graphical_programming_language
         private const string PARENTHESIS = "()";
 
         private string[] operators = { EQUALS, IF, ENDIF, WHILE, FUNCTION, PARENTHESIS };
+
+        // Constants that represent commands.
+
+        //private const string RECT = "RECT";
+        //private const string CIRCLE = "CIRCLE";
+        //private const string TRIANGLE = "TRIANGLE";
+        //private const string DRAWTO = "DRAWTO";
+        //private const string MOVETO = "MOVETO";
+        //private const string PEN = "PEN";
+        //private const string FILL = "FILL";
+        //private const string RESET = "RESET";
+        //private const string CLEAR = "CLEAR";
+        //private const string EXIT = "EXIT";
+
+        //private string[] commands = { RECT, CIRCLE, TRIANGLE, DRAWTO, MOVETO, PEN, FILL, RESET, CLEAR, EXIT };
 
         private readonly Lexer lexer;
         public Dictionary<string, string> Variables { get; set; }
@@ -267,6 +282,168 @@ namespace graphical_programming_language
             return result;
         }
 
+        // Check if command is for drawing shape.
+        private static bool IsShapeCommand(string command)
+        {
+            return command.ToUpper().Equals("RECT") || command.ToUpper().Equals("CIRCLE") || command.ToUpper().Equals("TRIANGLE");
+        }
+
+        // Draws a shape based on the command and arguments.
+        private void DrawShape(string command, string[] arguments)
+        {
+            try
+            {
+                if (command.ToUpper().Equals("CIRCLE"))
+                {
+                    if (arguments.Length == 0) { throw new ArgumentException("Circle command need 1 more parameter that represents its radius"); }
+                    else
+                    {
+                        radius = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
+                        width = radius * 2;
+                        height = radius * 2;
+                    }
+                }
+                else
+                {
+                    width = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
+                    height = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
+                }
+
+                Shape shape = shapeFactory.GetShape(command, fillColor, isColorFillOn, xPos, yPos, width, height);
+                shape.Draw(outputWindow.CreateGraphics(), pen);
+
+                LogOutput(Color.Black, $"[*] {shape.GetType().Name} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}");
+            }
+            catch (ArgumentException ex)
+            {
+                LogOutput(Color.Red, $"[*] Error: {ex.Message}");
+            }
+            catch (FormatException)
+            {
+                LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                string shape = command.ToUpper().Equals("RECT") ? "Rectangle" : command;
+
+                LogOutput(Color.Red, $"[*] Error: Please provide two parameter for drawing {shape}");
+            }
+        }
+
+        // Draws a line from one point to another.
+        private void DrawLine(string[] arguments)
+        {
+            try
+            {
+                toXPos = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
+                toYPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
+
+                Shape shape = shapeFactory.GetShape("line", fillColor, isColorFillOn, xPos, yPos, toXPos, toYPos);
+                shape.Draw(outputWindow.CreateGraphics(), pen);
+
+                LogOutput(Color.Black, $"[*] Line drawn from position x1 -> {xPos}, y1 -> {yPos} to position x2 -> {toXPos}, y2 -> {toYPos}");
+
+                xPos = toXPos;
+                yPos = toYPos;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                LogOutput(Color.Red, "[*] Error: Please provide two parameter to draw a line");
+            }
+            catch (FormatException)
+            {
+                LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
+            }
+        }
+
+        // Moves or sets pen position.
+        private void MovePen(string[] arguments)
+        {
+            try
+            {
+                xPos = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
+                yPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
+
+                LogOutput(Color.Black, $"[*] Pen position set to {xPos}, {yPos}");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                LogOutput(Color.Red, "[*] Error: Please provide two parameter to move pointer");
+            }
+            catch (FormatException)
+            {
+                LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
+            }
+        }
+
+        // Sets the pen color and size.
+        private void SetPen(string[] arguments)
+        {
+            try
+            {
+                Color color = Variables.ContainsKey(arguments[0]) ? Color.FromName(Variables[arguments[0]]) : Color.FromName(arguments[0]);
+                int size = (arguments.Length == 2) ? int.Parse(arguments[1]) : 1;
+
+                pen = GetPen(color, size);
+
+                LogOutput(Color.Black, $"[*] Pen color set to {color.Name} and pen size set to {size}");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                LogOutput(Color.Red, "[*] Error: Please provide one parameter for selecting the color");
+            }
+            catch (FormatException)
+            {
+                LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
+            }
+        }
+
+        // Sets the color fill for the shape.
+        private void SetColorFill(string[] arguments)
+        {
+            try
+            {
+                if (arguments[0].ToUpper().Equals("ON"))
+                {
+                    isColorFillOn = true;
+                    fillColor = (arguments.Length == 2) ? GetColor(arguments[1]) : Color.Black;
+
+                    LogOutput(Color.Black, $"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}");
+                }
+                else if (arguments[0].ToUpper().Equals("OFF"))
+                {
+                    isColorFillOn = false;
+
+                    LogOutput(Color.Black, $"[*] Color fill is now {isColorFillOn}");
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                LogOutput(Color.Red, "[*] Error: Please provide one parameter (on/off) to either turn fill on/off");
+            }
+            catch (FormatException)
+            {
+                LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
+            }
+        }
+
+        // Resets the pen position and height to default value.
+        private void ResetPen()
+        {
+            xPos = yPos = toXPos = toYPos = 0;
+            width = height = 100;
+
+            LogOutput(Color.Black, "[*] Reset pen position to 0, 0");
+        }
+
+        // Clears the output panel.
+        private void ClearPanel()
+        {
+            outputWindow.Refresh();
+
+            LogOutput(Color.Black, "[*] Cleared output panel");
+        }
+
         public void Compile(string input)
         {
             string[] data = inputSplitter.Split(input).Where(token => token != String.Empty).ToArray<string>();
@@ -477,147 +654,33 @@ namespace graphical_programming_language
         // Call appropriate action according to the command and arguments passed to it.
         private void CommandParser(string command, string[] arguments)
         {
-            if (command.ToUpper().Equals("RECT") || command.ToUpper().Equals("CIRCLE") || command.ToUpper().Equals("TRIANGLE"))
+            if (IsShapeCommand(command))
             {
-                try
-                {
-                    if (command.ToUpper().Equals("CIRCLE"))
-                    {
-                        if (arguments.Length == 0) { throw new ArgumentException("Circle command need 1 more parameter that represents its radius"); }
-                        else
-                        {
-                            radius = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
-                            width = radius * 2;
-                            height = radius * 2;
-                        }
-                    }
-                    else
-                    {
-                        width = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
-                        height = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
-                    }
-
-                    Shape shape = shapeFactory.GetShape(command, fillColor, isColorFillOn, xPos, yPos, width, height);
-                    shape.Draw(outputWindow.CreateGraphics(), pen);
-
-                    LogOutput(Color.Black, $"[*] {shape.GetType().Name} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}");
-                }
-                catch (ArgumentException ex)
-                {
-                    LogOutput(Color.Red, $"[*] Error: {ex.Message}");
-                }
-                catch (FormatException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    string shape = command.ToUpper().Equals("RECT") ? "Rectangle" : command;
-
-                    LogOutput(Color.Red, $"[*] Error: Please provide two parameter for drawing {shape}");
-                }
+                DrawShape(command, arguments);
             }
             else if (command.ToUpper().Equals("DRAWTO"))
             {
-                try
-                {
-                    toXPos = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
-                    toYPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
-
-                    Shape shape = shapeFactory.GetShape("line", fillColor, isColorFillOn, xPos, yPos, toXPos, toYPos);
-                    shape.Draw(outputWindow.CreateGraphics(), pen);
-
-                    LogOutput(Color.Black, $"[*] Line drawn from position x1 -> {xPos}, y1 -> {yPos} to position x2 -> {toXPos}, y2 -> {toYPos}");
-
-                    xPos = toXPos;
-                    yPos = toYPos;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Please provide two parameter to draw a line");
-                }
-                catch (FormatException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
-                }
+                DrawLine(arguments);
             }
             else if (command.ToUpper().Equals("MOVETO"))
             {
-                try
-                {
-                    xPos = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
-                    yPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
-
-                    LogOutput(Color.Black, $"[*] Pen position set to {xPos}, {yPos}");
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Please provide two parameter to move pointer");
-                }
-                catch (FormatException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
-                }
+                MovePen(arguments);
             }
             else if (command.ToUpper().Equals("PEN"))
             {
-                try
-                {
-                    Color color = Variables.ContainsKey(arguments[0]) ? Color.FromName(Variables[arguments[0]]) : Color.FromName(arguments[0]);
-                    int size = (arguments.Length == 2) ? int.Parse(arguments[1]) : 1;
-
-                    pen = GetPen(color, size);
-
-                    LogOutput(Color.Black, $"[*] Pen color set to {color.Name} and pen size set to {size}");
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Please provide one parameter for selecting the color");
-                }
-                catch (FormatException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
-                }
+                SetPen(arguments);
             }
             else if (command.ToUpper().Equals("FILL"))
             {
-                try
-                {
-                    if (arguments[0].ToUpper().Equals("ON"))
-                    {
-                        isColorFillOn = true;
-                        fillColor = (arguments.Length == 2) ? GetColor(arguments[1]) : Color.Black;
-
-                        LogOutput(Color.Black, $"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}");
-                    }
-                    else if (arguments[0].ToUpper().Equals("OFF"))
-                    {
-                        isColorFillOn = false;
-
-                        LogOutput(Color.Black, $"[*] Color fill is now {isColorFillOn}");
-                    }
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Please provide one parameter (on/off) to either turn fill on/off");
-                }
-                catch (FormatException)
-                {
-                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
-                }
+                SetColorFill(arguments);
             }
             else if (command.ToUpper().Equals("RESET"))
             {
-                xPos = yPos = toXPos = toYPos = 0;
-                width = height = 100;
-
-                LogOutput(Color.Black, "[*] Reset pen position to 0, 0");
+                ResetPen();
             }
             else if (command.ToUpper().Equals("CLEAR"))
             {
-                outputWindow.Refresh();
-
-                LogOutput(Color.Black, "[*] Cleared output panel");
+                ClearPanel();
             }
             else if (command.ToUpper().Equals("EXIT"))
             {
