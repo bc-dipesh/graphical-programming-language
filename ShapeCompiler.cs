@@ -286,7 +286,7 @@ namespace graphical_programming_language
             return !string.IsNullOrWhiteSpace(input);
         }
 
-        // Parse the function command
+        // Parse the function command.
         private int ParseFunction(string[] program, int lineNumber, string currentLine)
         {
             var tokens = lexer.Advance(currentLine);
@@ -302,6 +302,17 @@ namespace graphical_programming_language
             lineNumber = functionLineNum;
 
             return lineNumber;
+        }
+
+        // Runs the function created in the program.
+        private int RunFunction(ref int lineNumber, string currentLine)
+        {
+            int cursor = lineNumber;
+            var tokens = lexer.Advance(currentLine);
+            var functionLines = Variables[tokens[0].getValue()].Split(',');
+            lineNumber = int.Parse(functionLines[0]);
+
+            return cursor;
         }
 
         // Compiles and runs the code passed to it.
@@ -348,10 +359,7 @@ namespace graphical_programming_language
                                 }
                                 else if (currentLine.Contains("()"))
                                 {
-                                    cursor = lineNumber;
-                                    var tokens = lexer.Advance(currentLine);
-                                    var functionLines = Variables[tokens[0].getValue()].Split(',');
-                                    lineNumber = int.Parse(functionLines[0]);
+                                    cursor = RunFunction(ref lineNumber, currentLine);
                                 }
                                 else if (currentLine.Contains("while") && !currentLine.Contains("endwhile"))
                                 {
