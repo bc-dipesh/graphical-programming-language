@@ -315,6 +315,27 @@ namespace graphical_programming_language
             return cursor;
         }
 
+        // Runs the loop operation.
+        private int RunLoop(string[] program, string input, int lineNumber, string currentLine)
+        {
+            int whileNum = lineNumber;
+            whileNum++;
+            while (ParseUsingIf(currentLine))
+            {
+                if (program[whileNum].Contains("endwhile"))
+                {
+                    whileNum = lineNumber;
+                }
+                else
+                {
+                    ParseProgram(program[whileNum], input);
+                }
+                whileNum++;
+            }
+            lineNumber = whileNum;
+            return lineNumber;
+        }
+
         // Compiles and runs the code passed to it.
         private void ExecuteCode(string input)
         {
@@ -412,26 +433,6 @@ namespace graphical_programming_language
             {
                 LogOutput(Color.Red, "[*] Error: Please provide a command to run");
             }
-        }
-
-        private int RunLoop(string[] program, string input, int lineNumber, string currentLine)
-        {
-            int whileNum = lineNumber;
-            whileNum++;
-            while (ParseUsingIf(currentLine))
-            {
-                if (program[whileNum].Contains("endwhile"))
-                {
-                    whileNum = lineNumber;
-                }
-                else
-                {
-                    ParseProgram(program[whileNum], input);
-                }
-                whileNum++;
-            }
-            lineNumber = whileNum;
-            return lineNumber;
         }
 
         /// <summary>
