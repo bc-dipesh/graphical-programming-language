@@ -280,6 +280,13 @@ namespace graphical_programming_language
             return !string.IsNullOrWhiteSpace(input);
         }
 
+        // Compiles and runs the code passed to it.
+        private void ExecuteCode(string input)
+        {
+            Compile(input);
+            Run();
+        }
+
         /// <summary>
         /// Parse commands and programs.
         /// </summary>
@@ -380,17 +387,15 @@ namespace graphical_programming_language
                                 }
                             }
                             else
-                            {  // Call the parse command method passing the line
-                                Compile(program[lineNumber]);
-                                Run();
+                            {
+                                ExecuteCode(program[lineNumber]);
                             }
                         }
                     }
                 }
                 else
                 {
-                    Compile(input);
-                    Run();
+                    ExecuteCode(input);
                 }
             }
             else
