@@ -363,21 +363,7 @@ namespace graphical_programming_language
                                 }
                                 else if (currentLine.Contains("while") && !currentLine.Contains("endwhile"))
                                 {
-                                    int whileNum = lineNumber;
-                                    whileNum++;
-                                    while (ParseUsingIf(currentLine))
-                                    {
-                                        if (program[whileNum].Contains("endwhile"))
-                                        {
-                                            whileNum = lineNumber;
-                                        }
-                                        else
-                                        {
-                                            ParseProgram(program[whileNum], input);
-                                        }
-                                        whileNum++;
-                                    }
-                                    lineNumber = whileNum;
+                                    lineNumber = RunLoop(program, input, lineNumber, currentLine);
                                 }
                                 else if (currentLine.Contains("endif"))
                                 {
@@ -426,6 +412,26 @@ namespace graphical_programming_language
             {
                 LogOutput(Color.Red, "[*] Error: Please provide a command to run");
             }
+        }
+
+        private int RunLoop(string[] program, string input, int lineNumber, string currentLine)
+        {
+            int whileNum = lineNumber;
+            whileNum++;
+            while (ParseUsingIf(currentLine))
+            {
+                if (program[whileNum].Contains("endwhile"))
+                {
+                    whileNum = lineNumber;
+                }
+                else
+                {
+                    ParseProgram(program[whileNum], input);
+                }
+                whileNum++;
+            }
+            lineNumber = whileNum;
+            return lineNumber;
         }
 
         /// <summary>
