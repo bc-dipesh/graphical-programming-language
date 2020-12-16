@@ -336,6 +336,32 @@ namespace graphical_programming_language
             return lineNumber;
         }
 
+        // Runs the if statement in the program.
+        private int RunIfStatement(string[] program, int lineNumber, string currentLine)
+        {
+            if (!ParseUsingIf(currentLine))
+            {
+                bool hasEndIf = false;
+                int currentLineNumber = lineNumber;
+
+                for (; lineNumber < program.Length; lineNumber++)
+                {
+                    if (currentLine.Contains("endif"))
+                    {
+                        hasEndIf = true;
+                        break;
+                    }
+                }
+
+                if (!hasEndIf)
+                {
+                    lineNumber = ++currentLineNumber;
+                }
+            }
+
+            return lineNumber;
+        }
+
         // Compiles and runs the code passed to it.
         private void ExecuteCode(string input)
         {
@@ -392,25 +418,7 @@ namespace graphical_programming_language
                                 }
                                 else if (currentLine.Contains("if"))
                                 {
-                                    if (!ParseUsingIf(currentLine))
-                                    {
-                                        bool hasEndIf = false;
-                                        int currentLineNumber = lineNumber;
-
-                                        for (; lineNumber < program.Length; lineNumber++)
-                                        {
-                                            if (currentLine.Contains("endif"))
-                                            {
-                                                hasEndIf = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!hasEndIf)
-                                        {
-                                            lineNumber = ++currentLineNumber;
-                                        }
-                                    }
+                                    lineNumber = RunIfStatement(program, lineNumber, currentLine);
                                 }
                                 else if (currentLine.Contains("="))
                                 {
