@@ -535,6 +535,10 @@ namespace graphical_programming_language
                 {
                     LogOutput(Color.Red, "[*] Error: Please provide two parameter to draw a line");
                 }
+                catch (FormatException)
+                {
+                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
+                }
             }
             else if (command.ToUpper().Equals("MOVETO"))
             {
@@ -548,6 +552,10 @@ namespace graphical_programming_language
                 catch (IndexOutOfRangeException)
                 {
                     LogOutput(Color.Red, "[*] Error: Please provide two parameter to move pointer");
+                }
+                catch (FormatException)
+                {
+                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
                 }
             }
             else if (command.ToUpper().Equals("PEN"))
@@ -573,6 +581,10 @@ namespace graphical_programming_language
                 {
                     LogOutput(Color.Red, "[*] Error: Please provide one parameter for selecting the color");
                 }
+                catch (FormatException)
+                {
+                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
+                }
             }
             else if (command.ToUpper().Equals("FILL"))
             {
@@ -595,6 +607,10 @@ namespace graphical_programming_language
                 catch (IndexOutOfRangeException)
                 {
                     LogOutput(Color.Red, "[*] Error: Please provide one parameter (on/off) to either turn fill on/off");
+                }
+                catch (FormatException)
+                {
+                    LogOutput(Color.Red, "[*] Error: Given argument is not in correct format");
                 }
             }
             else if (command.ToUpper().Equals("RESET"))
