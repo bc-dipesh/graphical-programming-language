@@ -17,6 +17,7 @@ namespace graphical_programming_language
     {
         // Constants that represent operators.
         private const string EQUALS = "=";
+
         private const string IF = "if";
         private const string ENDIF = "endif";
         private const string WHILE = "while";
@@ -562,15 +563,7 @@ namespace graphical_programming_language
             {
                 try
                 {
-                    Color color;
-                    if (Variables.ContainsKey(arguments[0]))
-                    {
-                        color = Color.FromName(Variables[arguments[0]]);
-                    }
-                    else
-                    {
-                        color = Color.FromName(arguments[0]);
-                    }
+                    Color color = Variables.ContainsKey(arguments[0]) ? Color.FromName(Variables[arguments[0]]) : Color.FromName(arguments[0]);
                     int size = (arguments.Length == 2) ? int.Parse(arguments[1]) : 1;
 
                     pen = GetPen(color, size);
