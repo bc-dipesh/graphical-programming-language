@@ -15,6 +15,16 @@ namespace graphical_programming_language
     /// </remarks>
     public class ShapeCompiler : ICompiler
     {
+        // Constants that represent operators.
+        private const string EQUALS = "=";
+        private const string IF = "if";
+        private const string ENDIF = "endif";
+        private const string WHILE = "while";
+        private const string FUNCTION = "function";
+        private const string PARENTHESIS = "()";
+
+        private string[] operators = { EQUALS, IF, ENDIF, WHILE, FUNCTION, PARENTHESIS };
+
         private readonly Lexer lexer;
         public Dictionary<string, string> Variables { get; set; }
 
@@ -275,13 +285,22 @@ namespace graphical_programming_language
         }
 
         // Checks and return a bool value that represents if line has operator.
-        private static bool LineContainsOperator(string line)
+        private bool LineContainsOperator(string line)
         {
-            return line.Contains("=") || line.Contains("if") || line.Contains("endif") || line.Contains("while") || line.Contains("function") || line.Contains("()");
+            bool hasOperator = false;
+
+            foreach (string element in operators)
+            {
+                if (line.Contains(element))
+                {
+                    hasOperator = true;
+                }
+            }
+            return hasOperator;
         }
 
         // Checks if the program window is not empty.
-        private static bool IsInputEmpty(string input)
+        private bool IsInputEmpty(string input)
         {
             return !string.IsNullOrWhiteSpace(input);
         }
