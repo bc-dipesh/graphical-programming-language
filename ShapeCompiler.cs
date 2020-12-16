@@ -343,7 +343,7 @@ namespace graphical_programming_language
                                     cursor = lineNumber;
                                     var tokens = lexer.Advance(currentLine);
                                     var functionLines = Variables[tokens[0].getValue()].Split(',');
-                                    lineNumber = Int32.Parse(functionLines[0]);
+                                    lineNumber = int.Parse(functionLines[0]);
                                 }
                                 else if (currentLine.Contains("while") && !currentLine.Contains("endwhile"))
                                 {
