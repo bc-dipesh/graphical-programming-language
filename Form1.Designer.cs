@@ -44,6 +44,7 @@ namespace graphical_programming_language
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programLog = new System.Windows.Forms.RichTextBox();
             this.log = new System.Windows.Forms.Label();
+            this.checkSyntax = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@ namespace graphical_programming_language
             this.commandLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.commandLine.Location = new System.Drawing.Point(16, 469);
             this.commandLine.Name = "commandLine";
-            this.commandLine.Size = new System.Drawing.Size(422, 22);
+            this.commandLine.Size = new System.Drawing.Size(419, 22);
             this.commandLine.TabIndex = 2;
             this.commandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CommandTxtBox_KeyDown);
             // 
@@ -175,11 +176,22 @@ namespace graphical_programming_language
             this.log.TabIndex = 9;
             this.log.Text = "Logs";
             // 
+            // checkSyntax
+            // 
+            this.checkSyntax.Location = new System.Drawing.Point(16, 531);
+            this.checkSyntax.Name = "checkSyntax";
+            this.checkSyntax.Size = new System.Drawing.Size(105, 35);
+            this.checkSyntax.TabIndex = 10;
+            this.checkSyntax.Text = "Check Syntax";
+            this.checkSyntax.UseVisualStyleBackColor = true;
+            this.checkSyntax.Click += new System.EventHandler(this.CheckSyntax_Click);
+            // 
             // GraphicalProgrammingLanguageApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 578);
+            this.Controls.Add(this.checkSyntax);
             this.Controls.Add(this.log);
             this.Controls.Add(this.programLog);
             this.Controls.Add(this.programWindow);
@@ -219,6 +231,7 @@ namespace graphical_programming_language
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.RichTextBox programLog;
         private System.Windows.Forms.Label log;
+        private System.Windows.Forms.Button checkSyntax;
     }
 }
 

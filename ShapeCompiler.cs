@@ -57,6 +57,8 @@ namespace graphical_programming_language
 
         private bool isColorFillOn;
 
+        public bool DrawToPanel { get; set; }
+
         /// <summary>
         /// The default constructor.
         /// </summary>
@@ -295,9 +297,16 @@ namespace graphical_programming_language
                 }
 
                 Shape shape = shapeFactory.GetShape(command, fillColor, isColorFillOn, xPos, yPos, width, height);
-                shape.Draw(outputWindow.CreateGraphics(), pen);
+                if (DrawToPanel)
+                {
+                    shape.Draw(outputWindow.CreateGraphics(), pen);
+                    LogOutput(Color.Black, $"[*] {shape.GetType().Name} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}");
+                }
+                else
+                {
+                    LogOutput(Color.Black, "[*] No errors found in Syntax");
+                }
 
-                LogOutput(Color.Black, $"[*] {shape.GetType().Name} drawn at position x -> {xPos}, y -> {yPos} with width -> {width}, height -> {height}");
             }
             catch (ArgumentException ex)
             {
@@ -324,12 +333,19 @@ namespace graphical_programming_language
                 toYPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
 
                 Shape shape = shapeFactory.GetShape("line", fillColor, isColorFillOn, xPos, yPos, toXPos, toYPos);
-                shape.Draw(outputWindow.CreateGraphics(), pen);
+                if (DrawToPanel)
+                {
+                    shape.Draw(outputWindow.CreateGraphics(), pen);
 
-                LogOutput(Color.Black, $"[*] Line drawn from position x1 -> {xPos}, y1 -> {yPos} to position x2 -> {toXPos}, y2 -> {toYPos}");
+                    LogOutput(Color.Black, $"[*] Line drawn from position x1 -> {xPos}, y1 -> {yPos} to position x2 -> {toXPos}, y2 -> {toYPos}");
 
-                xPos = toXPos;
-                yPos = toYPos;
+                    xPos = toXPos;
+                    yPos = toYPos;
+                }
+                else
+                {
+                    LogOutput(Color.Black, "[*] No errors found in Syntax");
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -346,10 +362,17 @@ namespace graphical_programming_language
         {
             try
             {
-                xPos = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
-                yPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
+                if (DrawToPanel)
+                {
+                    xPos = Variables.ContainsKey(arguments[0]) ? int.Parse(Variables[arguments[0]]) : int.Parse(arguments[0]);
+                    yPos = Variables.ContainsKey(arguments[1]) ? int.Parse(Variables[arguments[1]]) : int.Parse(arguments[1]);
 
-                LogOutput(Color.Black, $"[*] Pen position set to {xPos}, {yPos}");
+                    LogOutput(Color.Black, $"[*] Pen position set to {xPos}, {yPos}");
+                }
+                else
+                {
+                    LogOutput(Color.Black, "[*] No errors found in Syntax");
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -366,12 +389,19 @@ namespace graphical_programming_language
         {
             try
             {
-                Color color = Variables.ContainsKey(arguments[0]) ? Color.FromName(Variables[arguments[0]]) : Color.FromName(arguments[0]);
-                int size = (arguments.Length == 2) ? int.Parse(arguments[1]) : 1;
+                if (DrawToPanel)
+                {
+                    Color color = Variables.ContainsKey(arguments[0]) ? Color.FromName(Variables[arguments[0]]) : Color.FromName(arguments[0]);
+                    int size = (arguments.Length == 2) ? int.Parse(arguments[1]) : 1;
 
-                pen = GetPen(color, size);
+                    pen = GetPen(color, size);
 
-                LogOutput(Color.Black, $"[*] Pen color set to {color.Name} and pen size set to {size}");
+                    LogOutput(Color.Black, $"[*] Pen color set to {color.Name} and pen size set to {size}");
+                }
+                else
+                {
+                    LogOutput(Color.Black, "[*] No errors found in Syntax");
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -388,18 +418,25 @@ namespace graphical_programming_language
         {
             try
             {
-                if (arguments[0].ToUpper().Equals("ON"))
+                if (DrawToPanel)
                 {
-                    isColorFillOn = true;
-                    fillColor = (arguments.Length == 2) ? GetColor(arguments[1]) : Color.Black;
+                    if (arguments[0].ToUpper().Equals("ON"))
+                    {
+                        isColorFillOn = true;
+                        fillColor = (arguments.Length == 2) ? GetColor(arguments[1]) : Color.Black;
 
-                    LogOutput(Color.Black, $"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}");
+                        LogOutput(Color.Black, $"[*] Color fill is now {isColorFillOn} and set to {fillColor.Name}");
+                    }
+                    else if (arguments[0].ToUpper().Equals("OFF"))
+                    {
+                        isColorFillOn = false;
+
+                        LogOutput(Color.Black, $"[*] Color fill is now {isColorFillOn}");
+                    }
                 }
-                else if (arguments[0].ToUpper().Equals("OFF"))
+                else
                 {
-                    isColorFillOn = false;
-
-                    LogOutput(Color.Black, $"[*] Color fill is now {isColorFillOn}");
+                    LogOutput(Color.Black, "[*] No errors found in Syntax");
                 }
             }
             catch (IndexOutOfRangeException)
@@ -415,18 +452,31 @@ namespace graphical_programming_language
         // Resets the pen position and height to default value.
         private void ResetPen()
         {
-            xPos = yPos = toXPos = toYPos = 0;
-            width = height = 100;
+            if (DrawToPanel)
+            {
+                xPos = yPos = toXPos = toYPos = 0;
+                width = height = 100;
 
-            LogOutput(Color.Black, "[*] Reset pen position to 0, 0");
+                LogOutput(Color.Black, "[*] Reset pen position to 0, 0");
+            }
+            else
+            {
+                LogOutput(Color.Black, "[*] No errors found in Syntax");
+            }
         }
 
         // Clears the output panel.
         private void ClearPanel()
         {
-            outputWindow.Refresh();
+            if (DrawToPanel)
+            {
+                outputWindow.Refresh();
 
-            LogOutput(Color.Black, "[*] Cleared output panel");
+                LogOutput(Color.Black, "[*] Cleared output panel");
+            } else
+            {
+                LogOutput(Color.Black, "[*] No errors found in Syntax");
+            }
         }
 
         public void Compile(string input)

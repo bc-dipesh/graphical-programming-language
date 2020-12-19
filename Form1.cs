@@ -58,6 +58,7 @@ namespace graphical_programming_language
                 // Stop the ding sound after the button is pressed.
                 e.SuppressKeyPress = true;
 
+                shapeCompiler.DrawToPanel = true;
                 shapeCompiler.ParseProgram(programWindow.Text, commandLine.Text);
             }
         }
@@ -106,6 +107,12 @@ namespace graphical_programming_language
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(aboutMessage.ToString(), "About", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
+        private void CheckSyntax_Click(object sender, EventArgs e)
+        {
+            shapeCompiler.DrawToPanel = false;
+            shapeCompiler.ParseProgram(programWindow.Text, commandLine.Text);
         }
     }
 }
