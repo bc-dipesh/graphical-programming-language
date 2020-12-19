@@ -45,7 +45,7 @@ namespace graphical_programming_language
             aboutMessage.Append(Environment.NewLine);
             aboutMessage.Append("Author: Dipesh BC");
             aboutMessage.Append(Environment.NewLine);
-            aboutMessage.Append("Version: v1.1.0");
+            aboutMessage.Append("Version: v1.2.0");
             aboutMessage.Append(Environment.NewLine);
             aboutMessage.Append("License: MIT");
         }
