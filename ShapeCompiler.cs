@@ -164,19 +164,19 @@ namespace graphical_programming_language
                 var operators = new Queue<string>();
 
                 // Check for variable statement
-                if (t.getType() == Type.IDENTIFIER) { variable_name = t.getValue(); }
+                if (t.Type == Type.IDENTIFIER) { variable_name = t.GetValue(); }
 
                 // Check for variable in expression
-                if (t.getType() == Type.OPERATOR && t.getValue() == "=" && tokens.Count > 3)
+                if (t.Type == Type.OPERATOR && t.GetValue() == "=" && tokens.Count > 3)
                 {
                     foreach (var _token in tokens.GetRange(2, tokens.Count - 2))
                     {
-                        if (_token.getType() == Type.IDENTIFIER)
-                            numbersList.Add(int.Parse(Variables[_token.getValue()]));
-                        if (_token.getType() == Type.NUMBER)
-                            numbersList.Add(int.Parse(_token.getValue()));
-                        if (_token.getType() == Type.OPERATOR)
-                            operators.Enqueue(_token.getValue());
+                        if (_token.Type == Type.IDENTIFIER)
+                            numbersList.Add(int.Parse(Variables[_token.GetValue()]));
+                        if (_token.Type == Type.NUMBER)
+                            numbersList.Add(int.Parse(_token.GetValue()));
+                        if (_token.Type == Type.OPERATOR)
+                            operators.Enqueue(_token.GetValue());
                     }
                     var result = numbersList[0];
                     for (int j = 1; j < numbersList.Count; j++)
@@ -214,15 +214,15 @@ namespace graphical_programming_language
                 }
 
                 // Assign and store number to var
-                if (t.getType() == Type.NUMBER)
+                if (t.Type == Type.NUMBER)
                 {
                     if (!Variables.ContainsKey(variable_name))
                     {
-                        Variables.Add(variable_name, t.getValue());
+                        Variables.Add(variable_name, t.GetValue());
                     }
                     else
                     {
-                        Variables[variable_name] = t.getValue();
+                        Variables[variable_name] = t.GetValue();
                     }
                 }
             }
@@ -241,12 +241,12 @@ namespace graphical_programming_language
             var numbersList = new List<int>();
             foreach (var _token in tokens.GetRange(1, 3))
             {
-                if (_token.getType() == Type.IDENTIFIER)
-                    numbersList.Add(int.Parse(Variables[_token.getValue()]));
-                if (_token.getType() == Type.NUMBER)
-                    numbersList.Add(int.Parse(_token.getValue()));
-                if (_token.getType() == Type.OPERATOR)
-                    op = _token.getValue();
+                if (_token.Type == Type.IDENTIFIER)
+                    numbersList.Add(int.Parse(Variables[_token.GetValue()]));
+                if (_token.Type == Type.NUMBER)
+                    numbersList.Add(int.Parse(_token.GetValue()));
+                if (_token.Type == Type.OPERATOR)
+                    op = _token.GetValue();
             }
 
             int left = numbersList[0];
@@ -495,7 +495,7 @@ namespace graphical_programming_language
                     break;
                 }
             }
-            Variables.Add(tokens[1].getValue(), lineNumber + "," + (functionLineNum - 1));
+            Variables.Add(tokens[1].GetValue(), lineNumber + "," + (functionLineNum - 1));
             lineNumber = functionLineNum;
 
             return lineNumber;
@@ -506,7 +506,7 @@ namespace graphical_programming_language
         {
             int cursor = lineNumber;
             var tokens = lexer.Advance(currentLine);
-            var functionLines = Variables[tokens[0].getValue()].Split(',');
+            var functionLines = Variables[tokens[0].GetValue()].Split(',');
             lineNumber = int.Parse(functionLines[0]);
 
             return cursor;

@@ -49,21 +49,18 @@ namespace graphical_programming_language
             this.keyword = keyword;
         }
 
-        public String getValue()
+        public String GetValue()
         {
             return keyword;
         }
 
-        public Type getType()
-        {
-            return this.type;
-        }
+        public Type Type => this.type;
 
         /// <summary>
         /// This method coverts this class to a String in a specific format.
         /// </summary>
         /// <returns>A string displaying token and value</returns>
-        public String toString()
+        public override String ToString()
         {
             return type.ToString() + ": " + keyword;
         }
@@ -83,7 +80,7 @@ namespace graphical_programming_language
         /// <summary>
         /// An enum for error type.
         /// </summary>
-        public enum error
+        public enum Error
         {
             INVALID_COMMAND = 0x01
         }
