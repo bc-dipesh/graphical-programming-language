@@ -26,21 +26,6 @@ namespace graphical_programming_language
 
         private string[] operators = { EQUALS, IF, ENDIF, WHILE, FUNCTION, PARENTHESIS };
 
-        // Constants that represent commands.
-
-        //private const string RECT = "RECT";
-        //private const string CIRCLE = "CIRCLE";
-        //private const string TRIANGLE = "TRIANGLE";
-        //private const string DRAWTO = "DRAWTO";
-        //private const string MOVETO = "MOVETO";
-        //private const string PEN = "PEN";
-        //private const string FILL = "FILL";
-        //private const string RESET = "RESET";
-        //private const string CLEAR = "CLEAR";
-        //private const string EXIT = "EXIT";
-
-        //private string[] commands = { RECT, CIRCLE, TRIANGLE, DRAWTO, MOVETO, PEN, FILL, RESET, CLEAR, EXIT };
-
         private readonly Lexer lexer;
         public Dictionary<string, string> Variables { get; set; }
 
