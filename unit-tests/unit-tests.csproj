@@ -53,6 +53,7 @@
     <Compile Include="ShapeCompilerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShapeFactoryTest.cs" />
+    <Compile Include="LexerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

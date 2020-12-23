@@ -84,6 +84,23 @@ namespace unit_tests
         }
 
         /// <summary>
+        /// Tests the parser method.
+        /// </summary>
+        /// <remarks>
+        /// Tests if the compiler parser method can properly parse a program input.
+        /// </remarks>
+        public void ParseUsingLexer()
+        {
+            var shapeCompiler = new ShapeCompiler();
+            shapeCompiler.ParseProgram("width = 100\nheight = 100\nwidth = 200", "run");
+
+            var expectedOutput = new Dictionary<string, string> { { "width", "100" }, { "height", "100" } };
+            var actualOutput = shapeCompiler.Variables;
+
+            CollectionAssert.AreEqual(expectedOutput, actualOutput);
+        }
+
+        /// <summary>
         /// Tests variable assignment method.
         /// </summary>
         /// <remarks>
@@ -92,6 +109,14 @@ namespace unit_tests
         [TestMethod]
         public void AssignVariable()
         {
+            var shapeCompiler = new ShapeCompiler();
+            shapeCompiler.ParseProgram("width = 100\nheight = 100\nwidth = 200", "run");
+
+            var expectedOutput = new Dictionary<string, string> { { "width", "200" }, { "height", "100" } };
+            var actualOutput = shapeCompiler.Variables;
+
+            CollectionAssert.AreEqual(expectedOutput, actualOutput);
+            Assert.AreEqual(200, int.Parse(shapeCompiler.Variables["width"]));
         }
 
         /// <summary>
@@ -103,6 +128,13 @@ namespace unit_tests
         [TestMethod]
         public void RunLoop()
         {
+            var shapeCompiler = new ShapeCompiler();
+            shapeCompiler.ParseProgram("count = 10\nwhile count > 1\ncount = count - 1\nendwhile", "run");
+
+            var expectedOutput = 1;
+            var actualOutput = int.Parse(shapeCompiler.Variables["count"]);
+
+            Assert.AreEqual(expectedOutput, actualOutput);
         }
 
         /// <summary>
@@ -112,8 +144,15 @@ namespace unit_tests
         /// Tests if the compiler can handle IfElse command.
         /// </remarks>
         [TestMethod]
-        public void IfElse()
+        public void IfStatement()
         {
+            var shapeCompiler = new ShapeCompiler();
+            shapeCompiler.ParseProgram("count = 1\nif count > 0\n count = count + 1\nendif", "run");
+
+            var expectedOutput = 2;
+            var actualOutput = int.Parse(shapeCompiler.Variables["count"]);
+
+            Assert.AreEqual(expectedOutput, actualOutput);
         }
     }
 }
