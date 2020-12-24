@@ -5,6 +5,13 @@ using System.Collections.Generic;
 
 namespace unit_tests
 {
+    /// <summary>
+    /// The main class to test <see cref="graphical_programming_language.Lexer"/> class.
+    /// </summary>
+    /// <remarks>
+    /// This class tests the <see cref="graphical_programming_language.Lexer"/> class methods<br></br>
+    /// with some test methods and paramters.
+    /// </remarks>
     [TestClass]
     public class LexerTest
     {

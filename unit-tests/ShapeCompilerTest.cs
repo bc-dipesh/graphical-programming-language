@@ -119,12 +119,8 @@ namespace unit_tests
             Assert.AreEqual(200, int.Parse(shapeCompiler.Variables["width"]));
         }
 
-        /// <summary>
-        /// Tests looping method.
-        /// </summary>
-        /// <remarks>
-        /// Tests if the compiler can handle looping command.
-        /// </remarks>
+        /// <summary>Tests looping method.</summary>
+        /// <remarks>Tests if the compiler can handle looping command.</remarks>
         [TestMethod]
         public void RunLoop()
         {
