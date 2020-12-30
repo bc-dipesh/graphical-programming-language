@@ -1,0 +1,318 @@
+{
+  "homepages": [],
+  "source_base_path": "E:/L6/Advance Software Engineering/Assessment/graphical-programming-language",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "Sxd3ayxL/Kx2Qc0iBfnNJw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "EkFWwk7a4ENfuOtxXpex2Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "KyPJ7j5beYof5hAYO40Jbw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "3Tp7oZv4TMpTJYZKsxBCAA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Circle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Circle.html",
+          "hash": "o5/NZaEszHE/9QFU4H3NEw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.GraphicalProgrammingLanguageApp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.GraphicalProgrammingLanguageApp.html",
+          "hash": "qmSZUJriBtsx29nUt8NcGg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.ICompiler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.ICompiler.html",
+          "hash": "isNr+LmTkwD7g6c3rOy75g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.IShapes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.IShapes.html",
+          "hash": "HkWmDohUEU6/0nnLnLwmDQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Lexer.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Lexer.Error.html",
+          "hash": "oRvyIAi6nXxDYBLiCGYK5g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Lexer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Lexer.html",
+          "hash": "g5Q9wXvZNx6GMI3HTB2aLw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Line.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Line.html",
+          "hash": "NE66CMzWJ7w//hkonabW4g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Rectangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Rectangle.html",
+          "hash": "p9fFv/3YL4ufCT5cIEi+tg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Shape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Shape.html",
+          "hash": "87LP4zoIruZGxqztOPa+jQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.ShapeCompiler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.ShapeCompiler.html",
+          "hash": "OIpReKqbUbL5ZRVrY6xscg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.ShapeFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.ShapeFactory.html",
+          "hash": "nAEFI1ewpF8EGB6MUfuMTg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Token.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Token.html",
+          "hash": "b+McEV5ihb3s5RE2awS3bA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Triangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Triangle.html",
+          "hash": "mAHWUgCpjRVvPnDp/Hxemw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.Type.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.Type.html",
+          "hash": "cRuRp5OSUiS5BkzeMhmLig=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/graphical_programming_language.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphical_programming_language.html",
+          "hash": "PkwF5q7/GbaEcPRod1yaFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "z8Z5VyxnkSal5RkgF4RcDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "G2AoE5T/2VarbHvzLEo4TQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 4
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 15,
+          "skipped_file_count": 14
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

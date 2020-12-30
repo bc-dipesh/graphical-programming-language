@@ -1,0 +1,879 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: graphical_programming_language
+  name: graphical_programming_language
+  href: api/graphical_programming_language.html
+  commentId: N:graphical_programming_language
+  fullName: graphical_programming_language
+  nameWithType: graphical_programming_language
+- uid: graphical_programming_language.Circle
+  name: Circle
+  href: api/graphical_programming_language.Circle.html
+  commentId: T:graphical_programming_language.Circle
+  fullName: graphical_programming_language.Circle
+  nameWithType: Circle
+- uid: graphical_programming_language.Circle.#ctor
+  name: Circle()
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle__ctor
+  commentId: M:graphical_programming_language.Circle.#ctor
+  fullName: graphical_programming_language.Circle.Circle()
+  nameWithType: Circle.Circle()
+- uid: graphical_programming_language.Circle.#ctor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Circle(Color, Boolean, Int32, Int32, Int32, Int32)
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle__ctor_System_Drawing_Color_System_Boolean_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:graphical_programming_language.Circle.#ctor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)
+  fullName: graphical_programming_language.Circle.Circle(System.Drawing.Color, System.Boolean, System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType: Circle.Circle(Color, Boolean, Int32, Int32, Int32, Int32)
+- uid: graphical_programming_language.Circle.#ctor*
+  name: Circle
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle__ctor_
+  commentId: Overload:graphical_programming_language.Circle.#ctor
+  isSpec: "True"
+  fullName: graphical_programming_language.Circle.Circle
+  nameWithType: Circle.Circle
+- uid: graphical_programming_language.Circle.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  name: Draw(Graphics, Pen)
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle_Draw_System_Drawing_Graphics_System_Drawing_Pen_
+  commentId: M:graphical_programming_language.Circle.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  fullName: graphical_programming_language.Circle.Draw(System.Drawing.Graphics, System.Drawing.Pen)
+  nameWithType: Circle.Draw(Graphics, Pen)
+- uid: graphical_programming_language.Circle.Draw*
+  name: Draw
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle_Draw_
+  commentId: Overload:graphical_programming_language.Circle.Draw
+  isSpec: "True"
+  fullName: graphical_programming_language.Circle.Draw
+  nameWithType: Circle.Draw
+- uid: graphical_programming_language.Circle.Height
+  name: Height
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle_Height
+  commentId: P:graphical_programming_language.Circle.Height
+  fullName: graphical_programming_language.Circle.Height
+  nameWithType: Circle.Height
+- uid: graphical_programming_language.Circle.Height*
+  name: Height
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle_Height_
+  commentId: Overload:graphical_programming_language.Circle.Height
+  isSpec: "True"
+  fullName: graphical_programming_language.Circle.Height
+  nameWithType: Circle.Height
+- uid: graphical_programming_language.Circle.Set(System.Drawing.Color,System.Int32[])
+  name: Set(Color, Int32[])
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle_Set_System_Drawing_Color_System_Int32___
+  commentId: M:graphical_programming_language.Circle.Set(System.Drawing.Color,System.Int32[])
+  name.vb: Set(Color, Int32())
+  fullName: graphical_programming_language.Circle.Set(System.Drawing.Color, System.Int32[])
+  fullName.vb: graphical_programming_language.Circle.Set(System.Drawing.Color, System.Int32())
+  nameWithType: Circle.Set(Color, Int32[])
+  nameWithType.vb: Circle.Set(Color, Int32())
+- uid: graphical_programming_language.Circle.Set*
+  name: Set
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle_Set_
+  commentId: Overload:graphical_programming_language.Circle.Set
+  isSpec: "True"
+  fullName: graphical_programming_language.Circle.Set
+  nameWithType: Circle.Set
+- uid: graphical_programming_language.Circle.Width
+  name: Width
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle_Width
+  commentId: P:graphical_programming_language.Circle.Width
+  fullName: graphical_programming_language.Circle.Width
+  nameWithType: Circle.Width
+- uid: graphical_programming_language.Circle.Width*
+  name: Width
+  href: api/graphical_programming_language.Circle.html#graphical_programming_language_Circle_Width_
+  commentId: Overload:graphical_programming_language.Circle.Width
+  isSpec: "True"
+  fullName: graphical_programming_language.Circle.Width
+  nameWithType: Circle.Width
+- uid: graphical_programming_language.GraphicalProgrammingLanguageApp
+  name: GraphicalProgrammingLanguageApp
+  href: api/graphical_programming_language.GraphicalProgrammingLanguageApp.html
+  commentId: T:graphical_programming_language.GraphicalProgrammingLanguageApp
+  fullName: graphical_programming_language.GraphicalProgrammingLanguageApp
+  nameWithType: GraphicalProgrammingLanguageApp
+- uid: graphical_programming_language.GraphicalProgrammingLanguageApp.#ctor
+  name: GraphicalProgrammingLanguageApp()
+  href: api/graphical_programming_language.GraphicalProgrammingLanguageApp.html#graphical_programming_language_GraphicalProgrammingLanguageApp__ctor
+  commentId: M:graphical_programming_language.GraphicalProgrammingLanguageApp.#ctor
+  fullName: graphical_programming_language.GraphicalProgrammingLanguageApp.GraphicalProgrammingLanguageApp()
+  nameWithType: GraphicalProgrammingLanguageApp.GraphicalProgrammingLanguageApp()
+- uid: graphical_programming_language.GraphicalProgrammingLanguageApp.#ctor*
+  name: GraphicalProgrammingLanguageApp
+  href: api/graphical_programming_language.GraphicalProgrammingLanguageApp.html#graphical_programming_language_GraphicalProgrammingLanguageApp__ctor_
+  commentId: Overload:graphical_programming_language.GraphicalProgrammingLanguageApp.#ctor
+  isSpec: "True"
+  fullName: graphical_programming_language.GraphicalProgrammingLanguageApp.GraphicalProgrammingLanguageApp
+  nameWithType: GraphicalProgrammingLanguageApp.GraphicalProgrammingLanguageApp
+- uid: graphical_programming_language.GraphicalProgrammingLanguageApp.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/graphical_programming_language.GraphicalProgrammingLanguageApp.html#graphical_programming_language_GraphicalProgrammingLanguageApp_Dispose_System_Boolean_
+  commentId: M:graphical_programming_language.GraphicalProgrammingLanguageApp.Dispose(System.Boolean)
+  fullName: graphical_programming_language.GraphicalProgrammingLanguageApp.Dispose(System.Boolean)
+  nameWithType: GraphicalProgrammingLanguageApp.Dispose(Boolean)
+- uid: graphical_programming_language.GraphicalProgrammingLanguageApp.Dispose*
+  name: Dispose
+  href: api/graphical_programming_language.GraphicalProgrammingLanguageApp.html#graphical_programming_language_GraphicalProgrammingLanguageApp_Dispose_
+  commentId: Overload:graphical_programming_language.GraphicalProgrammingLanguageApp.Dispose
+  isSpec: "True"
+  fullName: graphical_programming_language.GraphicalProgrammingLanguageApp.Dispose
+  nameWithType: GraphicalProgrammingLanguageApp.Dispose
+- uid: graphical_programming_language.ICompiler
+  name: ICompiler
+  href: api/graphical_programming_language.ICompiler.html
+  commentId: T:graphical_programming_language.ICompiler
+  fullName: graphical_programming_language.ICompiler
+  nameWithType: ICompiler
+- uid: graphical_programming_language.ICompiler.Compile(System.String)
+  name: Compile(String)
+  href: api/graphical_programming_language.ICompiler.html#graphical_programming_language_ICompiler_Compile_System_String_
+  commentId: M:graphical_programming_language.ICompiler.Compile(System.String)
+  fullName: graphical_programming_language.ICompiler.Compile(System.String)
+  nameWithType: ICompiler.Compile(String)
+- uid: graphical_programming_language.ICompiler.Compile*
+  name: Compile
+  href: api/graphical_programming_language.ICompiler.html#graphical_programming_language_ICompiler_Compile_
+  commentId: Overload:graphical_programming_language.ICompiler.Compile
+  isSpec: "True"
+  fullName: graphical_programming_language.ICompiler.Compile
+  nameWithType: ICompiler.Compile
+- uid: graphical_programming_language.ICompiler.Run
+  name: Run()
+  href: api/graphical_programming_language.ICompiler.html#graphical_programming_language_ICompiler_Run
+  commentId: M:graphical_programming_language.ICompiler.Run
+  fullName: graphical_programming_language.ICompiler.Run()
+  nameWithType: ICompiler.Run()
+- uid: graphical_programming_language.ICompiler.Run*
+  name: Run
+  href: api/graphical_programming_language.ICompiler.html#graphical_programming_language_ICompiler_Run_
+  commentId: Overload:graphical_programming_language.ICompiler.Run
+  isSpec: "True"
+  fullName: graphical_programming_language.ICompiler.Run
+  nameWithType: ICompiler.Run
+- uid: graphical_programming_language.IShapes
+  name: IShapes
+  href: api/graphical_programming_language.IShapes.html
+  commentId: T:graphical_programming_language.IShapes
+  fullName: graphical_programming_language.IShapes
+  nameWithType: IShapes
+- uid: graphical_programming_language.IShapes.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  name: Draw(Graphics, Pen)
+  href: api/graphical_programming_language.IShapes.html#graphical_programming_language_IShapes_Draw_System_Drawing_Graphics_System_Drawing_Pen_
+  commentId: M:graphical_programming_language.IShapes.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  fullName: graphical_programming_language.IShapes.Draw(System.Drawing.Graphics, System.Drawing.Pen)
+  nameWithType: IShapes.Draw(Graphics, Pen)
+- uid: graphical_programming_language.IShapes.Draw*
+  name: Draw
+  href: api/graphical_programming_language.IShapes.html#graphical_programming_language_IShapes_Draw_
+  commentId: Overload:graphical_programming_language.IShapes.Draw
+  isSpec: "True"
+  fullName: graphical_programming_language.IShapes.Draw
+  nameWithType: IShapes.Draw
+- uid: graphical_programming_language.IShapes.Set(System.Drawing.Color,System.Int32[])
+  name: Set(Color, Int32[])
+  href: api/graphical_programming_language.IShapes.html#graphical_programming_language_IShapes_Set_System_Drawing_Color_System_Int32___
+  commentId: M:graphical_programming_language.IShapes.Set(System.Drawing.Color,System.Int32[])
+  name.vb: Set(Color, Int32())
+  fullName: graphical_programming_language.IShapes.Set(System.Drawing.Color, System.Int32[])
+  fullName.vb: graphical_programming_language.IShapes.Set(System.Drawing.Color, System.Int32())
+  nameWithType: IShapes.Set(Color, Int32[])
+  nameWithType.vb: IShapes.Set(Color, Int32())
+- uid: graphical_programming_language.IShapes.Set*
+  name: Set
+  href: api/graphical_programming_language.IShapes.html#graphical_programming_language_IShapes_Set_
+  commentId: Overload:graphical_programming_language.IShapes.Set
+  isSpec: "True"
+  fullName: graphical_programming_language.IShapes.Set
+  nameWithType: IShapes.Set
+- uid: graphical_programming_language.Lexer
+  name: Lexer
+  href: api/graphical_programming_language.Lexer.html
+  commentId: T:graphical_programming_language.Lexer
+  fullName: graphical_programming_language.Lexer
+  nameWithType: Lexer
+- uid: graphical_programming_language.Lexer.Advance(System.String)
+  name: Advance(String)
+  href: api/graphical_programming_language.Lexer.html#graphical_programming_language_Lexer_Advance_System_String_
+  commentId: M:graphical_programming_language.Lexer.Advance(System.String)
+  fullName: graphical_programming_language.Lexer.Advance(System.String)
+  nameWithType: Lexer.Advance(String)
+- uid: graphical_programming_language.Lexer.Advance*
+  name: Advance
+  href: api/graphical_programming_language.Lexer.html#graphical_programming_language_Lexer_Advance_
+  commentId: Overload:graphical_programming_language.Lexer.Advance
+  isSpec: "True"
+  fullName: graphical_programming_language.Lexer.Advance
+  nameWithType: Lexer.Advance
+- uid: graphical_programming_language.Lexer.Error
+  name: Lexer.Error
+  href: api/graphical_programming_language.Lexer.Error.html
+  commentId: T:graphical_programming_language.Lexer.Error
+  fullName: graphical_programming_language.Lexer.Error
+  nameWithType: Lexer.Error
+- uid: graphical_programming_language.Lexer.Error.INVALID_COMMAND
+  name: INVALID_COMMAND
+  href: api/graphical_programming_language.Lexer.Error.html#graphical_programming_language_Lexer_Error_INVALID_COMMAND
+  commentId: F:graphical_programming_language.Lexer.Error.INVALID_COMMAND
+  fullName: graphical_programming_language.Lexer.Error.INVALID_COMMAND
+  nameWithType: Lexer.Error.INVALID_COMMAND
+- uid: graphical_programming_language.Line
+  name: Line
+  href: api/graphical_programming_language.Line.html
+  commentId: T:graphical_programming_language.Line
+  fullName: graphical_programming_language.Line
+  nameWithType: Line
+- uid: graphical_programming_language.Line.#ctor
+  name: Line()
+  href: api/graphical_programming_language.Line.html#graphical_programming_language_Line__ctor
+  commentId: M:graphical_programming_language.Line.#ctor
+  fullName: graphical_programming_language.Line.Line()
+  nameWithType: Line.Line()
+- uid: graphical_programming_language.Line.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name: Line(Single, Single, Single, Single)
+  href: api/graphical_programming_language.Line.html#graphical_programming_language_Line__ctor_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:graphical_programming_language.Line.#ctor(System.Single,System.Single,System.Single,System.Single)
+  fullName: graphical_programming_language.Line.Line(System.Single, System.Single, System.Single, System.Single)
+  nameWithType: Line.Line(Single, Single, Single, Single)
+- uid: graphical_programming_language.Line.#ctor*
+  name: Line
+  href: api/graphical_programming_language.Line.html#graphical_programming_language_Line__ctor_
+  commentId: Overload:graphical_programming_language.Line.#ctor
+  isSpec: "True"
+  fullName: graphical_programming_language.Line.Line
+  nameWithType: Line.Line
+- uid: graphical_programming_language.Line.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  name: Draw(Graphics, Pen)
+  href: api/graphical_programming_language.Line.html#graphical_programming_language_Line_Draw_System_Drawing_Graphics_System_Drawing_Pen_
+  commentId: M:graphical_programming_language.Line.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  fullName: graphical_programming_language.Line.Draw(System.Drawing.Graphics, System.Drawing.Pen)
+  nameWithType: Line.Draw(Graphics, Pen)
+- uid: graphical_programming_language.Line.Draw*
+  name: Draw
+  href: api/graphical_programming_language.Line.html#graphical_programming_language_Line_Draw_
+  commentId: Overload:graphical_programming_language.Line.Draw
+  isSpec: "True"
+  fullName: graphical_programming_language.Line.Draw
+  nameWithType: Line.Draw
+- uid: graphical_programming_language.Line.Set(System.Drawing.Color,System.Int32[])
+  name: Set(Color, Int32[])
+  href: api/graphical_programming_language.Line.html#graphical_programming_language_Line_Set_System_Drawing_Color_System_Int32___
+  commentId: M:graphical_programming_language.Line.Set(System.Drawing.Color,System.Int32[])
+  name.vb: Set(Color, Int32())
+  fullName: graphical_programming_language.Line.Set(System.Drawing.Color, System.Int32[])
+  fullName.vb: graphical_programming_language.Line.Set(System.Drawing.Color, System.Int32())
+  nameWithType: Line.Set(Color, Int32[])
+  nameWithType.vb: Line.Set(Color, Int32())
+- uid: graphical_programming_language.Line.Set*
+  name: Set
+  href: api/graphical_programming_language.Line.html#graphical_programming_language_Line_Set_
+  commentId: Overload:graphical_programming_language.Line.Set
+  isSpec: "True"
+  fullName: graphical_programming_language.Line.Set
+  nameWithType: Line.Set
+- uid: graphical_programming_language.Rectangle
+  name: Rectangle
+  href: api/graphical_programming_language.Rectangle.html
+  commentId: T:graphical_programming_language.Rectangle
+  fullName: graphical_programming_language.Rectangle
+  nameWithType: Rectangle
+- uid: graphical_programming_language.Rectangle.#ctor
+  name: Rectangle()
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle__ctor
+  commentId: M:graphical_programming_language.Rectangle.#ctor
+  fullName: graphical_programming_language.Rectangle.Rectangle()
+  nameWithType: Rectangle.Rectangle()
+- uid: graphical_programming_language.Rectangle.#ctor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Rectangle(Color, Boolean, Int32, Int32, Int32, Int32)
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle__ctor_System_Drawing_Color_System_Boolean_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:graphical_programming_language.Rectangle.#ctor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)
+  fullName: graphical_programming_language.Rectangle.Rectangle(System.Drawing.Color, System.Boolean, System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType: Rectangle.Rectangle(Color, Boolean, Int32, Int32, Int32, Int32)
+- uid: graphical_programming_language.Rectangle.#ctor*
+  name: Rectangle
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle__ctor_
+  commentId: Overload:graphical_programming_language.Rectangle.#ctor
+  isSpec: "True"
+  fullName: graphical_programming_language.Rectangle.Rectangle
+  nameWithType: Rectangle.Rectangle
+- uid: graphical_programming_language.Rectangle.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  name: Draw(Graphics, Pen)
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle_Draw_System_Drawing_Graphics_System_Drawing_Pen_
+  commentId: M:graphical_programming_language.Rectangle.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  fullName: graphical_programming_language.Rectangle.Draw(System.Drawing.Graphics, System.Drawing.Pen)
+  nameWithType: Rectangle.Draw(Graphics, Pen)
+- uid: graphical_programming_language.Rectangle.Draw*
+  name: Draw
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle_Draw_
+  commentId: Overload:graphical_programming_language.Rectangle.Draw
+  isSpec: "True"
+  fullName: graphical_programming_language.Rectangle.Draw
+  nameWithType: Rectangle.Draw
+- uid: graphical_programming_language.Rectangle.Height
+  name: Height
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle_Height
+  commentId: P:graphical_programming_language.Rectangle.Height
+  fullName: graphical_programming_language.Rectangle.Height
+  nameWithType: Rectangle.Height
+- uid: graphical_programming_language.Rectangle.Height*
+  name: Height
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle_Height_
+  commentId: Overload:graphical_programming_language.Rectangle.Height
+  isSpec: "True"
+  fullName: graphical_programming_language.Rectangle.Height
+  nameWithType: Rectangle.Height
+- uid: graphical_programming_language.Rectangle.Set(System.Drawing.Color,System.Int32[])
+  name: Set(Color, Int32[])
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle_Set_System_Drawing_Color_System_Int32___
+  commentId: M:graphical_programming_language.Rectangle.Set(System.Drawing.Color,System.Int32[])
+  name.vb: Set(Color, Int32())
+  fullName: graphical_programming_language.Rectangle.Set(System.Drawing.Color, System.Int32[])
+  fullName.vb: graphical_programming_language.Rectangle.Set(System.Drawing.Color, System.Int32())
+  nameWithType: Rectangle.Set(Color, Int32[])
+  nameWithType.vb: Rectangle.Set(Color, Int32())
+- uid: graphical_programming_language.Rectangle.Set*
+  name: Set
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle_Set_
+  commentId: Overload:graphical_programming_language.Rectangle.Set
+  isSpec: "True"
+  fullName: graphical_programming_language.Rectangle.Set
+  nameWithType: Rectangle.Set
+- uid: graphical_programming_language.Rectangle.Width
+  name: Width
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle_Width
+  commentId: P:graphical_programming_language.Rectangle.Width
+  fullName: graphical_programming_language.Rectangle.Width
+  nameWithType: Rectangle.Width
+- uid: graphical_programming_language.Rectangle.Width*
+  name: Width
+  href: api/graphical_programming_language.Rectangle.html#graphical_programming_language_Rectangle_Width_
+  commentId: Overload:graphical_programming_language.Rectangle.Width
+  isSpec: "True"
+  fullName: graphical_programming_language.Rectangle.Width
+  nameWithType: Rectangle.Width
+- uid: graphical_programming_language.Shape
+  name: Shape
+  href: api/graphical_programming_language.Shape.html
+  commentId: T:graphical_programming_language.Shape
+  fullName: graphical_programming_language.Shape
+  nameWithType: Shape
+- uid: graphical_programming_language.Shape.#ctor
+  name: Shape()
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape__ctor
+  commentId: M:graphical_programming_language.Shape.#ctor
+  fullName: graphical_programming_language.Shape.Shape()
+  nameWithType: Shape.Shape()
+- uid: graphical_programming_language.Shape.#ctor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32)
+  name: Shape(Color, Boolean, Int32, Int32)
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape__ctor_System_Drawing_Color_System_Boolean_System_Int32_System_Int32_
+  commentId: M:graphical_programming_language.Shape.#ctor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32)
+  fullName: graphical_programming_language.Shape.Shape(System.Drawing.Color, System.Boolean, System.Int32, System.Int32)
+  nameWithType: Shape.Shape(Color, Boolean, Int32, Int32)
+- uid: graphical_programming_language.Shape.#ctor*
+  name: Shape
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape__ctor_
+  commentId: Overload:graphical_programming_language.Shape.#ctor
+  isSpec: "True"
+  fullName: graphical_programming_language.Shape.Shape
+  nameWithType: Shape.Shape
+- uid: graphical_programming_language.Shape.Color
+  name: Color
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_Color
+  commentId: P:graphical_programming_language.Shape.Color
+  fullName: graphical_programming_language.Shape.Color
+  nameWithType: Shape.Color
+- uid: graphical_programming_language.Shape.Color*
+  name: Color
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_Color_
+  commentId: Overload:graphical_programming_language.Shape.Color
+  isSpec: "True"
+  fullName: graphical_programming_language.Shape.Color
+  nameWithType: Shape.Color
+- uid: graphical_programming_language.Shape.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  name: Draw(Graphics, Pen)
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_Draw_System_Drawing_Graphics_System_Drawing_Pen_
+  commentId: M:graphical_programming_language.Shape.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  fullName: graphical_programming_language.Shape.Draw(System.Drawing.Graphics, System.Drawing.Pen)
+  nameWithType: Shape.Draw(Graphics, Pen)
+- uid: graphical_programming_language.Shape.Draw*
+  name: Draw
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_Draw_
+  commentId: Overload:graphical_programming_language.Shape.Draw
+  isSpec: "True"
+  fullName: graphical_programming_language.Shape.Draw
+  nameWithType: Shape.Draw
+- uid: graphical_programming_language.Shape.IsColorFillOn
+  name: IsColorFillOn
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_IsColorFillOn
+  commentId: P:graphical_programming_language.Shape.IsColorFillOn
+  fullName: graphical_programming_language.Shape.IsColorFillOn
+  nameWithType: Shape.IsColorFillOn
+- uid: graphical_programming_language.Shape.IsColorFillOn*
+  name: IsColorFillOn
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_IsColorFillOn_
+  commentId: Overload:graphical_programming_language.Shape.IsColorFillOn
+  isSpec: "True"
+  fullName: graphical_programming_language.Shape.IsColorFillOn
+  nameWithType: Shape.IsColorFillOn
+- uid: graphical_programming_language.Shape.Set(System.Drawing.Color,System.Int32[])
+  name: Set(Color, Int32[])
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_Set_System_Drawing_Color_System_Int32___
+  commentId: M:graphical_programming_language.Shape.Set(System.Drawing.Color,System.Int32[])
+  name.vb: Set(Color, Int32())
+  fullName: graphical_programming_language.Shape.Set(System.Drawing.Color, System.Int32[])
+  fullName.vb: graphical_programming_language.Shape.Set(System.Drawing.Color, System.Int32())
+  nameWithType: Shape.Set(Color, Int32[])
+  nameWithType.vb: Shape.Set(Color, Int32())
+- uid: graphical_programming_language.Shape.Set*
+  name: Set
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_Set_
+  commentId: Overload:graphical_programming_language.Shape.Set
+  isSpec: "True"
+  fullName: graphical_programming_language.Shape.Set
+  nameWithType: Shape.Set
+- uid: graphical_programming_language.Shape.ToString
+  name: ToString()
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_ToString
+  commentId: M:graphical_programming_language.Shape.ToString
+  fullName: graphical_programming_language.Shape.ToString()
+  nameWithType: Shape.ToString()
+- uid: graphical_programming_language.Shape.ToString*
+  name: ToString
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_ToString_
+  commentId: Overload:graphical_programming_language.Shape.ToString
+  isSpec: "True"
+  fullName: graphical_programming_language.Shape.ToString
+  nameWithType: Shape.ToString
+- uid: graphical_programming_language.Shape.X
+  name: X
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_X
+  commentId: P:graphical_programming_language.Shape.X
+  fullName: graphical_programming_language.Shape.X
+  nameWithType: Shape.X
+- uid: graphical_programming_language.Shape.X*
+  name: X
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_X_
+  commentId: Overload:graphical_programming_language.Shape.X
+  isSpec: "True"
+  fullName: graphical_programming_language.Shape.X
+  nameWithType: Shape.X
+- uid: graphical_programming_language.Shape.Y
+  name: Y
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_Y
+  commentId: P:graphical_programming_language.Shape.Y
+  fullName: graphical_programming_language.Shape.Y
+  nameWithType: Shape.Y
+- uid: graphical_programming_language.Shape.Y*
+  name: Y
+  href: api/graphical_programming_language.Shape.html#graphical_programming_language_Shape_Y_
+  commentId: Overload:graphical_programming_language.Shape.Y
+  isSpec: "True"
+  fullName: graphical_programming_language.Shape.Y
+  nameWithType: Shape.Y
+- uid: graphical_programming_language.ShapeCompiler
+  name: ShapeCompiler
+  href: api/graphical_programming_language.ShapeCompiler.html
+  commentId: T:graphical_programming_language.ShapeCompiler
+  fullName: graphical_programming_language.ShapeCompiler
+  nameWithType: ShapeCompiler
+- uid: graphical_programming_language.ShapeCompiler.#ctor
+  name: ShapeCompiler()
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler__ctor
+  commentId: M:graphical_programming_language.ShapeCompiler.#ctor
+  fullName: graphical_programming_language.ShapeCompiler.ShapeCompiler()
+  nameWithType: ShapeCompiler.ShapeCompiler()
+- uid: graphical_programming_language.ShapeCompiler.#ctor(System.Windows.Forms.Panel,System.Windows.Forms.RichTextBox)
+  name: ShapeCompiler(Panel, RichTextBox)
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler__ctor_System_Windows_Forms_Panel_System_Windows_Forms_RichTextBox_
+  commentId: M:graphical_programming_language.ShapeCompiler.#ctor(System.Windows.Forms.Panel,System.Windows.Forms.RichTextBox)
+  fullName: graphical_programming_language.ShapeCompiler.ShapeCompiler(System.Windows.Forms.Panel, System.Windows.Forms.RichTextBox)
+  nameWithType: ShapeCompiler.ShapeCompiler(Panel, RichTextBox)
+- uid: graphical_programming_language.ShapeCompiler.#ctor*
+  name: ShapeCompiler
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler__ctor_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.#ctor
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.ShapeCompiler
+  nameWithType: ShapeCompiler.ShapeCompiler
+- uid: graphical_programming_language.ShapeCompiler.Arguments
+  name: Arguments
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Arguments
+  commentId: P:graphical_programming_language.ShapeCompiler.Arguments
+  fullName: graphical_programming_language.ShapeCompiler.Arguments
+  nameWithType: ShapeCompiler.Arguments
+- uid: graphical_programming_language.ShapeCompiler.Arguments*
+  name: Arguments
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Arguments_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.Arguments
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.Arguments
+  nameWithType: ShapeCompiler.Arguments
+- uid: graphical_programming_language.ShapeCompiler.Command
+  name: Command
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Command
+  commentId: P:graphical_programming_language.ShapeCompiler.Command
+  fullName: graphical_programming_language.ShapeCompiler.Command
+  nameWithType: ShapeCompiler.Command
+- uid: graphical_programming_language.ShapeCompiler.Command*
+  name: Command
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Command_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.Command
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.Command
+  nameWithType: ShapeCompiler.Command
+- uid: graphical_programming_language.ShapeCompiler.Compile(System.String)
+  name: Compile(String)
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Compile_System_String_
+  commentId: M:graphical_programming_language.ShapeCompiler.Compile(System.String)
+  fullName: graphical_programming_language.ShapeCompiler.Compile(System.String)
+  nameWithType: ShapeCompiler.Compile(String)
+- uid: graphical_programming_language.ShapeCompiler.Compile*
+  name: Compile
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Compile_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.Compile
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.Compile
+  nameWithType: ShapeCompiler.Compile
+- uid: graphical_programming_language.ShapeCompiler.DrawToPanel
+  name: DrawToPanel
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_DrawToPanel
+  commentId: P:graphical_programming_language.ShapeCompiler.DrawToPanel
+  fullName: graphical_programming_language.ShapeCompiler.DrawToPanel
+  nameWithType: ShapeCompiler.DrawToPanel
+- uid: graphical_programming_language.ShapeCompiler.DrawToPanel*
+  name: DrawToPanel
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_DrawToPanel_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.DrawToPanel
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.DrawToPanel
+  nameWithType: ShapeCompiler.DrawToPanel
+- uid: graphical_programming_language.ShapeCompiler.GetPen(System.Drawing.Color,System.Int32)
+  name: GetPen(Color, Int32)
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_GetPen_System_Drawing_Color_System_Int32_
+  commentId: M:graphical_programming_language.ShapeCompiler.GetPen(System.Drawing.Color,System.Int32)
+  fullName: graphical_programming_language.ShapeCompiler.GetPen(System.Drawing.Color, System.Int32)
+  nameWithType: ShapeCompiler.GetPen(Color, Int32)
+- uid: graphical_programming_language.ShapeCompiler.GetPen*
+  name: GetPen
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_GetPen_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.GetPen
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.GetPen
+  nameWithType: ShapeCompiler.GetPen
+- uid: graphical_programming_language.ShapeCompiler.LogOutput(System.Drawing.Color,System.String)
+  name: LogOutput(Color, String)
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_LogOutput_System_Drawing_Color_System_String_
+  commentId: M:graphical_programming_language.ShapeCompiler.LogOutput(System.Drawing.Color,System.String)
+  fullName: graphical_programming_language.ShapeCompiler.LogOutput(System.Drawing.Color, System.String)
+  nameWithType: ShapeCompiler.LogOutput(Color, String)
+- uid: graphical_programming_language.ShapeCompiler.LogOutput*
+  name: LogOutput
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_LogOutput_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.LogOutput
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.LogOutput
+  nameWithType: ShapeCompiler.LogOutput
+- uid: graphical_programming_language.ShapeCompiler.ParseProgram(System.String,System.String)
+  name: ParseProgram(String, String)
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_ParseProgram_System_String_System_String_
+  commentId: M:graphical_programming_language.ShapeCompiler.ParseProgram(System.String,System.String)
+  fullName: graphical_programming_language.ShapeCompiler.ParseProgram(System.String, System.String)
+  nameWithType: ShapeCompiler.ParseProgram(String, String)
+- uid: graphical_programming_language.ShapeCompiler.ParseProgram*
+  name: ParseProgram
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_ParseProgram_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.ParseProgram
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.ParseProgram
+  nameWithType: ShapeCompiler.ParseProgram
+- uid: graphical_programming_language.ShapeCompiler.ParseUsingIf(System.String)
+  name: ParseUsingIf(String)
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_ParseUsingIf_System_String_
+  commentId: M:graphical_programming_language.ShapeCompiler.ParseUsingIf(System.String)
+  fullName: graphical_programming_language.ShapeCompiler.ParseUsingIf(System.String)
+  nameWithType: ShapeCompiler.ParseUsingIf(String)
+- uid: graphical_programming_language.ShapeCompiler.ParseUsingIf*
+  name: ParseUsingIf
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_ParseUsingIf_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.ParseUsingIf
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.ParseUsingIf
+  nameWithType: ShapeCompiler.ParseUsingIf
+- uid: graphical_programming_language.ShapeCompiler.ParseUsingLexer(System.String)
+  name: ParseUsingLexer(String)
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_ParseUsingLexer_System_String_
+  commentId: M:graphical_programming_language.ShapeCompiler.ParseUsingLexer(System.String)
+  fullName: graphical_programming_language.ShapeCompiler.ParseUsingLexer(System.String)
+  nameWithType: ShapeCompiler.ParseUsingLexer(String)
+- uid: graphical_programming_language.ShapeCompiler.ParseUsingLexer*
+  name: ParseUsingLexer
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_ParseUsingLexer_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.ParseUsingLexer
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.ParseUsingLexer
+  nameWithType: ShapeCompiler.ParseUsingLexer
+- uid: graphical_programming_language.ShapeCompiler.Run
+  name: Run()
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Run
+  commentId: M:graphical_programming_language.ShapeCompiler.Run
+  fullName: graphical_programming_language.ShapeCompiler.Run()
+  nameWithType: ShapeCompiler.Run()
+- uid: graphical_programming_language.ShapeCompiler.Run*
+  name: Run
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Run_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.Run
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.Run
+  nameWithType: ShapeCompiler.Run
+- uid: graphical_programming_language.ShapeCompiler.Variables
+  name: Variables
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Variables
+  commentId: P:graphical_programming_language.ShapeCompiler.Variables
+  fullName: graphical_programming_language.ShapeCompiler.Variables
+  nameWithType: ShapeCompiler.Variables
+- uid: graphical_programming_language.ShapeCompiler.Variables*
+  name: Variables
+  href: api/graphical_programming_language.ShapeCompiler.html#graphical_programming_language_ShapeCompiler_Variables_
+  commentId: Overload:graphical_programming_language.ShapeCompiler.Variables
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeCompiler.Variables
+  nameWithType: ShapeCompiler.Variables
+- uid: graphical_programming_language.ShapeFactory
+  name: ShapeFactory
+  href: api/graphical_programming_language.ShapeFactory.html
+  commentId: T:graphical_programming_language.ShapeFactory
+  fullName: graphical_programming_language.ShapeFactory
+  nameWithType: ShapeFactory
+- uid: graphical_programming_language.ShapeFactory.GetShape(System.String)
+  name: GetShape(String)
+  href: api/graphical_programming_language.ShapeFactory.html#graphical_programming_language_ShapeFactory_GetShape_System_String_
+  commentId: M:graphical_programming_language.ShapeFactory.GetShape(System.String)
+  fullName: graphical_programming_language.ShapeFactory.GetShape(System.String)
+  nameWithType: ShapeFactory.GetShape(String)
+- uid: graphical_programming_language.ShapeFactory.GetShape(System.String,System.Drawing.Color,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: GetShape(String, Color, Boolean, Int32, Int32, Int32, Int32)
+  href: api/graphical_programming_language.ShapeFactory.html#graphical_programming_language_ShapeFactory_GetShape_System_String_System_Drawing_Color_System_Boolean_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:graphical_programming_language.ShapeFactory.GetShape(System.String,System.Drawing.Color,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)
+  fullName: graphical_programming_language.ShapeFactory.GetShape(System.String, System.Drawing.Color, System.Boolean, System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType: ShapeFactory.GetShape(String, Color, Boolean, Int32, Int32, Int32, Int32)
+- uid: graphical_programming_language.ShapeFactory.GetShape*
+  name: GetShape
+  href: api/graphical_programming_language.ShapeFactory.html#graphical_programming_language_ShapeFactory_GetShape_
+  commentId: Overload:graphical_programming_language.ShapeFactory.GetShape
+  isSpec: "True"
+  fullName: graphical_programming_language.ShapeFactory.GetShape
+  nameWithType: ShapeFactory.GetShape
+- uid: graphical_programming_language.Token
+  name: Token
+  href: api/graphical_programming_language.Token.html
+  commentId: T:graphical_programming_language.Token
+  fullName: graphical_programming_language.Token
+  nameWithType: Token
+- uid: graphical_programming_language.Token.#ctor(graphical_programming_language.Type,System.String)
+  name: Token(Type, String)
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token__ctor_graphical_programming_language_Type_System_String_
+  commentId: M:graphical_programming_language.Token.#ctor(graphical_programming_language.Type,System.String)
+  fullName: graphical_programming_language.Token.Token(graphical_programming_language.Type, System.String)
+  nameWithType: Token.Token(Type, String)
+- uid: graphical_programming_language.Token.#ctor*
+  name: Token
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token__ctor_
+  commentId: Overload:graphical_programming_language.Token.#ctor
+  isSpec: "True"
+  fullName: graphical_programming_language.Token.Token
+  nameWithType: Token.Token
+- uid: graphical_programming_language.Token.GetValue
+  name: GetValue()
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_GetValue
+  commentId: M:graphical_programming_language.Token.GetValue
+  fullName: graphical_programming_language.Token.GetValue()
+  nameWithType: Token.GetValue()
+- uid: graphical_programming_language.Token.GetValue*
+  name: GetValue
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_GetValue_
+  commentId: Overload:graphical_programming_language.Token.GetValue
+  isSpec: "True"
+  fullName: graphical_programming_language.Token.GetValue
+  nameWithType: Token.GetValue
+- uid: graphical_programming_language.Token.keyword
+  name: keyword
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_keyword
+  commentId: F:graphical_programming_language.Token.keyword
+  fullName: graphical_programming_language.Token.keyword
+  nameWithType: Token.keyword
+- uid: graphical_programming_language.Token.numerical
+  name: numerical
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_numerical
+  commentId: F:graphical_programming_language.Token.numerical
+  fullName: graphical_programming_language.Token.numerical
+  nameWithType: Token.numerical
+- uid: graphical_programming_language.Token.ToString
+  name: ToString()
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_ToString
+  commentId: M:graphical_programming_language.Token.ToString
+  fullName: graphical_programming_language.Token.ToString()
+  nameWithType: Token.ToString()
+- uid: graphical_programming_language.Token.ToString*
+  name: ToString
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_ToString_
+  commentId: Overload:graphical_programming_language.Token.ToString
+  isSpec: "True"
+  fullName: graphical_programming_language.Token.ToString
+  nameWithType: Token.ToString
+- uid: graphical_programming_language.Token.type
+  name: type
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_type
+  commentId: F:graphical_programming_language.Token.type
+  fullName: graphical_programming_language.Token.type
+  nameWithType: Token.type
+- uid: graphical_programming_language.Token.Type
+  name: Type
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_Type
+  commentId: P:graphical_programming_language.Token.Type
+  fullName: graphical_programming_language.Token.Type
+  nameWithType: Token.Type
+- uid: graphical_programming_language.Token.Type*
+  name: Type
+  href: api/graphical_programming_language.Token.html#graphical_programming_language_Token_Type_
+  commentId: Overload:graphical_programming_language.Token.Type
+  isSpec: "True"
+  fullName: graphical_programming_language.Token.Type
+  nameWithType: Token.Type
+- uid: graphical_programming_language.Triangle
+  name: Triangle
+  href: api/graphical_programming_language.Triangle.html
+  commentId: T:graphical_programming_language.Triangle
+  fullName: graphical_programming_language.Triangle
+  nameWithType: Triangle
+- uid: graphical_programming_language.Triangle.#ctor
+  name: Triangle()
+  href: api/graphical_programming_language.Triangle.html#graphical_programming_language_Triangle__ctor
+  commentId: M:graphical_programming_language.Triangle.#ctor
+  fullName: graphical_programming_language.Triangle.Triangle()
+  nameWithType: Triangle.Triangle()
+- uid: graphical_programming_language.Triangle.#ctor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Triangle(Color, Boolean, Int32, Int32, Int32, Int32)
+  href: api/graphical_programming_language.Triangle.html#graphical_programming_language_Triangle__ctor_System_Drawing_Color_System_Boolean_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:graphical_programming_language.Triangle.#ctor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)
+  fullName: graphical_programming_language.Triangle.Triangle(System.Drawing.Color, System.Boolean, System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType: Triangle.Triangle(Color, Boolean, Int32, Int32, Int32, Int32)
+- uid: graphical_programming_language.Triangle.#ctor*
+  name: Triangle
+  href: api/graphical_programming_language.Triangle.html#graphical_programming_language_Triangle__ctor_
+  commentId: Overload:graphical_programming_language.Triangle.#ctor
+  isSpec: "True"
+  fullName: graphical_programming_language.Triangle.Triangle
+  nameWithType: Triangle.Triangle
+- uid: graphical_programming_language.Triangle.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  name: Draw(Graphics, Pen)
+  href: api/graphical_programming_language.Triangle.html#graphical_programming_language_Triangle_Draw_System_Drawing_Graphics_System_Drawing_Pen_
+  commentId: M:graphical_programming_language.Triangle.Draw(System.Drawing.Graphics,System.Drawing.Pen)
+  fullName: graphical_programming_language.Triangle.Draw(System.Drawing.Graphics, System.Drawing.Pen)
+  nameWithType: Triangle.Draw(Graphics, Pen)
+- uid: graphical_programming_language.Triangle.Draw*
+  name: Draw
+  href: api/graphical_programming_language.Triangle.html#graphical_programming_language_Triangle_Draw_
+  commentId: Overload:graphical_programming_language.Triangle.Draw
+  isSpec: "True"
+  fullName: graphical_programming_language.Triangle.Draw
+  nameWithType: Triangle.Draw
+- uid: graphical_programming_language.Triangle.Set(System.Drawing.Color,System.Int32[])
+  name: Set(Color, Int32[])
+  href: api/graphical_programming_language.Triangle.html#graphical_programming_language_Triangle_Set_System_Drawing_Color_System_Int32___
+  commentId: M:graphical_programming_language.Triangle.Set(System.Drawing.Color,System.Int32[])
+  name.vb: Set(Color, Int32())
+  fullName: graphical_programming_language.Triangle.Set(System.Drawing.Color, System.Int32[])
+  fullName.vb: graphical_programming_language.Triangle.Set(System.Drawing.Color, System.Int32())
+  nameWithType: Triangle.Set(Color, Int32[])
+  nameWithType.vb: Triangle.Set(Color, Int32())
+- uid: graphical_programming_language.Triangle.Set*
+  name: Set
+  href: api/graphical_programming_language.Triangle.html#graphical_programming_language_Triangle_Set_
+  commentId: Overload:graphical_programming_language.Triangle.Set
+  isSpec: "True"
+  fullName: graphical_programming_language.Triangle.Set
+  nameWithType: Triangle.Set
+- uid: graphical_programming_language.Type
+  name: Type
+  href: api/graphical_programming_language.Type.html
+  commentId: T:graphical_programming_language.Type
+  fullName: graphical_programming_language.Type
+  nameWithType: Type
+- uid: graphical_programming_language.Type.BRACKET
+  name: BRACKET
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_BRACKET
+  commentId: F:graphical_programming_language.Type.BRACKET
+  fullName: graphical_programming_language.Type.BRACKET
+  nameWithType: Type.BRACKET
+- uid: graphical_programming_language.Type.COMPARE
+  name: COMPARE
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_COMPARE
+  commentId: F:graphical_programming_language.Type.COMPARE
+  fullName: graphical_programming_language.Type.COMPARE
+  nameWithType: Type.COMPARE
+- uid: graphical_programming_language.Type.ELSE
+  name: ELSE
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_ELSE
+  commentId: F:graphical_programming_language.Type.ELSE
+  fullName: graphical_programming_language.Type.ELSE
+  nameWithType: Type.ELSE
+- uid: graphical_programming_language.Type.ELSEIF
+  name: ELSEIF
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_ELSEIF
+  commentId: F:graphical_programming_language.Type.ELSEIF
+  fullName: graphical_programming_language.Type.ELSEIF
+  nameWithType: Type.ELSEIF
+- uid: graphical_programming_language.Type.ENDIF
+  name: ENDIF
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_ENDIF
+  commentId: F:graphical_programming_language.Type.ENDIF
+  fullName: graphical_programming_language.Type.ENDIF
+  nameWithType: Type.ENDIF
+- uid: graphical_programming_language.Type.ENDWHILE
+  name: ENDWHILE
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_ENDWHILE
+  commentId: F:graphical_programming_language.Type.ENDWHILE
+  fullName: graphical_programming_language.Type.ENDWHILE
+  nameWithType: Type.ENDWHILE
+- uid: graphical_programming_language.Type.ERROR
+  name: ERROR
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_ERROR
+  commentId: F:graphical_programming_language.Type.ERROR
+  fullName: graphical_programming_language.Type.ERROR
+  nameWithType: Type.ERROR
+- uid: graphical_programming_language.Type.IDENTIFIER
+  name: IDENTIFIER
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_IDENTIFIER
+  commentId: F:graphical_programming_language.Type.IDENTIFIER
+  fullName: graphical_programming_language.Type.IDENTIFIER
+  nameWithType: Type.IDENTIFIER
+- uid: graphical_programming_language.Type.IF
+  name: IF
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_IF
+  commentId: F:graphical_programming_language.Type.IF
+  fullName: graphical_programming_language.Type.IF
+  nameWithType: Type.IF
+- uid: graphical_programming_language.Type.METHOD
+  name: METHOD
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_METHOD
+  commentId: F:graphical_programming_language.Type.METHOD
+  fullName: graphical_programming_language.Type.METHOD
+  nameWithType: Type.METHOD
+- uid: graphical_programming_language.Type.NUMBER
+  name: NUMBER
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_NUMBER
+  commentId: F:graphical_programming_language.Type.NUMBER
+  fullName: graphical_programming_language.Type.NUMBER
+  nameWithType: Type.NUMBER
+- uid: graphical_programming_language.Type.OPERATOR
+  name: OPERATOR
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_OPERATOR
+  commentId: F:graphical_programming_language.Type.OPERATOR
+  fullName: graphical_programming_language.Type.OPERATOR
+  nameWithType: Type.OPERATOR
+- uid: graphical_programming_language.Type.WHILE
+  name: WHILE
+  href: api/graphical_programming_language.Type.html#graphical_programming_language_Type_WHILE
+  commentId: F:graphical_programming_language.Type.WHILE
+  fullName: graphical_programming_language.Type.WHILE
+  nameWithType: Type.WHILE

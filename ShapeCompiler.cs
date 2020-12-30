@@ -21,10 +21,10 @@ namespace graphical_programming_language
         private const string IF = "if";
         private const string ENDIF = "endif";
         private const string WHILE = "while";
-        private const string FUNCTION = "function";
+        private const string METHOD = "method";
         private const string PARENTHESIS = "()";
 
-        private string[] operators = { EQUALS, IF, ENDIF, WHILE, FUNCTION, PARENTHESIS };
+        private string[] operators = { EQUALS, IF, ENDIF, WHILE, METHOD, PARENTHESIS };
 
         private readonly Lexer lexer;
         public Dictionary<string, string> Variables { get; set; }
@@ -525,7 +525,7 @@ namespace graphical_programming_language
             int functionLineNum = lineNumber;
             for (; functionLineNum < program.Length; functionLineNum++)
             {
-                if (program[functionLineNum].Contains("endfunction"))
+                if (program[functionLineNum].Contains("endmethod"))
                 {
                     break;
                 }
@@ -597,6 +597,7 @@ namespace graphical_programming_language
         // Compiles and runs the code passed to it.
         private void ExecuteCode(string input)
         {
+            if (Variables.Count != 0) Variables.Clear();
             Compile(input);
             Run();
         }
@@ -628,11 +629,11 @@ namespace graphical_programming_language
                         {
                             if (LineContainsOperator(currentLine))
                             {
-                                if (currentLine.Contains("endfunction"))
+                                if (currentLine.Contains("endmethod"))
                                 {
                                     lineNumber = cursor;
                                 }
-                                else if (currentLine.Contains("function"))
+                                else if (currentLine.Contains("method"))
                                 {
                                     lineNumber = ParseFunction(program, lineNumber, currentLine);
                                 }

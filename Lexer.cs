@@ -15,7 +15,7 @@ namespace graphical_programming_language
         ENDIF,
         WHILE,
         ENDWHILE,
-        FUNCTION,
+        METHOD,
         IDENTIFIER,
         OPERATOR,
         BRACKET,
@@ -153,10 +153,10 @@ namespace graphical_programming_language
                             // Then a ELSE type token is added to the list
                             tokens.Add(new Token(Type.ELSE, "else"));
                             break;
-                        // Identifier is "function"
-                        case "function":
-                            // Then a FUNCTION type token is added to the list
-                            tokens.Add(new Token(Type.FUNCTION, "function"));
+                        // Identifier is "method"
+                        case "method":
+                            // Then a METHOD type token is added to the list
+                            tokens.Add(new Token(Type.METHOD, "method"));
                             break;
                         // Identifier is "while"
                         case "while":
